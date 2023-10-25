@@ -3,7 +3,10 @@
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+// Admin
+use App\Http\Controllers\Admin\AdminController;
+// User
+use App\Http\Controllers\User\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -17,6 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+// Admin Routes
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
 
@@ -26,8 +30,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('password', [ChangePasswordController::class, 'edit'])->name('password.edit')->middleware('auth');
 Route::patch('password', [ChangePasswordController::class, 'update'])->name('password.edit')->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/adminDashboard', [AdminController::class, 'index'])->middleware('auth')->name('adminDashboard');
+});
 
-
-
+// User Routes
+Route::get('/userDashboard', [UserController::class, 'index'])->middleware('auth')->name('userDashboard');
 
