@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PegawaiController;
+use App\Http\Controllers\Admin\TendikController;
 // User
 use App\Http\Controllers\User\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -36,7 +37,7 @@ Route::middleware(['admin'])->group(function () {
     // Dashboard
     Route::get('/adminDashboard', [AdminController::class, 'index'])->middleware('auth')->name('adminDashboard');
 
-    // Akun User
+    // Master Akun
     Route::get('/akun', [AkunController::class, 'index'])->middleware('auth')->name('akun');
     Route::post('/akun', [AkunController::class, 'store'])->middleware('auth')->name('insert.akun');
     Route::get('/editAkun/{id}', [AkunController::class, 'edit'])->middleware('auth')->name('edit.akun');
@@ -45,12 +46,19 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/resetAkun/{id}', [AkunController::class, 'reset'])->middleware('auth')->name('reset.akun');
     Route::post('/resetupdateAkun/{id}', [AkunController::class, 'resetupdate'])->middleware('auth')->name('resetupdate.akun');
 
-    // Pegawai
+    // Master Pegawai
     Route::get('pegawai', [PegawaiController::class, 'index'])->middleware('auth')->name('pegawai');
     Route::post('/pegawai', [PegawaiController::class, 'store'])->middleware('auth')->name('insert.pegawai');
     Route::get('/editPegawai/{id}', [PegawaiController::class, 'edit'])->middleware('auth')->name('edit.pegawai');
     Route::post('/updatePegawai/{id}', [PegawaiController::class, 'update'])->middleware('auth')->name('update.pegawai');
     Route::delete('/deletePegawai/{id}', [PegawaiController::class, 'destroy'])->middleware('auth')->name('destroy.pegawai');
+
+    // Import Tendik
+    Route::get('tendik', [TendikController::class, 'index'])->middleware('auth')->name('tendik');
+    Route::post('/tendik', [TendikController::class, 'store'])->middleware('auth')->name('insert.tendik');
+    Route::get('/editTendik/{id}', [TendikController::class, 'edit'])->middleware('auth')->name('edit.tendik');
+    Route::post('/updateTendik/{id}', [TendikController::class, 'update'])->middleware('auth')->name('update.tendik');
+    Route::delete('/deleteTendik/{id}', [TendikController::class, 'destroy'])->middleware('auth')->name('destroy.tendik');
 
 
 });
