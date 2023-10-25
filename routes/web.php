@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 // Admin
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AkunController;
+use App\Http\Controllers\Admin\PegawaiController;
 // User
 use App\Http\Controllers\User\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -43,6 +44,15 @@ Route::middleware(['admin'])->group(function () {
     Route::delete('/deleteAkun/{id}', [AkunController::class, 'destroy'])->middleware('auth')->name('destroy.akun');
     Route::get('/resetAkun/{id}', [AkunController::class, 'reset'])->middleware('auth')->name('reset.akun');
     Route::post('/resetupdateAkun/{id}', [AkunController::class, 'resetupdate'])->middleware('auth')->name('resetupdate.akun');
+
+    // Pegawai
+    Route::get('pegawai', [PegawaiController::class, 'index'])->middleware('auth')->name('pegawai');
+    Route::post('/pegawai', [PegawaiController::class, 'store'])->middleware('auth')->name('insert.pegawai');
+    Route::get('/editPegawai/{id}', [PegawaiController::class, 'edit'])->middleware('auth')->name('edit.pegawai');
+    Route::post('/updatePegawai/{id}', [PegawaiController::class, 'update'])->middleware('auth')->name('update.pegawai');
+    Route::delete('/deletePegawai/{id}', [PegawaiController::class, 'destroy'])->middleware('auth')->name('destroy.pegawai');
+
+
 });
 
 // User Routes
