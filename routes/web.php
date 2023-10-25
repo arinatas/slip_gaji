@@ -59,6 +59,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/editTendik/{id}', [TendikController::class, 'edit'])->middleware('auth')->name('edit.tendik');
     Route::post('/updateTendik/{id}', [TendikController::class, 'update'])->middleware('auth')->name('update.tendik');
     Route::delete('/deleteTendik/{id}', [TendikController::class, 'destroy'])->middleware('auth')->name('destroy.tendik');
+    Route::get('/import-tendik', [TendikController::class, 'showImportForm'])->name('import.tendik.view');
+    Route::post('/import-tendik', [TendikController::class, 'importExcel'])->name('import.tendik');
+    Route::get('download-example-excel', [TendikController::class, 'downloadExampleExcel'])->name('download.example.excel');
 
 
 });

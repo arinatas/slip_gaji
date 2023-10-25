@@ -21,6 +21,7 @@
                                                 </div>
                                                 <div class="d-inline">
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_tendik">Tambah</a>
+                                                    <a href="{{ route('download.example.excel') }}" class="btn btn-sm btn-success">Download Contoh Excel</a>
                                                 </div>
                                             <!--end::Title-->
                                         </div>
@@ -28,6 +29,19 @@
                                         <!--begin::Table-->
                                         @if ($tendiks )
                                         <div class="table-responsive my-10 mx-8">
+                                             <!--begin::Import Form-->
+                                            <div class="mt-10">
+                                                <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
+                                                <form action="{{ route('import.tendik') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="mb-3">
+                                                        <label for="excel_file" class="form-label">Pilih File Excel:</label>
+                                                        <input type="file" class="form-control" name="excel_file" id="excel_file" accept=".xls, .xlsx">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Import Data</button>
+                                                </form>
+                                            </div>
+                                            <!--end::Import Form-->
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">

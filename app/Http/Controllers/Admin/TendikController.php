@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Tendik;
+use App\Imports\TendikImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
 
 class TendikController extends Controller
@@ -120,4 +122,41 @@ class TendikController extends Controller
             return redirect()->back()->with('deleteFail', $e->getMessage());
         }
     }
+
+    public function showImportForm()
+    {
+        return view('import'); // Menampilkan tampilan untuk mengunggah file Excel
+    }
+
+    public function importExcel(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'excel_file' => 'required|mimes:xls,xlsx',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        $file = $request->file('excel_file');
+        $import = new TendikImport;
+        Excel::import($import, $file);
+    
+        return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
+    }
+    public function downloadExampleExcel()
+    {
+        $filePath = public_path('contoh-excel/tendik.xlsx'); // Sesuaikan dengan path file Excel contoh Anda
+    
+        if (file_exists($filePath)) {
+            $headers = [
+                'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            ];
+    
+            return response()->download($filePath, 'tendik.xlsx', $headers);
+        } else {
+            return redirect()->back()->with('downloadFail', 'File contoh tidak ditemukan.');
+        }
+    }    
+    
 }
