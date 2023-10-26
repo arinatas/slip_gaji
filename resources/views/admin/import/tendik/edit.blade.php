@@ -29,8 +29,8 @@
                             <form action="{{ route('update.tendik', $tendik->id ) }}" method="POST">
                                 @csrf
                                 <div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">ID Pegawai</label>
-                                    <input type="text" value="{{$tendik->id_pegawai}}" class="form-control form-control-solid" required name="id_pegawai"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">email</label>
+                                    <input type="text" value="{{$tendik->email}}" class="form-control form-control-solid" required name="email"/>
                                 </div>
 								<div class="mb-10">
 									<label for="exampleFormControlInput1" class="required form-label">Bulan</label>
@@ -44,6 +44,71 @@
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tahun</label>
                                     <input type="text" value="{{$tendik->tahun}}" class="form-control form-control-solid" required name="tahun"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Nama</label>
+                                    <input type="text" value="{{$tendik->nama}}" class="form-control form-control-solid" required name="nama"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Jabatan</label>
+                                    <input type="text" value="{{$tendik->jabatan}}" class="form-control form-control-solid" required name="jabatan"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Gaji Pokok</label>
+                                    <input type="text" value="{{$tendik->gaji_pokok}}" class="form-control form-control-solid" required name="gaji_pokok"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunjangan Jabatan</label>
+                                    <input type="text" value="{{$tendik->tunjangan_jabatan}}" class="form-control form-control-solid" required name="tunjangan_jabatan"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kehadiran</label>
+                                    <input type="text" value="{{$tendik->tunjangan_kehadiran}}" class="form-control form-control-solid" required name="tunjangan_kehadiran"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunjangan lembur</label>
+                                    <input type="text" value="{{$tendik->tunjangan_lembur}}" class="form-control form-control-solid" required name="tunjangan_lembur"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunj. Pel. Mhs/Op. Feeder</label>
+                                    <input type="text" value="{{$tendik->tunj_pel_mhs_op_feeder}}" class="form-control form-control-solid" required name="tunj_pel_mhs_op_feeder"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kinerja</label>
+                                    <input type="text" value="{{$tendik->tunjangan_kinerja}}" class="form-control form-control-solid" required name="tunjangan_kinerja"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah Penambah</label>
+                                    <input type="text" value="{{$tendik->jumlah_penambah}}" class="form-control form-control-solid" required name="jumlah_penambah"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan Kasbon </label>
+                                    <input type="text" value="{{$tendik->potongan_kasbon}}" class="form-control form-control-solid" required name="potongan_kasbon"/>
+                                </div>
+
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Denda Keterlambatan</label>
+                                    <input type="text" value="{{$tendik->denda_keterlambatan}}" class="form-control form-control-solid" required name="denda_keterlambatan"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan Pph 21</label>
+                                    <input type="text" value="{{$tendik->potongan_pph_21}}" class="form-control form-control-solid" required name="potongan_pph_21"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan Absensi</label>
+                                    <input type="text" value="{{$tendik->potongan_absensi}}" class="form-control form-control-solid" required name="potongan_absensi"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan BPJS</label>
+                                    <input type="text" value="{{$tendik->potongan_bpjs}}" class="form-control form-control-solid" required name="potongan_bpjs"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah Pengurang</label>
+                                    <input type="text" value="{{$tendik->jumlah_pengurang}}" class="form-control form-control-solid" required name="jumlah_pengurang"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Gaji Yang Dibayar</label>
+                                    <input type="text" value="{{$tendik->gaji_yang_dibayar}}" class="form-control form-control-solid" required name="gaji_yang_dibayar"/>
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <!--begin::Actions-->

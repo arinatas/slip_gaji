@@ -14,9 +14,25 @@ class Tendik extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'id_pegawai',
+        'email',
         'bulan',
-        'tahun'
+        'tahun',
+        'nama',
+        'jabatan',
+        'gaji_pokok',
+        'tunjangan_jabatan',
+        'tunjangan_kehadiran',
+        'tunjangan_lembur',
+        'tunj_pel_mhs_op_feeder',
+        'tunjangan_kinerja',
+        'jumlah_penambah',
+        'potongan_kasbon',
+        'denda_keterlambatan',
+        'potongan_pph_21',
+        'potongan_absensi',
+        'potongan_bpjs',
+        'jumlah_pengurang',
+        'gaji_yang_dibayar'
     ];
 
     public $timestamps = true;

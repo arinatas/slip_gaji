@@ -29,9 +29,25 @@ class TendikController extends Controller
     {
         // Validasi input yang didapatkan dari request
         $validator = Validator::make($request->all(),[
-            'id_pegawai' => 'required|string|max:100',
+            'email' => 'required|string|max:255',
             'bulan' => 'required|integer',
-            'tahun' => 'required|integer'
+            'tahun' => 'required|integer',
+            'nama' => 'required|string|max:100',
+            'jabatan' => 'required|string|max:100',
+            'gaji_pokok' => 'required|integer',
+            'tunjangan_jabatan' => 'required|integer',
+            'tunjangan_kehadiran' => 'required|integer',
+            'tunjangan_lembur' => 'required|integer',
+            'tunj_pel_mhs_op_feeder' => 'required|integer',
+            'tunjangan_kinerja' => 'required|integer',
+            'jumlah_penambah' => 'required|integer',
+            'potongan_kasbon' => 'required|integer',
+            'denda_keterlambatan' => 'required|integer',
+            'potongan_pph_21' => 'required|integer',
+            'potongan_absensi' => 'required|integer',
+            'potongan_bpjs' => 'required|integer',
+            'jumlah_pengurang' => 'required|integer',
+            'gaji_yang_dibayar' => 'required|integer'
         ]);
 
         // kalau ada error kembalikan error
@@ -45,9 +61,25 @@ class TendikController extends Controller
 
             // insert ke tabel pegawai
             Tendik::create([
-                'id_pegawai' => $request->id_pegawai,
+                'email' => $request->email,
                 'bulan' => $request->bulan,
-                'tahun' => $request->tahun
+                'tahun' => $request->tahun,
+                'nama' => $request->nama,
+                'jabatan' => $request->jabatan,
+                'gaji_pokok' => $request->gaji_pokok,
+                'tunjangan_jabatan' => $request->tunjangan_jabatan,
+                'tunjangan_kehadiran' => $request->tunjangan_kehadiran,
+                'tunjangan_lembur' => $request->tunjangan_lembur,
+                'tunj_pel_mhs_op_feeder' => $request->tunj_pel_mhs_op_feeder,
+                'tunjangan_kinerja' => $request->tunjangan_kinerja,
+                'jumlah_penambah' => $request->jumlah_penambah,
+                'potongan_kasbon' => $request->potongan_kasbon,
+                'denda_keterlambatan' => $request->denda_keterlambatan,
+                'potongan_pph_21' => $request->potongan_pph_21,
+                'potongan_absensi' => $request->potongan_absensi,
+                'potongan_bpjs' => $request->potongan_bpjs,
+                'jumlah_pengurang' => $request->jumlah_pengurang,
+                'gaji_yang_dibayar' => $request->gaji_yang_dibayar
             ]);
 
             DB::commit();
@@ -86,9 +118,25 @@ class TendikController extends Controller
 
         // validasi input yang didapatkan dari request
         $validator = Validator::make($request->all(), [
-            'id_pegawai' => 'required|string|max:100',
+            'email' => 'required|string|max:255',
             'bulan' => 'required|integer',
-            'tahun' => 'required|integer'
+            'tahun' => 'required|integer',
+            'nama' => 'required|string|max:100',
+            'jabatan' => 'required|string|max:100',
+            'gaji_pokok' => 'required|integer',
+            'tunjangan_jabatan' => 'required|integer',
+            'tunjangan_kehadiran' => 'required|integer',
+            'tunjangan_lembur' => 'required|integer',
+            'tunj_pel_mhs_op_feeder' => 'required|integer',
+            'tunjangan_kinerja' => 'required|integer',
+            'jumlah_penambah' => 'required|integer',
+            'potongan_kasbon' => 'required|integer',
+            'denda_keterlambatan' => 'required|integer',
+            'potongan_pph_21' => 'required|integer',
+            'potongan_absensi' => 'required|integer',
+            'potongan_bpjs' => 'required|integer',
+            'jumlah_pengurang' => 'required|integer',
+            'gaji_yang_dibayar' => 'required|integer'
         ]);
 
         // kalau ada error kembalikan error
@@ -97,9 +145,25 @@ class TendikController extends Controller
         }
 
         try{
-            $tendik->id_pegawai = $request->id_pegawai;
+            $tendik->email = $request->email;
             $tendik->bulan = $request->bulan;
             $tendik->tahun = $request->tahun;
+            $tendik->nama = $request->nama;
+            $tendik->jabatan = $request->jabatan;
+            $tendik->gaji_pokok = $request->gaji_pokok;
+            $tendik->tunjangan_jabatan = $request->tunjangan_jabatan;
+            $tendik->tunjangan_kehadiran = $request->tunjangan_kehadiran;
+            $tendik->tunjangan_lembur = $request->tunjangan_lembur;
+            $tendik->tunj_pel_mhs_op_feeder = $request->tunj_pel_mhs_op_feeder;
+            $tendik->tunjangan_kinerja = $request->tunjangan_kinerja;
+            $tendik->jumlah_penambah = $request->jumlah_penambah;
+            $tendik->potongan_kasbon = $request->potongan_kasbon;
+            $tendik->denda_keterlambatan = $request->denda_keterlambatan;
+            $tendik->potongan_pph_21 = $request->potongan_pph_21;
+            $tendik->potongan_absensi = $request->potongan_absensi;
+            $tendik->potongan_bpjs = $request->potongan_bpjs;
+            $tendik->jumlah_pengurang = $request->jumlah_pengurang;
+            $tendik->gaji_yang_dibayar = $request->gaji_yang_dibayar;
 
             $tendik->save();
 
@@ -158,23 +222,7 @@ class TendikController extends Controller
         } else {
             return redirect()->back()->with('downloadFail', 'File contoh tidak ditemukan.');
         }
-    }
-
-    // public function exportPdf()
-    // {
-    //     $data = Tendik::all();
-        
-    //     // Kelompokkan data berdasarkan ID Pegawai
-    //     $groupedData = $data->groupBy('id_pegawai');
-        
-    //     // Loop melalui setiap kelompok data dan buat PDF untuk setiap pegawai
-    //     foreach ($groupedData as $pegawaiId => $pegawaiData) {
-    //         $pegawai = $pegawaiData->first(); // Ambil data pegawai pertama sebagai contoh
-    //         $pdf = PDF::loadView('admin.import.tendik.pdf', compact('pegawai', 'pegawaiData'));
-        
-    //         return $pdf->download('slip_gaji_' . $pegawai->id_pegawai . '.pdf'); // Pastikan Anda mengembalikan PDF yang diunduh
-    //     }
-    // }    
+    } 
 
     // Metode untuk menampilkan slip gaji keseluruhan
     public function exportPdf()

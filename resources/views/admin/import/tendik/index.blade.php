@@ -47,11 +47,27 @@
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                                                        <th class="min-w-250px">Action</th>
                                                         <th class="min-w-100px">No</th>
-                                                        <th class="min-w-100px">ID Pegawai</th>
+                                                        <th class="min-w-100px">Email</th>
                                                         <th class="min-w-100px">Bulan</th>
                                                         <th class="min-w-100px">Tahun</th>
-                                                        <th class="min-w-300px">Action</th>
+                                                        <th class="min-w-100px">Nama</th>
+                                                        <th class="min-w-100px">Jabatan</th>
+                                                        <th class="min-w-100px">Gaji_pokok</th>
+                                                        <th class="min-w-100px">Tunjangan Jabatan</th>
+                                                        <th class="min-w-100px">Tunjangan Kehadiran</th>
+                                                        <th class="min-w-100px">Tunjangan Lembur</th>
+                                                        <th class="min-w-100px">Tunj. Pel. Mhs/Op. Feeder</th>
+                                                        <th class="min-w-100px">Tunjangan Kinerja</th>
+                                                        <th class="min-w-100px">Jumlah Penambah</th>
+                                                        <th class="min-w-100px">Potongan Kasbon</th>
+                                                        <th class="min-w-100px">Denda Keterlambatan</th>
+                                                        <th class="min-w-100px">Potongan PPH 21</th>
+                                                        <th class="min-w-100px">Potongan Absensi</th>
+                                                        <th class="min-w-100px">Potongan BPJS</th>
+                                                        <th class="min-w-100px">Jumlah Pengurang</th>
+                                                        <th class="min-w-100px">Gaji yang Dibayar</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -60,20 +76,6 @@
                                                     @endphp
                                                     @foreach ($tendiks as $item)
                                                     <tr>
-                                                        <td>{{ $no }}</td>
-                                                        <td>{{ $item->id_pegawai }}</td>
-                                                        <td>
-                                                            @if ($item->bulan == 1)
-                                                                Januari
-                                                            @elseif ($item->bulan == 2)
-                                                                Februari
-                                                            @elseif ($item->bulan == 3)
-                                                                Maret
-                                                            @elseif ($item->bulan == 4)
-                                                                April
-                                                            @endif
-                                                        </td>
-                                                        <td>{{ $item->tahun }}</td>
                                                         <td>
                                                             <a href="{{ route('edit.tendik', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             <form id="form-delete" action="{{ route('destroy.tendik', $item->id ) }}" method="POST"
@@ -86,6 +88,36 @@
                                                             </form>
                                                             <a href="{{ route('export.pdfbyid', $item->id) }}" class="btn btn-sm btn-warning btn-action" data-toggle="tooltip" title="Unduh Slip Gaji"><i class="fas fa-download"></i></a>
                                                         </td>
+                                                        <td>{{ $no }}</td>
+                                                        <td>{{ $item->email }}</td>
+                                                        <td>
+                                                            @if ($item->bulan == 1)
+                                                                Januari
+                                                            @elseif ($item->bulan == 2)
+                                                                Februari
+                                                            @elseif ($item->bulan == 3)
+                                                                Maret
+                                                            @elseif ($item->bulan == 4)
+                                                                April
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ $item->tahun }}</td>
+                                                        <td>{{ $item->nama }}</td>
+                                                        <td>{{ $item->jabatan }}</td>
+                                                        <td>{{ $item->gaji_pokok }}</td>
+                                                        <td>{{ $item->tunjangan_jabatan }}</td>
+                                                        <td>{{ $item->tunjangan_kehadiran }}</td>
+                                                        <td>{{ $item->tunjangan_lembur }}</td>
+                                                        <td>{{ $item->tunj_pel_mhs_op_feeder }}</td>
+                                                        <td>{{ $item->tunjangan_kinerja }}</td>
+                                                        <td>{{ $item->jumlah_penambah }}</td>
+                                                        <td>{{ $item->potongan_kasbon }}</td>
+                                                        <td>{{ $item->denda_keterlambatan }}</td>
+                                                        <td>{{ $item->potongan_pph_21 }}</td>
+                                                        <td>{{ $item->potongan_absensi }}</td>
+                                                        <td>{{ $item->potongan_bpjs }}</td>
+                                                        <td>{{ $item->jumlah_pengurang }}</td>
+                                                        <td>{{ $item->gaji_yang_dibayar }}</td>
                                                     </tr>
                                                     @php
                                                         $no++; // Tambahkan no setiap kali iterasi
@@ -161,10 +193,10 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">ID Pegawai</span>
+                                                            <span class="required">Email</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="id_pegawai" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="email" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
@@ -186,6 +218,134 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="tahun" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Nama</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="nama" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jabatan</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jabatan" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Gaji Pokok</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="gaji_pokok" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Tunjangan Jabatan</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_jabatan" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Tunjangan Kehadiran</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_kehadiran" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Tunjangan lembur</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_lembur" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Tunj. Pel. Mhs/Op. Feeder</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="tunj_pel_mhs_op_feeder" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Tunjangan Kinerja</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_kinerja" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jumlah Penambah</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jumlah_penambah" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Potongan Kasbon</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_kasbon" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Denda Keterlambatan</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="denda_keterlambatan" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Potongan Pph 21</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_pph_21" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Potongan Absensi</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_absensi" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Potongan BPJS</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_bpjs" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jumlah Pengurang</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jumlah_pengurang" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Gaji Yang Dibayar</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="gaji_yang_dibayar" required value=""/>
                                                     </div>
                                                     <!--end::Input group-->
                                                     <!--begin::Actions-->
