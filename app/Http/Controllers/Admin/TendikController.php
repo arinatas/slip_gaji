@@ -10,6 +10,7 @@ use App\Models\Tendik;
 use App\Imports\TendikImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
+use PDF;
 
 class TendikController extends Controller
 {
@@ -157,6 +158,32 @@ class TendikController extends Controller
         } else {
             return redirect()->back()->with('downloadFail', 'File contoh tidak ditemukan.');
         }
-    }    
-    
+    }
+
+    // public function exportPdf()
+    // {
+    //     $data = Tendik::all();
+        
+    //     // Kelompokkan data berdasarkan ID Pegawai
+    //     $groupedData = $data->groupBy('id_pegawai');
+        
+    //     // Loop melalui setiap kelompok data dan buat PDF untuk setiap pegawai
+    //     foreach ($groupedData as $pegawaiId => $pegawaiData) {
+    //         $pegawai = $pegawaiData->first(); // Ambil data pegawai pertama sebagai contoh
+    //         $pdf = PDF::loadView('admin.import.tendik.pdf', compact('pegawai', 'pegawaiData'));
+        
+    //         return $pdf->download('slip_gaji_' . $pegawai->id_pegawai . '.pdf'); // Pastikan Anda mengembalikan PDF yang diunduh
+    //     }
+    // }    
+
+    public function exportPdf()
+    {
+        $data = Tendik::all();
+
+        // Buat instance PDF
+        // $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'));
+        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a5');
+
+        return $pdf->download('slip_gaji_semua_pegawai.pdf');
+    }
 }

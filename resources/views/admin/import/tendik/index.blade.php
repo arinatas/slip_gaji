@@ -17,11 +17,13 @@
                                         <div class="card-px pt-10 d-flex justify-content-between">
                                             <!--begin::Title-->
                                                 <div class="d-inline mt-2">
-                                                    <h2 class="fs-2x fw-bolder mb-0">Import {{ $title }}</h2>
+                                                    <h2 class="fs-2x fw-bolder mb-0">Import Slip{{ $title }}</h2>
                                                 </div>
                                                 <div class="d-inline">
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_tendik">Tambah</a>
                                                     <a href="{{ route('download.example.excel') }}" class="btn btn-sm btn-success">Download Contoh Excel</a>
+                                                    <a href="{{ route('export.pdf') }}" class="btn btn-sm btn-danger">Export Slip Gaji</a>
+
                                                 </div>
                                             <!--end::Title-->
                                         </div>

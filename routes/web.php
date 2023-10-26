@@ -62,6 +62,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/import-tendik', [TendikController::class, 'showImportForm'])->name('import.tendik.view');
     Route::post('/import-tendik', [TendikController::class, 'importExcel'])->name('import.tendik');
     Route::get('download-example-excel', [TendikController::class, 'downloadExampleExcel'])->name('download.example.excel');
+    Route::get('/export-pdf', [TendikController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
 
 
 });
