@@ -23,7 +23,6 @@
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_tendik">Tambah</a>
                                                     <a href="{{ route('download.example.excel') }}" class="btn btn-sm btn-success">Download Contoh Excel</a>
                                                     <a href="{{ route('export.pdf') }}" class="btn btn-sm btn-danger">Export Slip Gaji</a>
-
                                                 </div>
                                             <!--end::Title-->
                                         </div>
@@ -42,6 +41,11 @@
                                                     </div>
                                                     <button type="submit" class="btn btn-primary">Import Data</button>
                                                 </form>
+                                                @if (session('importSuccess'))
+                                                    <div class="alert alert-success mt-4">
+                                                        {{ session('importSuccess') }}
+                                                    </div>
+                                                @endif
                                             </div>
                                             <!--end::Import Form-->
                                             <table class="table table-striped gy-7 gs-7">
@@ -54,7 +58,7 @@
                                                         <th class="min-w-100px">Tahun</th>
                                                         <th class="min-w-100px">Nama</th>
                                                         <th class="min-w-100px">Jabatan</th>
-                                                        <th class="min-w-100px">Gaji_pokok</th>
+                                                        <th class="min-w-100px">Gaji Pokok</th>
                                                         <th class="min-w-100px">Tunjangan Jabatan</th>
                                                         <th class="min-w-100px">Tunjangan Kehadiran</th>
                                                         <th class="min-w-100px">Tunjangan Lembur</th>

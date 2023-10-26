@@ -29,6 +29,7 @@ class TendikImport implements ToModel
             'potongan_absensi' => $row[15],
             'potongan_bpjs' => $row[16],
             'jumlah_pengurang' => $row[17],
-            'gaji_yang_dibayar' => $row[18],
+            'gaji_yang_dibayar' => $row[18]
+        ]);
     }
 }
