@@ -176,6 +176,7 @@ class TendikController extends Controller
     //     }
     // }    
 
+    // Metode untuk menampilkan slip gaji keseluruhan
     public function exportPdf()
     {
         $data = Tendik::all();
@@ -185,5 +186,19 @@ class TendikController extends Controller
         $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a5');
 
         return $pdf->download('slip_gaji_semua_pegawai.pdf');
+    }
+
+    // Metode untuk menampilkan slip gaji berdasarkan ID Pegawai
+    public function exportPdfbyid($id)
+    {
+        $data = Tendik::where('id', $id)->get();
+
+        if ($data->isEmpty()) {
+            return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
+        }
+
+        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a5');
+
+        return $pdf->download('slip_gaji_pegawai_' . $id . '.pdf');
     }
 }

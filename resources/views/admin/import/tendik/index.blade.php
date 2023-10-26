@@ -84,6 +84,7 @@
                                                                 class="btn btn-sm btn-danger btn-action" onclick="confirmDelete(event)"
                                                                 ><i class="fas fa-trash"></i></i></button>
                                                             </form>
+                                                            <a href="{{ route('export.pdfbyid', $item->id) }}" class="btn btn-sm btn-warning btn-action" data-toggle="tooltip" title="Unduh Slip Gaji"><i class="fas fa-download"></i></a>
                                                         </td>
                                                     </tr>
                                                     @php
