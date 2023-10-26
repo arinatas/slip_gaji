@@ -21,8 +21,11 @@ class User extends Authenticatable
     protected $connection = 'mysql';
     protected $fillable = [
         'name',
-        'username',
+        'email',
         'password',
+        'is_admin',
+        'is_aktif',
+        'jenis_pegawai',
     ];
 
     // protected $guarded = [
