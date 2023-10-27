@@ -32,7 +32,7 @@
                                         @if ($tendiks )
                                         <div class="table-responsive my-10 mx-8">
                                              <!--begin::Import Form-->
-                                            <div class="mt-10">
+                                            <div class="mt-5">
                                                 <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
                                                 <form action="{{ route('import.tendik') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf

@@ -241,7 +241,7 @@ class TendikController extends Controller
                       ->where('tahun', $tahun)
                       ->get();
     
-        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a5');
+        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'));
     
         return $pdf->download('slip_gaji_semua_pegawai.pdf');
     }
