@@ -83,7 +83,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="login-form login-signin">
 							<div class="text-center mb-10 mb-lg-20">
 								<h3 class="font-size-h1">Sign In</h3>
-								<p class="text-muted font-weight-bold">Enter your username and password</p>
+								<p class="text-muted font-weight-bold">Enter your email and password</p>
 							</div>
 							<!--begin::Form-->
 							{{-- cek status login error --}}
@@ -97,15 +97,15 @@ License: You must have a valid license purchased only from themeforest(the above
 							<form action="/login" method="POST" class="form">
 								@csrf
 								<div class="form-group">
-									<input class="form-control @error('username') is-invalid @enderror form-control-solid h-auto py-5 px-6" type="text" name="username" value="{{ old('username') }}" placeholder="Username" name="username" 
+									<input class="form-control @error('email') is-invalid @enderror form-control-solid h-auto py-5 px-6" type="text" name="email" value="{{ old('email') }}" placeholder="email" name="email"
 									autocomplete="on" required/>
-									@error('username')
+									@error('email')
 									<div class="invalid-feedback mb-1">
 									{{ $message }}
 									</div>
 									@enderror
 								</div>
-								
+
 								<div class="form-group">
 									<input class="form-control form-control-solid h-auto py-5 px-6 @error('password') is-invalid @enderror" id="password" type="password" placeholder="Password" name="password" autocomplete="off" required />
 								</div>
@@ -139,7 +139,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!--end::Form-->
 						</div>
 						<!--end::Forgot-->
-            
+
 					</div>
           <div class="simple-footer mb-3 text-center" style="user-select: auto;">
               Made with <i class="fas fa-heart text-danger" style="user-select: auto;"></i> by PPTI Primakara
