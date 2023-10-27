@@ -14,16 +14,26 @@ use PDF;
 
 class TendikController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tendiks = Tendik::all();
-            return view('admin.import.tendik.index', [
-                'title' => 'Tendik',
-                'section' => 'Import',
-                'active' => 'tendik',
-                'tendiks' => $tendiks,
-            ]);
-    }
+        $bulan = $request->input('bulan'); // Get the selected month from the request
+        $tahun = $request->input('tahun'); // Get the selected year from the request
+    
+        // Fetch distinct years from the database
+        $distinctYears = Tendik::distinct('tahun')->pluck('tahun');
+    
+        $tendiks = Tendik::where('bulan', $bulan)
+                         ->where('tahun', $tahun)
+                         ->get();
+    
+        return view('admin.import.tendik.index', [
+            'title' => 'Tendik',
+            'section' => 'Import',
+            'active' => 'tendik',
+            'tendiks' => $tendiks,
+            'distinctYears' => $distinctYears,
+        ]);
+    }    
 
     public function store(Request $request)
     {

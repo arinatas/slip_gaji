@@ -27,6 +27,7 @@
                                             <!--end::Title-->
                                         </div>
                                         <!--end::Heading-->
+                                        
                                         <!--begin::Table-->
                                         @if ($tendiks )
                                         <div class="table-responsive my-10 mx-8">
@@ -47,6 +48,44 @@
                                                     </div>
                                                 @endif
                                             </div>
+                                            <!-- Filter Form -->
+                                            <div class="mt-10">
+                                                <form action="{{ route('tendik') }}" method="GET">
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-3">
+                                                            <label for="bulan" class="form-label">Bulan:</label>
+                                                            <select class="form-control" name="bulan" id="bulan">
+                                                                @php
+                                                                $bulanIndonesia = [
+                                                                    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                                                                ];
+                                                                @endphp
+                                                                @for ($i = 1; $i <= 12; $i++)
+                                                                    <option value="{{ $i }}" @if(request('bulan') == $i) selected @endif>{{ $bulanIndonesia[$i - 1] }}</option>
+                                                                @endfor
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="tahun" class="form-label">Tahun:</label>
+                                                            <select class="form-control" name="tahun" id="tahun">
+                                                                @foreach ($distinctYears as $year)
+                                                                    <option value="{{ $year }}" @if(request('tahun') == $year) selected @endif>{{ $year }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3 mt-4">
+                                                            <button type="submit" class="btn btn-primary mt-4">Filter</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            @if (!request('bulan') || !request('tahun'))
+                                            <div class="alert alert-warning mt-4">
+                                                Silahkan filter terlebih dahulu berdasarkan bulan dan tahun.
+                                            </div>
+                                            @endif
+                                            <!-- End Filter Form -->
                                             <!--end::Import Form-->
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
