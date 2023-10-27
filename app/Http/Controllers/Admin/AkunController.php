@@ -26,7 +26,9 @@ class AkunController extends Controller
     {
         // validasi input yang didapatkan dari request
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'jenis_pegawai' => 'required|integer',
             'password' => 'required|string|max:255',
             'is_admin' => 'required|integer|between:0,1'
         ]);
@@ -45,7 +47,9 @@ class AkunController extends Controller
 
             // insert ke tabel positions
             Akun::create([
-                'username' => $request->username,
+                'name' => $request->name,
+                'email' => $request->email,
+                'jenis_pegawai' => $request->jenis_pegawai,
                 'password' => $hashedPassword,
                 'is_admin' => $request->is_admin
             ]);
@@ -87,9 +91,11 @@ class AkunController extends Controller
 
         // validasi input yang didapatkan dari request
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
             'is_admin' => 'required|integer|between:0,1',
-            'is_aktif' => 'required|integer|between:0,1'
+            'is_aktif' => 'required|integer|between:0,1',
+            'jenis_pegawai' => 'required|integer'
         ]);
 
         // kalau ada error kembalikan error
@@ -98,9 +104,11 @@ class AkunController extends Controller
         }
 
         try{
-            $akun->username = $request->username;
+            $akun->name = $request->name;
+            $akun->email = $request->email;
             $akun->is_admin = $request->is_admin;
             $akun->is_aktif = $request->is_aktif;
+            $akun->jenis_pegawai = $request->jenis_pegawai;
 
             $akun->save();
 
@@ -151,7 +159,7 @@ class AkunController extends Controller
 
         // validasi input yang didapatkan dari request
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
             'password' => 'required|string|max:255'
         ]);
 
@@ -161,16 +169,16 @@ class AkunController extends Controller
         }
 
         try{
-            $akun->username = $request->username;
+            $akun->email = $request->email;
             // Hash password sebelum menyimpannya ke database
             $akun->password = Hash::make($request->password);
 
             $akun->save();
 
-            return redirect('/akun')->with('updateSuccess', 'Data berhasil di Reset');
+            return redirect('/akun')->with('updateSuccess', 'Password berhasil di Reset');
         } catch(Exception $e) {
             dd($e);
-            return redirect()->back()->with('updateFail', 'Data gagal di Reset');
+            return redirect()->back()->with('updateFail', 'Password gagal di Reset');
         }
     }
 

@@ -32,7 +32,9 @@
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                                         <th class="min-w-100px">No</th>
-                                                        <th class="min-w-300px">Username</th>
+                                                        <th class="min-w-100px">Nama</th>
+                                                        <th class="min-w-100px">Email</th>
+                                                        <th class="min-w-100px">Jenis Pegawai</th>
                                                         <th class="min-w-100px">Role</th>
                                                         <th class="min-w-100px">Status</th>
                                                         <th class="min-w-300px">Action</th>
@@ -45,7 +47,17 @@
                                                     @foreach ($akuns as $item)
                                                     <tr>
                                                         <td>{{ $no }}</td>
-                                                        <td>{{ $item->username }}</td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->email }}</td>
+                                                        <td>
+                                                            @if ($item->jenis_pegawai == 1)
+                                                                Tendik
+                                                            @elseif ($item->jenis_pegawai == 2)
+                                                                Dosen Tetap
+                                                            @elseif ($item->jenis_pegawai == 3)
+                                                                Dosen LB
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             @if ($item->is_admin == 1)
                                                                 Admin
@@ -147,10 +159,30 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Username</span>
+                                                            <span class="required">Nama</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="username" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="name" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Email</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="email" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jenis Pegawai</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <select class="form-select form-select-solid" name="jenis_pegawai" required>
+                                                            <option value="1">Tendik</option>
+                                                            <option value="2">Dosen Tetap</option>
+                                                            <option value="3">Dosen LB</option>
+                                                        </select>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->

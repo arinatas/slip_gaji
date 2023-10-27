@@ -28,10 +28,22 @@
                         <div class="mt-15">
                             <form action="{{ route('update.akun', $akun->id ) }}" method="POST">
                                 @csrf
-                                <div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Username</label>
-                                    <input type="text" value="{{$akun->username}}" class="form-control form-control-solid" required name="username"/>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Nama</label>
+                                    <input type="text" value="{{$akun->name}}" class="form-control form-control-solid" required name="name"/>
                                 </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Email</label>
+                                    <input type="text" value="{{$akun->email}}" class="form-control form-control-solid" required name="email"/>
+                                </div>
+								<div class="mb-10">
+									<label for="exampleFormControlInput1" class="required form-label">Jenis Pegawai</label>
+									<select class="form-select form-select-solid" name="jenis_pegawai" required>
+										<option value="1" {{$akun->jenis_pegawai == 1 ? 'selected' : ''}}>Tendik</option>
+										<option value="2" {{$akun->jenis_pegawai == 2 ? 'selected' : ''}}>Dosen Tetap</option>
+										<option value="3" {{$akun->jenis_pegawai == 3 ? 'selected' : ''}}>Dosen LB</option>
+									</select>
+								</div>
 								<div class="mb-10">
 									<label for="exampleFormControlInput1" class="required form-label">Role</label>
 									<select class="form-select form-select-solid" name="is_admin" required>
