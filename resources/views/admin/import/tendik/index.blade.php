@@ -17,7 +17,7 @@
                                         <div class="card-px pt-10 d-flex justify-content-between">
                                             <!--begin::Title-->
                                                 <div class="d-inline mt-2">
-                                                    <h2 class="fs-2x fw-bolder mb-0">Import Slip{{ $title }}</h2>
+                                                    <h2 class="fs-2x fw-bolder mb-0">Slip{{ $title }}</h2>
                                                 </div>
                                                 <div class="d-inline">
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_tendik">Tambah</a>
@@ -54,10 +54,10 @@
                                                         <th class="min-w-250px">Action</th>
                                                         <th class="min-w-100px">No</th>
                                                         <th class="min-w-100px">Email</th>
-                                                        <th class="min-w-100px">Bulan</th>
-                                                        <th class="min-w-100px">Tahun</th>
                                                         <th class="min-w-100px">Nama</th>
                                                         <th class="min-w-100px">Jabatan</th>
+                                                        <th class="min-w-100px">Bulan</th>
+                                                        <th class="min-w-100px">Tahun</th>
                                                         <th class="min-w-100px">Gaji Pokok</th>
                                                         <th class="min-w-100px">Tunjangan Jabatan</th>
                                                         <th class="min-w-100px">Tunjangan Kehadiran</th>
@@ -94,20 +94,12 @@
                                                         </td>
                                                         <td>{{ $no }}</td>
                                                         <td>{{ $item->email }}</td>
-                                                        <td>
-                                                            @if ($item->bulan == 1)
-                                                                Januari
-                                                            @elseif ($item->bulan == 2)
-                                                                Februari
-                                                            @elseif ($item->bulan == 3)
-                                                                Maret
-                                                            @elseif ($item->bulan == 4)
-                                                                April
-                                                            @endif
-                                                        </td>
-                                                        <td>{{ $item->tahun }}</td>
                                                         <td>{{ $item->nama }}</td>
                                                         <td>{{ $item->jabatan }}</td>
+                                                        <td>
+                                                            {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }}
+                                                        </td>
+                                                        <td>{{ $item->tahun }}</td>
                                                         <td>{{ $item->gaji_pokok }}</td>
                                                         <td>{{ $item->tunjangan_jabatan }}</td>
                                                         <td>{{ $item->tunjangan_kehadiran }}</td>
@@ -205,27 +197,6 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Bulan</span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <select class="form-select form-select-solid" name="bulan" required>
-                                                            <option value="1">Januari</option>
-                                                            <option value="2">Februari</option>
-                                                            <option value="3">Maret</option>
-                                                            <option value="4">April</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="d-flex flex-column mb-7 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Tahun</span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="tahun" required value=""/>
-                                                    </div>
-                                                    <div class="d-flex flex-column mb-7 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                             <span class="required">Nama</span>
                                                         </label>
                                                         <!--end::Label-->
@@ -238,6 +209,26 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="jabatan" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Bulan</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <select class="form-select form-select-solid" name="bulan" required>
+                                                            @for ($i = 1; $i <= 12; $i++)
+                                                                <option value="{{ $i }}">{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$i - 1] }}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Tahun</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="tahun" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->

@@ -35,10 +35,11 @@
 								<div class="mb-10">
 									<label for="exampleFormControlInput1" class="required form-label">Bulan</label>
 									<select class="form-select form-select-solid" name="bulan" required>
-										<option value="1" {{$tendik->bulan == 1 ? 'selected' : ''}}>Januari</option>
-										<option value="2" {{$tendik->bulan == 2 ? 'selected' : ''}}>Fabruari</option>
-										<option value="3" {{$tendik->bulan == 3 ? 'selected' : ''}}>Maret</option>
-										<option value="4" {{$tendik->bulan == 4 ? 'selected' : ''}}>April</option>
+										@foreach (range(1, 12) as $month)
+											<option value="{{ $month }}" {{ $tendik->bulan == $month ? 'selected' : '' }}>
+												{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$month - 1] }}
+											</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="mb-10">
@@ -112,7 +113,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <!--begin::Actions-->
-                                    <a href="{{ route('pegawai') }}" class="btn btn-secondary">
+                                    <a href="{{ route('tendik') }}" class="btn btn-secondary">
                                         <span class="indicator-label">
                                             Cancel
                                         </span>

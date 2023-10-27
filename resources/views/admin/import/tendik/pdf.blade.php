@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Slip Gaji</title>
+    <title>Slip Gaji Karyawan</title>
     <style>
         .slip-gaji {
             page-break-before: always; /* Membuat halaman baru setiap slip gaji */
@@ -11,20 +11,10 @@
 <body>
     @foreach ($data as $item)
     <div class="slip-gaji">
-        <h1>Slip Gaji</h1>
+        <h1>Slip Gaji Karyawan</h1>
         <p>ID Pegawai: {{ $item->id_pegawai }}</p>
         <p>Kode Pegawai: {{ $item->kode_pegawai }}</p>
-        <p>Bulan: 
-            @if ($item->bulan == 1)
-                Januari
-            @elseif ($item->bulan == 2)
-                Februari
-            @elseif ($item->bulan == 3)
-                Maret
-            @elseif ($item->bulan == 4)
-                April
-            @endif
-        </p>
+        <p>Bulan: {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }}</p>
         <p>Tahun: {{ $item->tahun }}</p>
     </div>
     @endforeach
