@@ -12,8 +12,8 @@
     @foreach ($data as $item)
     <div class="slip-gaji">
         <h1>Slip Gaji Karyawan</h1>
-        <p>ID Pegawai: {{ $item->id_pegawai }}</p>
-        <p>Kode Pegawai: {{ $item->kode_pegawai }}</p>
+        <p>Email: {{ $item->email }}</p>
+        <p>Nama: {{ $item->nama }}</p>
         <p>Bulan: {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }}</p>
         <p>Tahun: {{ $item->tahun }}</p>
     </div>

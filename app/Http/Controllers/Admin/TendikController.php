@@ -235,14 +235,14 @@ class TendikController extends Controller
     } 
 
     // Metode untuk menampilkan slip gaji keseluruhan
-    public function exportPdf()
+    public function exportPdf($bulan, $tahun)
     {
-        $data = Tendik::all();
-
-        // Buat instance PDF
-        // $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'));
+        $data = Tendik::where('bulan', $bulan)
+                      ->where('tahun', $tahun)
+                      ->get();
+    
         $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a5');
-
+    
         return $pdf->download('slip_gaji_semua_pegawai.pdf');
     }
 
