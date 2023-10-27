@@ -49,6 +49,69 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </div>
+
+                    <div class="menu-item">
+                        <div class="menu-content pb-2">
+                            <span class="menu-section text-muted text-uppercase fs-8 ls-1">Menu</span>
+                        </div>
+                    </div>
+                    @if (auth()->user()->jenis_pegawai == 1)
+                        <div class="menu-item {{ ($active === "Slip Gaji Tendik") ? 'here show' : '' }}">
+                            <a class="menu-link" href="{{ url('slipGajiTendik') }}">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Slip Gaji Tendik</span>
+                            </a>
+                        </div>
+                    @endif
+                    @if (auth()->user()->jenis_pegawai == 2)
+                        <div class="menu-item {{ ($active === "Slip Gaji Dosen Tetap") ? 'here show' : '' }}">
+                            <a class="menu-link" href="#">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Slip Gaji Dosen Tetap</span>
+                            </a>
+                        </div>
+                    @endif
+                    @if (auth()->user()->jenis_pegawai == 3)
+                        <div class="menu-item {{ ($active === "Slip Gaji Dosen LB") ? 'here show' : '' }}">
+                            <a class="menu-link" href="#">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
+                                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Slip Gaji Dosen LB</span>
+                            </a>
+                        </div>
+                    @endif
                 @endif
 
                 @if (auth()->user()->is_admin == 1)

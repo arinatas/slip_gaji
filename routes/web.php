@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PegawaiController;
 use App\Http\Controllers\Admin\TendikController;
 // User
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\TendikUserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -32,6 +33,11 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('password', [ChangePasswordController::class, 'edit'])->name('password.edit')->middleware('auth');
 Route::patch('password', [ChangePasswordController::class, 'update'])->name('password.edit')->middleware('auth');
+
+// tendik
+Route::get('slipGajiTendik', [TendikUserController::class, 'index'])->middleware(['auth', 'tendik'])->name('slipGajiTendik');
+
+
 
 Route::middleware(['admin'])->group(function () {
     // Dashboard
