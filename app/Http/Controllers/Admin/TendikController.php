@@ -177,7 +177,7 @@ class TendikController extends Controller
 
             $tendik->save();
 
-            return redirect('/tendik')->with('updateSuccess', 'Data berhasil di Update');
+            return redirect()->route('tendik', ['bulan' => $request->bulan, 'tahun' => $request->tahun])->with('updateSuccess', 'Data berhasil di Update');
         } catch(Exception $e) {
             dd($e);
             return redirect()->back()->with('updateFail', 'Data gagal di Update');

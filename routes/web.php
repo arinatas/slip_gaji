@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PegawaiController;
 use App\Http\Controllers\Admin\TendikController;
+use App\Http\Controllers\Admin\DosenlbController;
 // User
 use App\Http\Controllers\User\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -46,7 +47,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/resetAkun/{id}', [AkunController::class, 'reset'])->middleware('auth')->name('reset.akun');
     Route::post('/resetupdateAkun/{id}', [AkunController::class, 'resetupdate'])->middleware('auth')->name('resetupdate.akun');
 
-    // Import Tendik
+    // Slip Tendik
     Route::get('tendik', [TendikController::class, 'index'])->middleware('auth')->name('tendik');
     Route::post('/tendik', [TendikController::class, 'store'])->middleware('auth')->name('insert.tendik');
     Route::get('/editTendik/{id}', [TendikController::class, 'edit'])->middleware('auth')->name('edit.tendik');
@@ -58,6 +59,18 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/export-pdf/{bulan}/{tahun}', [TendikController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
     // Route untuk menampilkan slip gaji berdasarkan ID Pegawai
     Route::get('/export-pdf/{id}', [TendikController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
+
+    // Slip Dosen LB
+    Route::get('dosenlb', [DosenlbController::class, 'index'])->middleware('auth')->name('dosenlb');
+    Route::post('/dosenlb', [DosenlbController::class, 'store'])->middleware('auth')->name('insert.dosenlb');
+    Route::get('/editDosenlb/{id}', [DosenlbController::class, 'edit'])->middleware('auth')->name('edit.dosenlb');
+    Route::post('/updateDosenlb/{id}', [DosenlbController::class, 'update'])->middleware('auth')->name('update.dosenlb');
+    Route::delete('/deleteDosenlb/{id}', [DosenlbController::class, 'destroy'])->middleware('auth')->name('destroy.dosenlb');
+    Route::get('/import-dosenlb', [DosenlbController::class, 'showImportForm'])->name('import.dosenlb.view');
+    Route::post('/import-dosenlb', [DosenlbController::class, 'importExcel'])->name('import.dosenlb');
+    Route::get('excel-dosen-lb', [DosenlbController::class, 'downloadExampleExcel'])->name('excel.dosen.lb');
+    Route::get('/export-pdf-dosenlb/{bulan}/{tahun}', [DosenlbController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
+    Route::get('/export-pdf-dosenlb/{id}', [DosenlbController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
 
 
 });
