@@ -76,7 +76,7 @@
                     @endif
                     @if (auth()->user()->jenis_pegawai == 2)
                         <div class="menu-item {{ ($active === "Slip Gaji Dosen Tetap") ? 'here show' : '' }}">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ url('slipGajiDosenTetap') }}">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">

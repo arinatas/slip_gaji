@@ -62,6 +62,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'tendik' => \App\Http\Middleware\TendikMiddleware::class,
         'dosen_lb' => \App\Http\Middleware\DosenLbMiddleware::class,
+        'dosen_tetap' => \App\Http\Middleware\DosenTetapMiddleware::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
