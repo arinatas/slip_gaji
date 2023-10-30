@@ -96,7 +96,7 @@
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                                        <th class="min-w-250px">Action</th>
+                                                        <th class="min-w-300px">Action</th>
                                                         <th class="min-w-100px">No</th>
                                                         <th class="min-w-100px">Email</th>
                                                         <th class="min-w-100px">Nama</th>
@@ -126,6 +126,121 @@
                                                     @foreach ($tendiks as $item)
                                                     <tr>
                                                         <td>
+                                                        <a href="#" class="btn btn-sm btn-info btn-action" title="Detail Slip Gaji" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}"><i class="fas fa-eye"></i></a>
+                                                            {{-- modal here --}}
+                                                            <!--begin::Modal - New Card-->
+                                                            <div class="modal fade" id="detailModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                                                <!--begin::Modal dialog-->
+                                                                <div class="modal-dialog modal-dialog-centered mw-850px">
+                                                                    <!--begin::Modal content-->
+                                                                    <div class="modal-content">
+                                                                        <!--begin::Modal header-->
+                                                                        <div class="modal-header">
+                                                                            <!--begin::Modal title-->
+                                                                            <h2>Detail Slip Gaji : {{ $item->nama }}, {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }} </h2>
+                                                                            <!--end::Modal title-->
+                                                                            <!--begin::Close-->
+                                                                            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                                                                <span class="svg-icon svg-icon-1">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                                        <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                                                        <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                                                    </svg>
+                                                                                </span>
+                                                                                <!--end::Svg Icon-->
+                                                                            </div>
+                                                                            <!--end::Close-->
+                                                                        </div>
+                                                                        <!--end::Modal header-->
+                                                                        <!--begin::Modal body-->
+                                                                        <div class="modal-body scroll-y mx-xl-8">
+                                                                            <!--begin::content modal body-->
+                                                                            <div class="table-responsive my-10 mx-8">
+                                                                                <table class="table table-striped gy-7 gs-7">
+                                                                                <tr>
+                                                                                    <th>Email:</th>
+                                                                                    <td>{{ $item->email }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Periode:</th>
+                                                                                    <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Nama:</th>
+                                                                                    <td>{{ $item->nama }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jabatan:</th>
+                                                                                    <td>{{ $item->jabatan }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Gaji Pokok:</th>
+                                                                                    <td>{{ $item->gaji_pokok }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Jabatan:</th>
+                                                                                    <td>{{ $item->tunjangan_jabatan }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Kehadiran:</th>
+                                                                                    <td>{{ $item->tunjangan_kehadiran }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Lembur:</th>
+                                                                                    <td>{{ $item->tunjangan_lembur }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunj. Pel. Mhs/Op. Feeder:</th>
+                                                                                    <td>{{ $item->tunj_pel_mhs_op_feeder }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Kinerja:</th>
+                                                                                    <td>{{ $item->tunjangan_kinerja }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jumlah Penambah:</th>
+                                                                                    <td>{{ $item->jumlah_penambah }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Kasbon:</th>
+                                                                                    <td>{{ $item->potongan_kasbon }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Denda Keterlambatan:</th>
+                                                                                    <td>{{ $item->denda_keterlambatan }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Pph 21:</th>
+                                                                                    <td>{{ $item->potongan_pph_21 }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Absensi:</th>
+                                                                                    <td>{{ $item->potongan_absensi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan BPJS:</th>
+                                                                                    <td>{{ $item->potongan_bpjs }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jumlah Pengurang:</th>
+                                                                                    <td>{{ $item->jumlah_pengurang }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Gaji yang Dibayarkan:</th>
+                                                                                    <td>{{ $item->gaji_yang_dibayar }}</td>
+                                                                                </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                            <!--end::content modal body-->
+                                                                        </div>
+                                                                        <!--end::Modal body-->
+                                                                    </div>
+                                                                    <!--end::Modal content-->
+                                                                </div>
+                                                                <!--end::Modal dialog-->
+                                                            </div>
+                                                            <!--end::Modal - New Card-->
                                                             <a href="{{ route('edit.tendik', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             <form id="form-delete" action="{{ route('destroy.tendik', $item->id ) }}" method="POST"
                                                             class="d-inline-block">

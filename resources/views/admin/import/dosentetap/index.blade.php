@@ -96,7 +96,7 @@
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                                        <th class="min-w-250px">Action</th>
+                                                        <th class="min-w-300px">Action</th>
                                                         <th class="min-w-50px">No</th>
                                                         <th class="min-w-100px">Email</th>
                                                         <th class="min-w-200px">Nama</th>
@@ -145,6 +145,197 @@
                                                     @foreach ($dosenTetaps as $item)
                                                     <tr>
                                                         <td>
+                                                        <a href="#" class="btn btn-sm btn-info btn-action" title="Detail Slip Gaji" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}"><i class="fas fa-eye"></i></a>
+                                                            {{-- modal here --}}
+                                                            <!--begin::Modal - New Card-->
+                                                            <div class="modal fade" id="detailModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                                                <!--begin::Modal dialog-->
+                                                                <div class="modal-dialog modal-dialog-centered mw-850px">
+                                                                    <!--begin::Modal content-->
+                                                                    <div class="modal-content">
+                                                                        <!--begin::Modal header-->
+                                                                        <div class="modal-header">
+                                                                            <!--begin::Modal title-->
+                                                                            <h2>Detail Slip Gaji : {{ $item->nama }}, {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }} </h2>
+                                                                            <!--end::Modal title-->
+                                                                            <!--begin::Close-->
+                                                                            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                                                                <span class="svg-icon svg-icon-1">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                                        <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                                                        <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                                                    </svg>
+                                                                                </span>
+                                                                                <!--end::Svg Icon-->
+                                                                            </div>
+                                                                            <!--end::Close-->
+                                                                        </div>
+                                                                        <!--end::Modal header-->
+                                                                        <!--begin::Modal body-->
+                                                                        <div class="modal-body scroll-y mx-xl-8">
+                                                                            <!--begin::content modal body-->
+                                                                            <div class="table-responsive my-10 mx-8">
+                                                                                <table class="table table-striped gy-7 gs-7">
+                                                                                <tr>
+                                                                                    <th>Email:</th>
+                                                                                    <td>{{ $item->email }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Periode:</th>
+                                                                                    <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Nama:</th>
+                                                                                    <td>{{ $item->nama }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jabatan Struktural:</th>
+                                                                                    <td>{{ $item->jabatan_struktural }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jabatan Fungsional:</th>
+                                                                                    <td>{{ $item->jabatan_fungsional }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Gaji Pokok:</th>
+                                                                                    <td>{{ $item->gaji_pokok }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Kehadiran:</th>
+                                                                                    <td>{{ $item->tunjangan_kehadiran }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunj. Jbt.Struktural:</th>
+                                                                                    <td>{{ $item->tunjangan_jabatan_struktural }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunj. Jbt. Fungsional:</th>
+                                                                                    <td>{{ $item->tunjangan_jabatan_fungsional }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Honor Mengajar Kelas Pagi:</th>
+                                                                                    <td>{{ $item->honor_mengajar_kls_pagi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Honor Mengajar Kelas Malam:</th>
+                                                                                    <td>{{ $item->honor_mengajar_kls_malam }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb./Penguji Kerja Praktek:</th>
+                                                                                    <td>{{ $item->pmb_atau_penguji_kp }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. I Proposal (kls pagi):</th>
+                                                                                    <td>{{ $item->pmb_1_proposal_pagi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. I Proposal (kls malam):</th>
+                                                                                    <td>{{ $item->pmb_1_proposal_malam }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. I Skripsi (kls pagi):</th>
+                                                                                    <td>{{ $item->pmb_1_skripsi_pagi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. I Skripsi (kls malam):</th>
+                                                                                    <td>{{ $item->pmb_1_skripsi_malam }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. II Proposal (kls pagi):</th>
+                                                                                    <td>{{ $item->pmb_2_proposal_pagi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. II Proposal (kls malam):</th>
+                                                                                    <td>{{ $item->pmb_2_proposal_malam }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. II Skripsi (kls pagi):</th>
+                                                                                    <td>{{ $item->pmb_2_skripsi_pagi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pmb. II Skripsi (kls malam):</th>
+                                                                                    <td>{{ $item->pmb_2_skripsi_malam }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Penguji Sidang Proposal:</th>
+                                                                                    <td>{{ $item->penguji_sidang_proposal }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Penguji Sidang Skripsi:</th>
+                                                                                    <td>{{ $item->penguji_sidang_skripsi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Koreksi Soal:</th>
+                                                                                    <td>{{ $item->koreksi_soal }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pembuatan Soal:</th>
+                                                                                    <td>{{ $item->pembuatan_soal }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Dosen Wali:</th>
+                                                                                    <td>{{ $item->dosen_wali }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pengawas Ujian:</th>
+                                                                                    <td>{{ $item->pengawas_ujian }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pembina UKM:</th>
+                                                                                    <td>{{ $item->pembina_ukm }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Remidial:</th>
+                                                                                    <td>{{ $item->remidial }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pemb. Company Visit:</th>
+                                                                                    <td>{{ $item->pmb_company_visit }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Reward EKIN:</th>
+                                                                                    <td>{{ $item->reward_ekin }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jumlah Gaji, Tunjangan dan honor:</th>
+                                                                                    <td>{{ $item->jumlah_gaji_tunjangan_honor }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Kas Bon:</th>
+                                                                                    <td>{{ $item->potongan_kas_bon }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pph 21:</th>
+                                                                                    <td>{{ $item->pph_21 }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Absensi:</th>
+                                                                                    <td>{{ $item->potongan_absensi }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan BPJS:</th>
+                                                                                    <td>{{ $item->potongan_bpjs }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jumlah:</th>
+                                                                                    <td>{{ $item->jumlah }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Gaji Yang dibayar:</th>
+                                                                                    <td>{{ $item->gaji_yang_dibayar }}</td>
+                                                                                </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                            <!--end::content modal body-->
+                                                                        </div>
+                                                                        <!--end::Modal body-->
+                                                                    </div>
+                                                                    <!--end::Modal content-->
+                                                                </div>
+                                                                <!--end::Modal dialog-->
+                                                            </div>
+                                                            <!--end::Modal - New Card-->
                                                             <a href="{{ route('edit.dosentetap', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             <form id="form-delete" action="{{ route('destroy.dosentetap', $item->id ) }}" method="POST"
                                                             class="d-inline-block">
