@@ -95,8 +95,8 @@
                             <span class="menu-title">Slip Tendik</span>
                         </a>
                     </div>
-                    <div class="menu-item {{ ($active === "All Data") ? 'here show' : '' }}">
-                        <a class="menu-link" href="{{ url('rangkuman') }}">
+                    <div class="menu-item {{ ($active === "dosentetap") ? 'here show' : '' }}">
+                        <a class="menu-link" href="{{ url('dosentetap') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                                 <span class="svg-icon svg-icon-2">

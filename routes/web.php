@@ -72,6 +72,18 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/export-pdf-dosenlb/{bulan}/{tahun}', [DosenlbController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
     Route::get('/export-pdf-dosenlb/{id}', [DosenlbController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
 
+    // Slip Dosen Tetap
+    Route::get('dosentetap', [DosenTetapController::class, 'index'])->middleware('auth')->name('dosentetap');
+    Route::post('/dosentetap', [DosenTetapController::class, 'store'])->middleware('auth')->name('insert.dosentetap');
+    Route::get('/editDosentetap/{id}', [DosenTetapController::class, 'edit'])->middleware('auth')->name('edit.dosentetap');
+    Route::post('/updateDosentetap/{id}', [DosenTetapController::class, 'update'])->middleware('auth')->name('update.dosentetap');
+    Route::delete('/deleteDosentetap/{id}', [DosenTetapController::class, 'destroy'])->middleware('auth')->name('destroy.dosentetap');
+    Route::get('/import-dosentetap', [DosenTetapController::class, 'showImportForm'])->name('import.dosentetap.view');
+    Route::post('/import-dosentetap', [DosenTetapController::class, 'importExcel'])->name('import.dosentetap');
+    Route::get('excel-dosen-tetap', [DosenTetapController::class, 'downloadExampleExcel'])->name('excel.dosen.tetap');
+    Route::get('/export-pdf-dosentetap/{bulan}/{tahun}', [DosenTetapController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
+    Route::get('/export-pdf-dosentetap/{id}', [DosenTetapController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
+
 
 });
 
