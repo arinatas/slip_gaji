@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Slip Gaji Dosen LB</title>
+    <title>Slip Gaji Dosen Tetap</title>
     <style>
         .slip-gaji {
             page-break-before: always; /* Membuat halaman baru setiap slip gaji */
@@ -11,30 +11,44 @@
 <body>
     @foreach ($data as $item)
     <div class="slip-gaji">
-        <h1>Slip Gaji Dosen LB</h1>
+        <h1>Slip Gaji Dosen Tetap</h1>
         <p>Email: {{ $item->email }}</p>
         <p>Periode: {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</p>
         <p>Nama: {{ $item->nama }}</p>
         <p>Jabatan Struktural: {{ $item->jabatan_struktural }}</p>
         <p>Jabatan Fungsional: {{ $item->jabatan_fungsional }}</p>
-        <p>Honor Pokok: {{ $item->honor_pokok }}</p>
-        <p>Matkul 1: {{ $item->matkul_1 }}</p>
-        <p>Nominal Matkul 1: {{ $item->nominal_matkul_1 }}</p>
-        <p>Matkul 2: {{ $item->matkul_2 }}</p>
-        <p>Nominal Matkul 2: {{ $item->nominal_matkul_2 }}</p>
-        <p>Matkul 3: {{ $item->matkul_3 }}</p>
-        <p>Nominal Matkul 3: {{ $item->nominal_matkul_3 }}</p>
-        <p>Matkul 4: {{ $item->matkul_4 }}</p>
-        <p>Nominal Matkul 4: {{ $item->nominal_matkul_4 }}</p>
-        <p>Matkul 5: {{ $item->matkul_5 }}</p>
-        <p>Nominal Matkul 5: {{ $item->nominal_matkul_5 }}</p>
-        <p>Anggota Klp Dosen: {{ $item->anggota_klp_dosen }}</p>
-        <p>Pembuatan Soal: {{ $item->pembuatan_soal }}</p>
+        <p>Gaji Pokok: {{ $item->gaji_pokok }}</p>
+        <p>Tunjangan Kehadiran: {{ $item->tunjangan_kehadiran }}</p>
+        <p>Tunj. Jbt.Struktural: {{ $item->tunjangan_jabatan_struktural }}</p>
+        <p>Tunj. Jbt. Fungsional: {{ $item->tunjangan_jabatan_fungsional }}</p>
+        <p>Honor Mengajar Kelas Pagi: {{ $item->honor_mengajar_kls_pagi }}</p>
+        <p>Honor Mengajar Kelas Malam: {{ $item->honor_mengajar_kls_malam }}</p>
+        <p>Pmb./Penguji Kerja Praktek: {{ $item->pmb_atau_penguji_kp }}</p>
+        <p>Pmb. I Proposal (kls pagi): {{ $item->pmb_1_proposal_pagi }}</p>
+        <p>Pmb. I Proposal (kls malam): {{ $item->pmb_1_proposal_malam }}</p>
+        <p>Pmb. I Skripsi (kls pagi): {{ $item->pmb_1_skripsi_pagi }}</p>
+        <p>Pmb. I Skripsi (kls malam): {{ $item->pmb_1_skripsi_malam }}</p>
+        <p>Pmb. II Proposal (kls pagi): {{ $item->pmb_2_proposal_pagi }}</p>
+        <p>Pmb. II Proposal (kls malam): {{ $item->pmb_2_proposal_malam }}</p>
+        <p>Pmb. II Skripsi (kls pagi): {{ $item->pmb_2_skripsi_pagi }}</p>
+        <p>Pmb. II Skripsi (kls malam): {{ $item->pmb_2_skripsi_malam }}</p>
+        <p>Penguji Sidang Proposal: {{ $item->penguji_sidang_proposal }}</p>
+        <p>Penguji Sidang Skripsi: {{ $item->penguji_sidang_skripsi }}</p>
         <p>Koreksi Soal: {{ $item->koreksi_soal }}</p>
+        <p>Pembuatan Soal: {{ $item->pembuatan_soal }}</p>
+        <p>Dosen Wali: {{ $item->dosen_wali }}</p>
         <p>Pengawas Ujian: {{ $item->pengawas_ujian }}</p>
-        <p>Jumlah: {{ $item->jumlah }}</p>
+        <p>Pembina UKM: {{ $item->pembina_ukm }}</p>
+        <p>Remidial: {{ $item->remidial }}</p>
+        <p>Pemb. Company Visit: {{ $item->pmb_company_visit }}</p>
+        <p>Reward EKIN: {{ $item->reward_ekin }}</p>
+        <p>Jumlah Gaji, Tunjangan dan honor: {{ $item->jumlah_gaji_tunjangan_honor }}</p>
+        <p>Potongan Kas Bon: {{ $item->potongan_kas_bon }}</p>
         <p>Pph 21: {{ $item->pph_21 }}</p>
-        <p>Honor Yang dibayar: {{ $item->honor_yang_dibayar }}</p>
+        <p>Potongan Absensi: {{ $item->potongan_absensi }}</p>
+        <p>Potongan BPJS: {{ $item->potongan_bpjs }}</p>
+        <p>Jumlah: {{ $item->jumlah }}</p>
+        <p>Gaji Yang dibayar: {{ $item->gaji_yang_dibayar }}</p>
     </div>
     @endforeach
 </body>
