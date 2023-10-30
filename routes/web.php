@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TendikController;
 // User
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\TendikUserController;
+use App\Http\Controllers\User\DosenLbUserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -36,6 +37,7 @@ Route::patch('password', [ChangePasswordController::class, 'update'])->name('pas
 
 // tendik
 Route::get('slipGajiTendik', [TendikUserController::class, 'index'])->middleware(['auth', 'tendik'])->name('slipGajiTendik');
+Route::get('slipGajiDosenLB', [DosenLbUserController::class, 'index'])->middleware(['auth', 'dosen_lb'])->name('slipGajiDosenLB');
 
 
 

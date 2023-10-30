@@ -9,7 +9,6 @@
 						<div class="post d-flex flex-column-fluid" id="kt_post">
 							<!--begin::Container-->
 							<div id="kt_content_container" class="container-xxl">
-                                <h1>USER</h1>
 								<!--begin::Card-->
 								<div class="card">
 									<!--begin::Card body-->

@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
             return view('user.index', [
-                'title' => 'Pilih Slip',
+                'title' => 'Dashboard',
                 'secction' => 'Dashboard',
                 'active' => 'Dashboard'
             ]);

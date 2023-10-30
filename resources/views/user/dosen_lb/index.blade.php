@@ -44,7 +44,7 @@
                                                             <!--begin::Form-->
                                                             <div class="px-7 py-5">
                                                                 <!--begin::Form-->
-                                                                <form action="{{ route('slipGajiTendik') }}" method="GET">
+                                                                <form action="{{ route('slipGajiDosenLB') }}" method="GET">
                                                                     <!--begin::Input group-->
                                                                     <div class="mb-10">
                                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
@@ -172,7 +172,7 @@
                                                                         <!--begin::table-->
                                                                         <div class="table-responsive">
                                                                             <table id="kt_datatable_jurnal" class="table table-row-bordered gy-5">
-                                                                                <h1 style="text-align: center"><b>{{ auth()->user()->name }} | {{ $Datas[0]->jabatan }}</b></h1>
+                                                                                <h1 style="text-align: center"><b>{{ auth()->user()->name }} | {{ $Datas[0]->jabatan_fungsional }} : {{ $Datas[0]->jabatan_struktural }}</b></h1>
                                                                                 <thead>
                                                                                     <tr class="fw-semibold fs-6 text-muted">
                                                                                         <th>Deskripsi</th>
@@ -183,106 +183,108 @@
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                Gaji Pokok
+                                                                                                Honor Pokok
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->gaji_pokok)</td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->honor_pokok)</td>
+                                                                                    </tr>
+                                                                                    @if ($Datas[0]->matkul_1 || $Datas[0]->nominal_matkul_1)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    Matakuliah {{ $Datas[0]->matkul_1 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_1)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_2 || $Datas[0]->nominal_matkul_2)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    Matakuliah {{ $Datas[0]->matkul_2 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_2)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_3 || $Datas[0]->nominal_matkul_3)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    Matakuliah {{ $Datas[0]->matkul_3 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_3)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_4 || $Datas[0]->nominal_matkul_4)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    Matakuliah {{ $Datas[0]->matkul_4 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_4)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_5 || $Datas[0]->nominal_matkul_5)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    Matakuliah {{ $Datas[0]->matkul_5 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_5)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div>
+                                                                                                Anggota Klp Dosen
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->anggota_klp_dosen)</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                Tunjangan Jabatan
+                                                                                                Pembuatan Soal
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_jabatan)</td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->pembuatan_soal)</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                Tunjangan Kehadiran
+                                                                                                Koreksi Soal
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_kehadiran)</td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->koreksi_soal)</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                Tunjangan lembur
+                                                                                                Pengawas Ujian
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_lembur)</td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->pengawas_ujian)</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                Tunj. Pel. Mhs/Op. Feeder
+                                                                                                <b>Jumlah</b>
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->tunj_pel_mhs_op_feeder)</td>
+                                                                                        <td style="text-align: end;"><b> + Rp. @currency($Datas[0]->jumlah)</b></td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                Tunjangan Kinerja
+                                                                                                <b>Potongan Pph 21</b>
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_kinerja)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                <b>Jumlah Penambah</b>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;"><b> + Rp. @currency($Datas[0]->jumlah_penambah)</b></td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                Potongan Kasbon
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->potongan_kasbon)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                Denda Keterlambatan
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->denda_keterlambatan)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                Potongan Pph 21
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->potongan_pph_21)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                Potongan Absensi
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->potongan_absensi)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                Potongan BPJS
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->potongan_bpjs)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                <b>Jumlah Pengurang</b>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;"><b> - Rp. @currency($Datas[0]->jumlah_pengurang)</b></td>
+                                                                                        <td style="text-align: end;"><b> - Rp. @currency($Datas[0]->pph_21)</b></td>
                                                                                     </tr>
                                                                                 </tbody>
                                                                             </table>
@@ -298,8 +300,8 @@
                                                             <!--begin::Wrapper-->
                                                             <div class="d-flex flex-column">
                                                                 <!--begin::Title-->
-                                                                <h3 class="my-1 text-dark text-center">Gaji Yang dibayar
-                                                                    <br> Rp. @currency($Datas[0]->gaji_yang_dibayar)</h3>
+                                                                <h3 class="my-1 text-dark text-center">Honor Yang dibayar
+                                                                    <br>Rp. @currency($Datas[0]->honor_yang_dibayar)</h3>
                                                                 <!--end::Title-->
                                                             </div>
                                                             <!--end::Wrapper-->

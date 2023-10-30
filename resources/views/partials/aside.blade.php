@@ -95,7 +95,7 @@
                     @endif
                     @if (auth()->user()->jenis_pegawai == 3)
                         <div class="menu-item {{ ($active === "Slip Gaji Dosen LB") ? 'here show' : '' }}">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="{{ url('slipGajiDosenLB') }}">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
