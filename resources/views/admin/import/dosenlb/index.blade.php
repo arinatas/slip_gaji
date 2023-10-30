@@ -164,96 +164,96 @@
                                                                             <div class="table-responsive my-10 mx-8">
                                                                                 <table class="table table-striped gy-7 gs-7">
                                                                                 <tr>
-                                                                                    <th>Email:</th>
+                                                                                    <th>Email</th>
                                                                                     <td>{{ $item->email }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Periode:</th>
+                                                                                    <th>Periode</th>
                                                                                     <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nama:</th>
+                                                                                    <th>Nama</th>
                                                                                     <td>{{ $item->nama }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jabatan Struktural:</th>
+                                                                                    <th>Jabatan Struktural</th>
                                                                                     <td>{{ $item->jabatan_struktural }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jabatan Fungsional:</th>
+                                                                                    <th>Jabatan Fungsional</th>
                                                                                     <td>{{ $item->jabatan_fungsional }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Honor Pokok:</th>
-                                                                                    <td>{{ $item->honor_pokok }}</td>
+                                                                                    <th>Honor Pokok</th>
+                                                                                    <td>Rp. @currency( $item->honor_pokok )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 1:</th>
+                                                                                    <th>Matkul 1</th>
                                                                                     <td>{{ $item->matkul_1 }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 1:</th>
-                                                                                    <td>{{ $item->nominal_matkul_1 }}</td>
+                                                                                    <th>Nominal Matkul 1</th>
+                                                                                    <td>Rp. @currency( $item->nominal_matkul_1 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 2:</th>
+                                                                                    <th>Matkul 2</th>
                                                                                     <td>{{ $item->matkul_2 }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 2:</th>
-                                                                                    <td>{{ $item->nominal_matkul_2 }}</td>
+                                                                                    <th>Nominal Matkul 2</th>
+                                                                                    <td>Rp. @currency( $item->nominal_matkul_2 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 3:</th>
+                                                                                    <th>Matkul 3</th>
                                                                                     <td>{{ $item->matkul_3 }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 3:</th>
-                                                                                    <td>{{ $item->nominal_matkul_3 }}</td>
+                                                                                    <th>Nominal Matkul 3</th>
+                                                                                    <td>Rp. @currency( $item->nominal_matkul_3 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 4:</th>
+                                                                                    <th>Matkul 4</th>
                                                                                     <td>{{ $item->matkul_4 }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 4:</th>
-                                                                                    <td>{{ $item->nominal_matkul_4 }}</td>
+                                                                                    <th>Nominal Matkul 4</th>
+                                                                                    <td>Rp. @currency( $item->nominal_matkul_4 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 5:</th>
+                                                                                    <th>Matkul 5</th>
                                                                                     <td>{{ $item->matkul_5 }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 5:</th>
-                                                                                    <td>{{ $item->nominal_matkul_5 }}</td>
+                                                                                    <th>Nominal Matkul 5</th>
+                                                                                    <td>Rp. @currency( $item->nominal_matkul_5 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Anggota Klp Dosen:</th>
-                                                                                    <td>{{ $item->anggota_klp_dosen }}</td>
+                                                                                    <th>Anggota Klp Dosen</th>
+                                                                                    <td>Rp. @currency( $item->anggota_klp_dosen )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pembuatan Soal:</th>
-                                                                                    <td>{{ $item->pembuatan_soal }}</td>
+                                                                                    <th>Pembuatan Soal</th>
+                                                                                    <td>Rp. @currency( $item->pembuatan_soal )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Koreksi Soal:</th>
-                                                                                    <td>{{ $item->koreksi_soal }}</td>
+                                                                                    <th>Koreksi Soal</th>
+                                                                                    <td>Rp. @currency( $item->koreksi_soal )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pengawas Ujian:</th>
-                                                                                    <td>{{ $item->pengawas_ujian }}</td>
+                                                                                    <th>Pengawas Ujian</th>
+                                                                                    <td>Rp. @currency( $item->pengawas_ujian )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Jumlah:</th>
-                                                                                    <td>{{ $item->jumlah }}</td>
+                                                                                <tr class="alert alert-success">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah</th>
+                                                                                    <td><strong style="font-size: 14px;">Rp. @currency( $item->jumlah )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Pph 21:</th>
-                                                                                    <td>{{ $item->pph_21 }}</td>
+                                                                                <tr class="alert alert-danger">
+                                                                                    <th><strong style="font-size: 14px;">-Pph 21</th>
+                                                                                    <td><strong style="font-size: 14px;">Rp. @currency( $item->pph_21 )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Honor Yang dibayar:</th>
-                                                                                    <td>{{ $item->honor_yang_dibayar }}</td>
+                                                                                <tr class="alert alert-primary">
+                                                                                    <th style="text-align: end;"><strong style="font-size: 16px;">Honor Yang dibayar Rp. @currency( $item->honor_yang_dibayar )</th>
+                                                                                    <td></td>
                                                                                 </tr>
                                                                                 </table>
                                                                             </div>

@@ -178,152 +178,152 @@
                                                                             <div class="table-responsive my-10 mx-8">
                                                                                 <table class="table table-striped gy-7 gs-7">
                                                                                 <tr>
-                                                                                    <th>Email:</th>
+                                                                                    <th>Email</th>
                                                                                     <td>{{ $item->email }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Periode:</th>
+                                                                                    <th>Periode</th>
                                                                                     <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nama:</th>
+                                                                                    <th>Nama</th>
                                                                                     <td>{{ $item->nama }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jabatan Struktural:</th>
+                                                                                    <th>Jabatan Struktural</th>
                                                                                     <td>{{ $item->jabatan_struktural }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jabatan Fungsional:</th>
+                                                                                    <th>Jabatan Fungsional</th>
                                                                                     <td>{{ $item->jabatan_fungsional }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Gaji Pokok:</th>
-                                                                                    <td>{{ $item->gaji_pokok }}</td>
+                                                                                    <th>Gaji Pokok</th>
+                                                                                    <td>Rp. @currency( $item->gaji_pokok )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunjangan Kehadiran:</th>
-                                                                                    <td>{{ $item->tunjangan_kehadiran }}</td>
+                                                                                    <th>Tunjangan Kehadiran</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_kehadiran )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunj. Jbt.Struktural:</th>
-                                                                                    <td>{{ $item->tunjangan_jabatan_struktural }}</td>
+                                                                                    <th>Tunj. Jbt.Struktural</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_jabatan_struktural )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunj. Jbt. Fungsional:</th>
-                                                                                    <td>{{ $item->tunjangan_jabatan_fungsional }}</td>
+                                                                                    <th>Tunj. Jbt. Fungsional</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_jabatan_fungsional )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Honor Mengajar Kelas Pagi:</th>
-                                                                                    <td>{{ $item->honor_mengajar_kls_pagi }}</td>
+                                                                                    <th>Honor Mengajar Kelas Pagi</th>
+                                                                                    <td>Rp. @currency( $item->honor_mengajar_kls_pagi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Honor Mengajar Kelas Malam:</th>
-                                                                                    <td>{{ $item->honor_mengajar_kls_malam }}</td>
+                                                                                    <th>Honor Mengajar Kelas Malam</th>
+                                                                                    <td>Rp. @currency( $item->honor_mengajar_kls_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb./Penguji Kerja Praktek:</th>
-                                                                                    <td>{{ $item->pmb_atau_penguji_kp }}</td>
+                                                                                    <th>Pmb./Penguji Kerja Praktek</th>
+                                                                                    <td>Rp. @currency( $item->pmb_atau_penguji_kp )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. I Proposal (kls pagi):</th>
-                                                                                    <td>{{ $item->pmb_1_proposal_pagi }}</td>
+                                                                                    <th>Pmb. I Proposal (kls pagi)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_1_proposal_pagi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. I Proposal (kls malam):</th>
-                                                                                    <td>{{ $item->pmb_1_proposal_malam }}</td>
+                                                                                    <th>Pmb. I Proposal (kls malam)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_1_proposal_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. I Skripsi (kls pagi):</th>
-                                                                                    <td>{{ $item->pmb_1_skripsi_pagi }}</td>
+                                                                                    <th>Pmb. I Skripsi (kls pagi)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_1_skripsi_pagi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. I Skripsi (kls malam):</th>
-                                                                                    <td>{{ $item->pmb_1_skripsi_malam }}</td>
+                                                                                    <th>Pmb. I Skripsi (kls malam)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_1_skripsi_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. II Proposal (kls pagi):</th>
-                                                                                    <td>{{ $item->pmb_2_proposal_pagi }}</td>
+                                                                                    <th>Pmb. II Proposal (kls pagi)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_2_proposal_pagi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. II Proposal (kls malam):</th>
-                                                                                    <td>{{ $item->pmb_2_proposal_malam }}</td>
+                                                                                    <th>Pmb. II Proposal (kls malam)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_2_proposal_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. II Skripsi (kls pagi):</th>
-                                                                                    <td>{{ $item->pmb_2_skripsi_pagi }}</td>
+                                                                                    <th>Pmb. II Skripsi (kls pagi)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_2_skripsi_pagi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb. II Skripsi (kls malam):</th>
-                                                                                    <td>{{ $item->pmb_2_skripsi_malam }}</td>
+                                                                                    <th>Pmb. II Skripsi (kls malam)</th>
+                                                                                    <td>Rp. @currency( $item->pmb_2_skripsi_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Penguji Sidang Proposal:</th>
-                                                                                    <td>{{ $item->penguji_sidang_proposal }}</td>
+                                                                                    <th>Penguji Sidang Proposal</th>
+                                                                                    <td>Rp. @currency( $item->penguji_sidang_proposal )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Penguji Sidang Skripsi:</th>
-                                                                                    <td>{{ $item->penguji_sidang_skripsi }}</td>
+                                                                                    <th>Penguji Sidang Skripsi</th>
+                                                                                    <td>Rp. @currency( $item->penguji_sidang_skripsi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Koreksi Soal:</th>
-                                                                                    <td>{{ $item->koreksi_soal }}</td>
+                                                                                    <th>Koreksi Soal</th>
+                                                                                    <td>Rp. @currency( $item->koreksi_soal )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pembuatan Soal:</th>
-                                                                                    <td>{{ $item->pembuatan_soal }}</td>
+                                                                                    <th>Pembuatan Soal</th>
+                                                                                    <td>Rp. @currency( $item->pembuatan_soal )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Dosen Wali:</th>
-                                                                                    <td>{{ $item->dosen_wali }}</td>
+                                                                                    <th>Dosen Wali</th>
+                                                                                    <td>Rp. @currency( $item->dosen_wali )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pengawas Ujian:</th>
-                                                                                    <td>{{ $item->pengawas_ujian }}</td>
+                                                                                    <th>Pengawas Ujian</th>
+                                                                                    <td>Rp. @currency( $item->pengawas_ujian )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pembina UKM:</th>
-                                                                                    <td>{{ $item->pembina_ukm }}</td>
+                                                                                    <th>Pembina UKM</th>
+                                                                                    <td>Rp. @currency( $item->pembina_ukm )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Remidial:</th>
-                                                                                    <td>{{ $item->remidial }}</td>
+                                                                                    <th>Remidial</th>
+                                                                                    <td>Rp. @currency( $item->remidial )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pemb. Company Visit:</th>
-                                                                                    <td>{{ $item->pmb_company_visit }}</td>
+                                                                                    <th>Pemb. Company Visit</th>
+                                                                                    <td>Rp. @currency( $item->pmb_company_visit )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Reward EKIN:</th>
-                                                                                    <td>{{ $item->reward_ekin }}</td>
+                                                                                    <th>Reward EKIN</th>
+                                                                                    <td>Rp. @currency( $item->reward_ekin )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-success">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah Gaji, Tunjangan dan honor</strong></th>
+                                                                                    <td><strong style="font-size: 14px;">+Rp. @currency( $item->jumlah_gaji_tunjangan_honor )</strong></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jumlah Gaji, Tunjangan dan honor:</th>
-                                                                                    <td>{{ $item->jumlah_gaji_tunjangan_honor }}</td>
+                                                                                    <th>Potongan Kas Bon</th>
+                                                                                    <td>Rp. @currency( $item->potongan_kas_bon )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Potongan Kas Bon:</th>
-                                                                                    <td>{{ $item->potongan_kas_bon }}</td>
+                                                                                    <th>Pph 21</th>
+                                                                                    <td>Rp. @currency( $item->pph_21 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pph 21:</th>
-                                                                                    <td>{{ $item->pph_21 }}</td>
+                                                                                    <th>Potongan Absensi</th>
+                                                                                    <td>Rp. @currency( $item->potongan_absensi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Potongan Absensi:</th>
-                                                                                    <td>{{ $item->potongan_absensi }}</td>
+                                                                                    <th>Potongan BPJS</th>
+                                                                                    <td>Rp. @currency( $item->potongan_bpjs )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Potongan BPJS:</th>
-                                                                                    <td>{{ $item->potongan_bpjs }}</td>
+                                                                                <tr class="alert alert-danger">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah Potongan</th>
+                                                                                    <td><strong style="font-size: 14px;">-Rp. @currency( $item->jumlah )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Jumlah:</th>
-                                                                                    <td>{{ $item->jumlah }}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Gaji Yang dibayar:</th>
-                                                                                    <td>{{ $item->gaji_yang_dibayar }}</td>
+                                                                                <tr class="alert alert-primary">
+                                                                                    <th style="text-align: end;"><strong style="font-size: 16px;">Gaji Yang dibayar Rp. @currency( $item->gaji_yang_dibayar )</strong></th>
+                                                                                    <td></td>
                                                                                 </tr>
                                                                                 </table>
                                                                             </div>

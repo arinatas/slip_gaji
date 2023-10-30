@@ -159,76 +159,76 @@
                                                                             <div class="table-responsive my-10 mx-8">
                                                                                 <table class="table table-striped gy-7 gs-7">
                                                                                 <tr>
-                                                                                    <th>Email:</th>
+                                                                                    <th>Email</th>
                                                                                     <td>{{ $item->email }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Periode:</th>
+                                                                                    <th>Periode</th>
                                                                                     <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nama:</th>
+                                                                                    <th>Nama</th>
                                                                                     <td>{{ $item->nama }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jabatan:</th>
+                                                                                    <th>Jabatan</th>
                                                                                     <td>{{ $item->jabatan }}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Gaji Pokok:</th>
-                                                                                    <td>{{ $item->gaji_pokok }}</td>
+                                                                                    <th>Gaji Pokok</th>
+                                                                                    <td>Rp. @currency($item->gaji_pokok )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunjangan Jabatan:</th>
-                                                                                    <td>{{ $item->tunjangan_jabatan }}</td>
+                                                                                    <th>Tunjangan Jabatan</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_jabatan )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunjangan Kehadiran:</th>
-                                                                                    <td>{{ $item->tunjangan_kehadiran }}</td>
+                                                                                    <th>Tunjangan Kehadiran</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_kehadiran )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunjangan Lembur:</th>
-                                                                                    <td>{{ $item->tunjangan_lembur }}</td>
+                                                                                    <th>Tunjangan Lembur</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_lembur )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunj. Pel. Mhs/Op. Feeder:</th>
-                                                                                    <td>{{ $item->tunj_pel_mhs_op_feeder }}</td>
+                                                                                    <th>Tunj. Pel. Mhs/Op. Feeder</th>
+                                                                                    <td>Rp. @currency( $item->tunj_pel_mhs_op_feeder )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Tunjangan Kinerja:</th>
-                                                                                    <td>{{ $item->tunjangan_kinerja }}</td>
+                                                                                    <th>Tunjangan Kinerja</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_kinerja )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-success">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah Penambah</th>
+                                                                                    <td><strong style="font-size: 14px;">+Rp. @currency( $item->jumlah_penambah )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Jumlah Penambah:</th>
-                                                                                    <td>{{ $item->jumlah_penambah }}</td>
+                                                                                    <th>Potongan Kasbon</th>
+                                                                                    <td>Rp. @currency( $item->potongan_kasbon )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Potongan Kasbon:</th>
-                                                                                    <td>{{ $item->potongan_kasbon }}</td>
+                                                                                    <th>Denda Keterlambatan</th>
+                                                                                    <td>Rp. @currency( $item->denda_keterlambatan )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Denda Keterlambatan:</th>
-                                                                                    <td>{{ $item->denda_keterlambatan }}</td>
+                                                                                    <th>Potongan Pph 21</th>
+                                                                                    <td>Rp. @currency( $item->potongan_pph_21 )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Potongan Pph 21:</th>
-                                                                                    <td>{{ $item->potongan_pph_21 }}</td>
+                                                                                    <th>Potongan Absensi</th>
+                                                                                    <td>Rp. @currency( $item->potongan_absensi )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Potongan Absensi:</th>
-                                                                                    <td>{{ $item->potongan_absensi }}</td>
+                                                                                    <th>Potongan BPJS</th>
+                                                                                    <td>Rp. @currency( $item->potongan_bpjs )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Potongan BPJS:</th>
-                                                                                    <td>{{ $item->potongan_bpjs }}</td>
+                                                                                <tr class="alert alert-danger">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah Potongan</th>
+                                                                                    <td><strong style="font-size: 14px;">-Rp. @currency( $item->jumlah_pengurang )</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>Jumlah Pengurang:</th>
-                                                                                    <td>{{ $item->jumlah_pengurang }}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Gaji yang Dibayarkan:</th>
-                                                                                    <td>{{ $item->gaji_yang_dibayar }}</td>
+                                                                                <tr class="alert alert-primary">
+                                                                                    <th style="text-align: end;"><strong style="font-size: 16px;">Gaji yang Dibayarkan Rp. @currency( $item->gaji_yang_dibayar )</th>
+                                                                                    <td></td>
                                                                                 </tr>
                                                                                 </table>
                                                                             </div>
