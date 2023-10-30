@@ -772,7 +772,7 @@
                                                     <!--begin::Actions-->
                                                     <div class="text-center pt-15">
                                                         <button type="reset" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary">
+                                                        <button type="submit" onclick="submitForm(this)" class="btn btn-primary">
                                                             <span class="indicator-label">Submit</span>
                                                         </button>
                                                     </div>
@@ -799,6 +799,14 @@
                                 // Jika pengguna menekan OK dalam konfirmasi, lanjutkan dengan penghapusan
                                 event.target.form.submit();
                             }
+                        }
+                        // untuk submit agar tidak spam klik
+                        function submitForm(button) {
+                            button.disabled = true;
+                                    button.innerHTML = 'Submitting...';
+
+                                    // Mencegah pengiriman berulang
+                                    button.form.submit();
                         }
                     </script>
 @endsection
