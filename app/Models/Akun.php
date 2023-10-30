@@ -14,7 +14,9 @@ class Akun extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'username',
+        'name',
+        'email',
+        'jenis_pegawai',
         'password',
         'is_admin',
         'is_aktif'

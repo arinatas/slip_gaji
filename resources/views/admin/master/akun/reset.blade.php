@@ -29,8 +29,8 @@
                             <form action="{{ route('resetupdate.akun', $akun->id ) }}" method="POST">
                                 @csrf
                                 <div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Username</label>
-                                    <input type="text" value="{{$akun->username}}" class="form-control form-control-solid" required name="username"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Email</label>
+                                    <input type="text" value="{{$akun->email}}" class="form-control form-control-solid" required name="email"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Password</label>
