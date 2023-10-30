@@ -490,82 +490,82 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 1</span>
+                                                            <span>Matkul 1</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_1" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_1" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 1</span>
+                                                            <span>Nominal Matkul 1</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_1" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_1" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 2</span>
+                                                            <span>Matkul 2</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_2" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_2" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 2</span>
+                                                            <span>Nominal Matkul 2</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_2" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_2" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 3</span>
+                                                            <span>Matkul 3</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_3" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_3" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 3</span>
+                                                            <span>Nominal Matkul 3</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_3" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_3" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 4</span>
+                                                            <span>Matkul 4</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_4" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_4" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 4</span>
+                                                            <span>Nominal Matkul 4</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_4" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_4" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 5</span>
+                                                            <span>Matkul 5</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_5" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_5" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 5</span>
+                                                            <span>Nominal Matkul 5</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_5" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_5" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
