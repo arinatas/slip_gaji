@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
-use App\Models\DosenLBC;
+use App\Models\Dosenlb;
 
 
 class DosenLbUserController extends Controller
@@ -20,7 +20,7 @@ class DosenLbUserController extends Controller
         $userEmail = auth()->user()->email;
 
         if($userEmail === $request->email || $request->email === null) {
-            $Datas = DosenLBC::where('email', $request->email)
+            $Datas = Dosenlb::where('email', $request->email)
             ->where('bulan', $request->bulan)
             ->where('tahun', $request->tahun)
             ->get();
