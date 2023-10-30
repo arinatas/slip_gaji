@@ -26,17 +26,17 @@
 						<!--end::Heading-->
 						<!--begin::Table-->
                         <div class="mt-15">
-                            <form action="{{ route('update.dosenlb', $dosenlb->id ) }}" method="POST">
+                            <form action="{{ route('update.dosentetap', $dosenTetap->id ) }}" method="POST">
                                 @csrf
                                 <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">email</label>
-                                    <input type="text" value="{{$dosenlb->email}}" class="form-control form-control-solid" required name="email"/>
+                                    <input type="text" value="{{$dosenTetap->email}}" class="form-control form-control-solid" required name="email"/>
                                 </div>
 								<div class="mb-10">
 									<label for="exampleFormControlInput1" class="required form-label">Bulan</label>
 									<select class="form-select form-select-solid" name="bulan" required>
 										@foreach (range(1, 12) as $month)
-											<option value="{{ $month }}" {{ $dosenlb->bulan == $month ? 'selected' : '' }}>
+											<option value="{{ $month }}" {{ $dosenTetap->bulan == $month ? 'selected' : '' }}>
 												{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$month - 1] }}
 											</option>
 										@endforeach
@@ -44,96 +44,152 @@
 								</div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tahun</label>
-                                    <input type="text" value="{{$dosenlb->tahun}}" class="form-control form-control-solid" required name="tahun"/>
+                                    <input type="text" value="{{$dosenTetap->tahun}}" class="form-control form-control-solid" required name="tahun"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Nama</label>
-                                    <input type="text" value="{{$dosenlb->nama}}" class="form-control form-control-solid" required name="nama"/>
+                                    <input type="text" value="{{$dosenTetap->nama}}" class="form-control form-control-solid" required name="nama"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Jabatan Struktural</label>
-                                    <input type="text" value="{{$dosenlb->jabatan_struktural}}" class="form-control form-control-solid" required name="jabatan_struktural"/>
+                                    <input type="text" value="{{$dosenTetap->jabatan_struktural}}" class="form-control form-control-solid" required name="jabatan_struktural"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Jabatan Fungsional</label>
-                                    <input type="text" value="{{$dosenlb->jabatan_fungsional}}" class="form-control form-control-solid" required name="jabatan_fungsional"/>
+                                    <input type="text" value="{{$dosenTetap->jabatan_fungsional}}" class="form-control form-control-solid" required name="jabatan_fungsional"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Honor Pokok</label>
-                                    <input type="text" value="{{$dosenlb->honor_pokok}}" class="form-control form-control-solid" required name="honor_pokok"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Gaji Pokok</label>
+                                    <input type="text" value="{{$dosenTetap->gaji_pokok}}" class="form-control form-control-solid" required name="gaji_pokok"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 1</label>
-                                    <input type="text" value="{{$dosenlb->matkul_1}}" class="form-control form-control-solid" required name="matkul_1"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kehadiran</label>
+                                    <input type="text" value="{{$dosenTetap->tunjangan_kehadiran}}" class="form-control form-control-solid" required name="tunjangan_kehadiran"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 1</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_1}}" class="form-control form-control-solid" required name="nominal_matkul_1"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunj. Jbt.Struktural</label>
+                                    <input type="text" value="{{$dosenTetap->tunjangan_jabatan_struktural}}" class="form-control form-control-solid" required name="tunjangan_jabatan_struktural"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 2</label>
-                                    <input type="text" value="{{$dosenlb->matkul_2}}" class="form-control form-control-solid" required name="matkul_2"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Tunj. Jbt. Fungsional</label>
+                                    <input type="text" value="{{$dosenTetap->tunjangan_jabatan_fungsional}}" class="form-control form-control-solid" required name="tunjangan_jabatan_fungsional"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 2</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_2}}" class="form-control form-control-solid" required name="nominal_matkul_2"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Honor Mengajar Kelas Pagi</label>
+                                    <input type="text" value="{{$dosenTetap->honor_mengajar_kls_pagi}}" class="form-control form-control-solid" required name="honor_mengajar_kls_pagi"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 3</label>
-                                    <input type="text" value="{{$dosenlb->matkul_3}}" class="form-control form-control-solid" required name="matkul_3"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Honor Mengajar Kelas Malam</label>
+                                    <input type="text" value="{{$dosenTetap->honor_mengajar_kls_malam}}" class="form-control form-control-solid" required name="honor_mengajar_kls_malam"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 3 </label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_3}}" class="form-control form-control-solid" required name="nominal_matkul_3"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb./Penguji Kerja Praktek </label>
+                                    <input type="text" value="{{$dosenTetap->pmb_atau_penguji_kp}}" class="form-control form-control-solid" required name="pmb_atau_penguji_kp"/>
                                 </div>
 
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 4</label>
-                                    <input type="text" value="{{$dosenlb->matkul_4}}" class="form-control form-control-solid" required name="matkul_4"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. I Proposal (kls pagi)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_1_proposal_pagi}}" class="form-control form-control-solid" required name="pmb_1_proposal_pagi"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 4</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_4}}" class="form-control form-control-solid" required name="nominal_matkul_4"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. I Proposal (kls malam)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_1_proposal_malam}}" class="form-control form-control-solid" required name="pmb_1_proposal_malam"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 5</label>
-                                    <input type="text" value="{{$dosenlb->matkul_5}}" class="form-control form-control-solid" required name="matkul_5"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. I Skripsi (kls pagi)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_1_skripsi_pagi}}" class="form-control form-control-solid" required name="pmb_1_skripsi_pagi"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 5</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_5}}" class="form-control form-control-solid" required name="nominal_matkul_5"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. I Skripsi (kls malam)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_1_skripsi_malam}}" class="form-control form-control-solid" required name="pmb_1_skripsi_malam"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Anggota Klp Dosen</label>
-                                    <input type="text" value="{{$dosenlb->anggota_klp_dosen}}" class="form-control form-control-solid" required name="anggota_klp_dosen"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. II Proposal (kls pagi)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_2_proposal_pagi}}" class="form-control form-control-solid" required name="pmb_2_proposal_pagi"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Pembuatan Soal</label>
-                                    <input type="text" value="{{$dosenlb->pembuatan_soal}}" class="form-control form-control-solid" required name="pembuatan_soal"/>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. II Proposal (kls malam)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_2_proposal_malam}}" class="form-control form-control-solid" required name="pmb_2_proposal_malam"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. II Skripsi (kls pagi)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_2_skripsi_pagi}}" class="form-control form-control-solid" required name="pmb_2_skripsi_pagi"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb. II Skripsi (kls malam)</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_2_skripsi_malam}}" class="form-control form-control-solid" required name="pmb_2_skripsi_malam"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Penguji Sidang Proposal</label>
+                                    <input type="text" value="{{$dosenTetap->penguji_sidang_proposal}}" class="form-control form-control-solid" required name="penguji_sidang_proposal"/>
+                                </div>
+								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Penguji Sidang Skripsi</label>
+                                    <input type="text" value="{{$dosenTetap->penguji_sidang_skripsi}}" class="form-control form-control-solid" required name="penguji_sidang_skripsi"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Koreksi Soal</label>
-                                    <input type="text" value="{{$dosenlb->koreksi_soal}}" class="form-control form-control-solid" required name="koreksi_soal"/>
+                                    <input type="text" value="{{$dosenTetap->koreksi_soal}}" class="form-control form-control-solid" required name="koreksi_soal"/>
                                 </div>
-								<div class="mb-10">
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pembuatan Soal</label>
+                                    <input type="text" value="{{$dosenTetap->pembuatan_soal}}" class="form-control form-control-solid" required name="pembuatan_soal"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Dosen Wali</label>
+                                    <input type="text" value="{{$dosenTetap->dosen_wali}}" class="form-control form-control-solid" required name="dosen_wali"/>
+                                </div>
+                                <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pengawas Ujian</label>
-                                    <input type="text" value="{{$dosenlb->pengawas_ujian}}" class="form-control form-control-solid" required name="pengawas_ujian"/>
+                                    <input type="text" value="{{$dosenTetap->pengawas_ujian}}" class="form-control form-control-solid" required name="pengawas_ujian"/>
                                 </div>
-								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah</label>
-                                    <input type="text" value="{{$dosenlb->jumlah}}" class="form-control form-control-solid" required name="jumlah"/>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pembina UKM</label>
+                                    <input type="text" value="{{$dosenTetap->pembina_ukm}}" class="form-control form-control-solid" required name="pembina_ukm"/>
                                 </div>
-								<div class="mb-10">
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Remidial</label>
+                                    <input type="text" value="{{$dosenTetap->remidial}}" class="form-control form-control-solid" required name="remidial"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pemb. Company Visit</label>
+                                    <input type="text" value="{{$dosenTetap->pmb_company_visit}}" class="form-control form-control-solid" required name="pmb_company_visit"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Reward EKIN</label>
+                                    <input type="text" value="{{$dosenTetap->reward_ekin}}" class="form-control form-control-solid" required name="reward_ekin"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah Gaji, Tunjangan dan honor</label>
+                                    <input type="text" value="{{$dosenTetap->jumlah_gaji_tunjangan_honor}}" class="form-control form-control-solid" required name="jumlah_gaji_tunjangan_honor"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan Kas Bon</label>
+                                    <input type="text" value="{{$dosenTetap->potongan_kas_bon}}" class="form-control form-control-solid" required name="potongan_kas_bon"/>
+                                </div>
+                                <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pph 21</label>
-                                    <input type="text" value="{{$dosenlb->pph_21}}" class="form-control form-control-solid" required name="pph_21"/>
+                                    <input type="text" value="{{$dosenTetap->pph_21}}" class="form-control form-control-solid" required name="pph_21"/>
                                 </div>
-								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Honor Yang dibayar</label>
-                                    <input type="text" value="{{$dosenlb->honor_yang_dibayar}}" class="form-control form-control-solid" required name="honor_yang_dibayar"/>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan Absensi </label>
+                                    <input type="text" value="{{$dosenTetap->potongan_absensi}}" class="form-control form-control-solid" required name="potongan_absensi"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Potongan BPJS</label>
+                                    <input type="text" value="{{$dosenTetap->potongan_bpjs}}" class="form-control form-control-solid" required name="potongan_bpjs"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah</label>
+                                    <input type="text" value="{{$dosenTetap->jumlah}}" class="form-control form-control-solid" required name="jumlah"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Gaji Yang dibayar</label>
+                                    <input type="text" value="{{$dosenTetap->gaji_yang_dibayar}}" class="form-control form-control-solid" required name="gaji_yang_dibayar"/>
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <!--begin::Actions-->
-                                    <a href="{{ route('dosenlb') }}" class="btn btn-secondary">
+                                    <a href="{{ route('dosentetap') }}" class="btn btn-secondary">
                                         <span class="indicator-label">
                                             Cancel
                                         </span>

@@ -20,8 +20,8 @@
                                                     <h2 class="fs-2x fw-bolder mb-0">Slip {{ $title }}</h2>
                                                 </div>
                                                 <div class="d-inline">
-                                                    <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_dosenlb" title="Tambah Data Slip Gaji per Pegawai">Tambah</a>
-                                                    <a href="{{ route('excel.dosen.lb') }}" class="btn btn-sm btn-secondary">Download Contoh Excel</a>
+                                                    <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_dosentetap" title="Tambah Data Slip Gaji per Pegawai">Tambah</a>
+                                                    <a href="{{ route('excel.dosen.tetap') }}" class="btn btn-sm btn-secondary">Download Contoh Excel</a>
                                                   
                                                 </div>
                                             <!--end::Title-->
@@ -29,12 +29,12 @@
                                         <!--end::Heading-->
                                         
                                         <!--begin::Table-->
-                                        @if ($dosenlbs )
+                                        @if ($dosenTetaps )
                                         <div class="table-responsive my-10 mx-8">
                                              <!--begin::Import Form-->
                                             <div class="mt-5">
                                                 <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
-                                                <form action="{{ route('import.dosenlb') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('import.dosentetap') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="mb-3">
                                                         <label for="excel_file" class="form-label">Pilih File Excel:</label>
@@ -50,7 +50,7 @@
                                             </div>
                                             <!-- Filter Form -->
                                             <div class="mt-10">
-                                                <form action="{{ route('dosenlb') }}" method="GET">
+                                                <form action="{{ route('dosentetap') }}" method="GET">
                                                     <div class="row mb-3">
                                                         <div class="col-md-3">
                                                             <label for="bulan" class="form-label">Bulan:</label>
@@ -104,35 +104,49 @@
                                                         <th class="min-w-100px">Tahun</th>
                                                         <th class="min-w-100px">Jabatan Struktural</th>
                                                         <th class="min-w-100px">Jabatan Fungsional</th>
-                                                        <th class="min-w-100px">Honor Pokok</th>
-                                                        <th class="min-w-100px">Matkul 1</th>
-                                                        <th class="min-w-100px">Nominal Matkul 1</th>
-                                                        <th class="min-w-100px">Matkul 2</th>
-                                                        <th class="min-w-100px">Nominal Matkul 2</th>
-                                                        <th class="min-w-100px">Matkul 3</th>
-                                                        <th class="min-w-100px">Nominal Matkul 3</th>
-                                                        <th class="min-w-100px">Matkul 4</th>
-                                                        <th class="min-w-100px">Nominal Matkul 1</th>
-                                                        <th class="min-w-100px">Matkul 5</th>
-                                                        <th class="min-w-100px">Nominal Matkul 5</th>
-                                                        <th class="min-w-100px">Anggota Klp Dosen</th>
-                                                        <th class="min-w-100px">Pembuatan Soal</th>
+                                                        <th class="min-w-100px">Gaji Pokok</th>
+                                                        <th class="min-w-100px">Tunjangan Kehadiran</th>
+                                                        <th class="min-w-100px">Tunj. Jbt.Struktural</th>
+                                                        <th class="min-w-100px">Tunj. Jbt. Fungsional</th>
+                                                        <th class="min-w-100px">Honor Mengajar Kelas Pagi</th>
+                                                        <th class="min-w-100px">Honor Mengajar Kelas Malam</th>
+                                                        <th class="min-w-100px">Pmb./Penguji Kerja Praktek</th>
+                                                        <th class="min-w-100px">Pmb. I Proposal (kls pagi)</th>
+                                                        <th class="min-w-100px">Pmb. I Proposal (kls malam)</th>
+                                                        <th class="min-w-100px">Pmb. I Skripsi (kls pagi)</th>
+                                                        <th class="min-w-100px">Pmb. I Skripsi (kls malam)</th>
+                                                        <th class="min-w-100px">Pmb. II Proposal (kls pagi)</th>
+                                                        <th class="min-w-100px">Pmb. II Proposal (kls malam)</th>
+                                                        <th class="min-w-100px">Pmb. II Skripsi (kls pagi)</th>
+                                                        <th class="min-w-100px">Pmb. II Skripsi (kls malam)</th>
+                                                        <th class="min-w-100px">Penguji Sidang Proposal</th>
+                                                        <th class="min-w-100px">Penguji Sidang Skripsi</th>
                                                         <th class="min-w-100px">Koreksi Soal</th>
-                                                        <th class="min-w-100px">Pengawas Ujian</th>
-                                                        <th class="min-w-100px">Jumlah</th>
-                                                        <th class="min-w-100px">Pph 21</th>
-                                                        <th class="min-w-100px">Honor Yang dibayar</th>
+                                                        <th class="min-w-200px">Pembuatan Soal</th>
+                                                        <th class="min-w-200px">Dosen Wali</th>
+                                                        <th class="min-w-200px">Pengawas Ujian</th>
+                                                        <th class="min-w-200px">Pembina UKM</th>
+                                                        <th class="min-w-200px">Remidial</th>
+                                                        <th class="min-w-200px">Pemb. Company Visit</th>
+                                                        <th class="min-w-200px">Reward EKIN</th>
+                                                        <th class="min-w-200px">Jumlah Gaji, Tunjangan dan honor</th>
+                                                        <th class="min-w-200px">Potongan Kas Bon</th>
+                                                        <th class="min-w-200px">Pph 21</th>
+                                                        <th class="min-w-200px">Potongan Absensi</th>
+                                                        <th class="min-w-200px">Potongan BPJS</th>
+                                                        <th class="min-w-200px">Jumlah</th>
+                                                        <th class="min-w-200px">Gaji Yang dibayar</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @php
                                                         $no = 1; // Inisialisasi no
                                                     @endphp
-                                                    @foreach ($dosenlbs as $item)
+                                                    @foreach ($dosenTetaps as $item)
                                                     <tr>
                                                         <td>
-                                                            <a href="{{ route('edit.dosenlb', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                            <form id="form-delete" action="{{ route('destroy.dosenlb', $item->id ) }}" method="POST"
+                                                            <a href="{{ route('edit.dosentetap', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                            <form id="form-delete" action="{{ route('destroy.dosentetap', $item->id ) }}" method="POST"
                                                             class="d-inline-block">
                                                             @csrf
                                                             @method('DELETE')
@@ -151,24 +165,38 @@
                                                         <td>{{ $item->tahun }}</td>
                                                         <td>{{ $item->jabatan_struktural }}</td>
                                                         <td>{{ $item->jabatan_fungsional }}</td>
-                                                        <td>{{ $item->honor_pokok }}</td>
-                                                        <td>{{ $item->matkul_1 }}</td>
-                                                        <td>{{ $item->nominal_matkul_1 }}</td>
-                                                        <td>{{ $item->matkul_2 }}</td>
-                                                        <td>{{ $item->nominal_matkul_2 }}</td>
-                                                        <td>{{ $item->matkul_3 }}</td>
-                                                        <td>{{ $item->nominal_matkul_3 }}</td>
-                                                        <td>{{ $item->matkul_4 }}</td>
-                                                        <td>{{ $item->nominal_matkul_4 }}</td>
-                                                        <td>{{ $item->matkul_5 }}</td>
-                                                        <td>{{ $item->nominal_matkul_5 }}</td>
-                                                        <td>{{ $item->anggota_klp_dosen }}</td>
-                                                        <td>{{ $item->pembuatan_soal }}</td>
+                                                        <td>{{ $item->gaji_pokok }}</td>
+                                                        <td>{{ $item->tunjangan_kehadiran }}</td>
+                                                        <td>{{ $item->tunjangan_jabatan_struktural }}</td>
+                                                        <td>{{ $item->tunjangan_jabatan_fungsional }}</td>
+                                                        <td>{{ $item->honor_mengajar_kls_pagi }}</td>
+                                                        <td>{{ $item->honor_mengajar_kls_malam }}</td>
+                                                        <td>{{ $item->pmb_atau_penguji_kp }}</td>
+                                                        <td>{{ $item->pmb_1_proposal_pagi }}</td>
+                                                        <td>{{ $item->pmb_1_proposal_malam }}</td>
+                                                        <td>{{ $item->pmb_1_skripsi_pagi }}</td>
+                                                        <td>{{ $item->pmb_1_skripsi_malam }}</td>
+                                                        <td>{{ $item->pmb_2_proposal_pagi }}</td>
+                                                        <td>{{ $item->pmb_2_proposal_malam }}</td>
+                                                        <td>{{ $item->pmb_2_skripsi_pagi }}</td>
+                                                        <td>{{ $item->pmb_2_skripsi_malam }}</td>
+                                                        <td>{{ $item->penguji_sidang_proposal }}</td>
+                                                        <td>{{ $item->penguji_sidang_skripsi }}</td>
                                                         <td>{{ $item->koreksi_soal }}</td>
+                                                        <td>{{ $item->pembuatan_soal }}</td>
+                                                        <td>{{ $item->dosen_wali }}</td>
                                                         <td>{{ $item->pengawas_ujian }}</td>
-                                                        <td>{{ $item->jumlah }}</td>
+                                                        <td>{{ $item->pembina_ukm }}</td>
+                                                        <td>{{ $item->remidial }}</td>
+                                                        <td>{{ $item->pmb_company_visit }}</td>
+                                                        <td>{{ $item->reward_ekin }}</td>
+                                                        <td>{{ $item->jumlah_gaji_tunjangan_honor }}</td>
+                                                        <td>{{ $item->potongan_kas_bon }}</td>
                                                         <td>{{ $item->pph_21 }}</td>
-                                                        <td>{{ $item->honor_yang_dibayar }}</td>
+                                                        <td>{{ $item->potongan_absensi }}</td>
+                                                        <td>{{ $item->potongan_bpjs }}</td>
+                                                        <td>{{ $item->jumlah }}</td>
+                                                        <td>{{ $item->gaji_yang_dibayar }}</td>
                                                     </tr>
                                                     @php
                                                         $no++; // Tambahkan no setiap kali iterasi
@@ -211,7 +239,7 @@
                                 </div>
                                 <!--end::Card-->
                                 <!--begin::Modal-->
-                                <div class="modal fade" id="kt_modal_new_dosenlb" tabindex="-1" aria-hidden="true">
+                                <div class="modal fade" id="kt_modal_new_dosentetap" tabindex="-1" aria-hidden="true">
                                     <!--begin::Modal dialog-->
                                     <div class="modal-dialog modal-dialog-centered mw-650px">
                                         <!--begin::Modal content-->
@@ -238,7 +266,7 @@
                                             <!--begin::Modal body-->
                                             <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                 <!--begin::Form-->
-                                                <form action="{{ route('insert.dosenlb') }}" method="POST">
+                                                <form action="{{ route('insert.dosentetap') }}" method="POST">
                                                     @csrf
                                                     <!--begin::Input group-->
                                                     <div class="d-flex flex-column mb-7 fv-row">
@@ -296,106 +324,138 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Honor Pokok</span>
+                                                            <span class="required">Gaji Pokok</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="honor_pokok" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="gaji_pokok" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 1</span>
+                                                            <span class="required">Tunjangan Kehadiran</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_1" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_kehadiran" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 1</span>
+                                                            <span class="required">Tunj. Jbt.Struktural</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_1" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_jabatan_struktural" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 2</span>
+                                                            <span class="required">Tunj. Jbt. Fungsional</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_2" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="tunjangan_jabatan_fungsional" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 2</span>
+                                                            <span class="required">Honor Mengajar Kelas Pagi</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_2" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mengajar_kls_pagi" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 3</span>
+                                                            <span class="required">Honor Mengajar Kelas Malam</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_3" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mengajar_kls_malam" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 3</span>
+                                                            <span class="required">Pmb./Penguji Kerja Praktek</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_3" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_atau_penguji_kp" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 4</span>
+                                                            <span class="required">Pmb. I Proposal (kls pagi)</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_4" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_1_proposal_pagi" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 4</span>
+                                                            <span class="required">Pmb. I Proposal (kls malam)</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_4" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_1_proposal_malam" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 5</span>
+                                                            <span class="required">Pmb. I Skripsi (kls pagi)</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_5" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_1_skripsi_pagi" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 5</span>
+                                                            <span class="required">Pmb. I Skripsi (kls malam)</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_5" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_1_skripsi_malam" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Anggota Klp Dosen</span>
+                                                            <span class="required">Pmb. II Proposal (kls pagi)</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="anggota_klp_dosen" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_2_proposal_pagi" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Pembuatan Soal</span>
+                                                            <span class="required">Pmb. II Proposal (kls malam)</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="pembuatan_soal" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_2_proposal_malam" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Pmb. II Skripsi (kls pagi)</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_2_skripsi_pagi" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Pmb. II Skripsi (kls malam)</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_2_skripsi_malam" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Penguji Sidang Proposal</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="penguji_sidang_proposal" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Penguji Sidang Skripsi</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="penguji_sidang_skripsi" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
@@ -408,6 +468,22 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Pembuatan Soal</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="pembuatan_soal" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Dosen Wali</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="dosen_wali" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                             <span class="required">Pengawas Ujian</span>
                                                         </label>
                                                         <!--end::Label-->
@@ -416,10 +492,50 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Jumlah</span>
+                                                            <span class="required">Pembina UKM</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="jumlah" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pembina_ukm" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Remidial</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="remidial" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Pemb. Company Visit</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_company_visit" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Reward EKIN</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="reward_ekin" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jumlah Gaji, Tunjangan dan honor</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jumlah_gaji_tunjangan_honor" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Potongan Kas Bon</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_kas_bon" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
@@ -432,10 +548,34 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Honor Yang Dibayar</span>
+                                                            <span class="required">Potongan Absensi</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="honor_yang_dibayar" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_absensi" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Potongan BPJS</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="potongan_bpjs" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jumlah</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jumlah" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Gaji Yang dibayar</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="gaji_yang_dibayar" required value=""/>
                                                     </div>
                                                     <!--end::Input group-->
                                                     <!--begin::Actions-->
