@@ -188,44 +188,34 @@
                                                                                     <td>Rp. @currency( $item->honor_pokok )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 1</th>
-                                                                                    <td>{{ $item->matkul_1 }}</td>
+                                                                                    @if(!is_null($item->matkul_1) || !is_null($item->nominal_matkul_1))
+                                                                                        <th>MK 1 ({{ $item->matkul_1 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_1)</td>
+                                                                                    @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 1</th>
-                                                                                    <td>Rp. @currency( $item->nominal_matkul_1 )</td>
+                                                                                    @if(!is_null($item->matkul_2) || !is_null($item->nominal_matkul_2))
+                                                                                        <th>MK 2 ({{ $item->matkul_2 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_2)</td>
+                                                                                    @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 2</th>
-                                                                                    <td>{{ $item->matkul_2 }}</td>
+                                                                                    @if(!is_null($item->matkul_3) || !is_null($item->nominal_matkul_3))
+                                                                                        <th>MK 3 ({{ $item->matkul_3 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_3)</td>
+                                                                                    @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Nominal Matkul 2</th>
-                                                                                    <td>Rp. @currency( $item->nominal_matkul_2 )</td>
+                                                                                    @if(!is_null($item->matkul_4) || !is_null($item->nominal_matkul_4))
+                                                                                        <th>MK 4 ({{ $item->matkul_4 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_4)</td>
+                                                                                    @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Matkul 3</th>
-                                                                                    <td>{{ $item->matkul_3 }}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Nominal Matkul 3</th>
-                                                                                    <td>Rp. @currency( $item->nominal_matkul_3 )</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Matkul 4</th>
-                                                                                    <td>{{ $item->matkul_4 }}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Nominal Matkul 4</th>
-                                                                                    <td>Rp. @currency( $item->nominal_matkul_4 )</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Matkul 5</th>
-                                                                                    <td>{{ $item->matkul_5 }}</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>Nominal Matkul 5</th>
-                                                                                    <td>Rp. @currency( $item->nominal_matkul_5 )</td>
+                                                                                    @if(!is_null($item->matkul_5) || !is_null($item->nominal_matkul_5))
+                                                                                        <th>MK 5 ({{ $item->matkul_5 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_5)</td>
+                                                                                    @endif
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>Anggota Klp Dosen</th>
@@ -287,16 +277,77 @@
                                                         <td>{{ $item->jabatan_struktural }}</td>
                                                         <td>{{ $item->jabatan_fungsional }}</td>
                                                         <td>{{ $item->honor_pokok }}</td>
-                                                        <td>{{ $item->matkul_1 }}</td>
-                                                        <td>{{ $item->nominal_matkul_1 }}</td>
-                                                        <td>{{ $item->matkul_2 }}</td>
-                                                        <td>{{ $item->nominal_matkul_2 }}</td>
-                                                        <td>{{ $item->matkul_3 }}</td>
-                                                        <td>{{ $item->nominal_matkul_3 }}</td>
-                                                        <td>{{ $item->matkul_4 }}</td>
-                                                        <td>{{ $item->nominal_matkul_4 }}</td>
-                                                        <td>{{ $item->matkul_5 }}</td>
-                                                        <td>{{ $item->nominal_matkul_5 }}</td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_1))
+                                                                {{ $item->matkul_1 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_1))
+                                                                Rp. @currency($item->nominal_matkul_1)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_2))
+                                                                {{ $item->matkul_2 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_2))
+                                                                Rp. @currency($item->nominal_matkul_2)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_3))
+                                                                {{ $item->matkul_3 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_3))
+                                                                Rp. @currency($item->nominal_matkul_3)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_4))
+                                                                {{ $item->matkul_4 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_4))
+                                                                Rp. @currency($item->nominal_matkul_4)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_5))
+                                                                {{ $item->matkul_5 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_5))
+                                                                Rp. @currency($item->nominal_matkul_5)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+
                                                         <td>{{ $item->anggota_klp_dosen }}</td>
                                                         <td>{{ $item->pembuatan_soal }}</td>
                                                         <td>{{ $item->koreksi_soal }}</td>
