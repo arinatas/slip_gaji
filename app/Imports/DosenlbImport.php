@@ -3,13 +3,16 @@
 namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\Importable;
 use App\Models\Dosenlb;
 
-class DosenlbImport implements ToModel
+class DosenlbImport implements ToModel, WithValidation
 {
+    use Importable;
+
     public function model(array $row)
     {
-        // Logika untuk memasukkan data ke dalam model Tendik
         return new Dosenlb([
             'email' => $row[0],
             'bulan' => $row[1],
@@ -37,4 +40,35 @@ class DosenlbImport implements ToModel
             'honor_yang_dibayar' => $row[23]
         ]);
     }
+
+    public function rules(): array
+    {
+        return [
+            '0' => 'required|string|max:100',
+            '1' => 'required|integer',
+            '2' => 'required|integer',
+            '3' => 'required|string|max:100',
+            '4' => 'required|string|max:100',
+            '5' => 'required|string|max:100',
+            '6' => 'required|integer',
+            '7' => 'nullable|string|max:100',
+            '8' => 'nullable|integer',
+            '9' => 'nullable|string|max:100',
+            '10' => 'nullable|integer',
+            '11' => 'nullable|string|max:100',
+            '12' => 'nullable|integer',
+            '13' => 'nullable|string|max:100',
+            '14' => 'nullable|integer',
+            '15' => 'nullable|string|max:100',
+            '16' => 'nullable|integer',
+            '17' => 'required|integer',
+            '18' => 'required|integer',
+            '19' => 'required|integer',
+            '20' => 'required|integer',
+            '21' => 'required|integer',
+            '22' => 'required|integer',
+            '23' => 'required|integer',
+        ];
+    }
 }
+

@@ -63,7 +63,6 @@
                                                     </ul>
                                                 </div>
                                             @endif
-
                                             @if (session('importValidationFailures'))
                                                 <div class="alert alert-danger mt-4">
                                                     <p>Detail Kesalahan:</p>

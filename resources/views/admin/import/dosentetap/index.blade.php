@@ -47,7 +47,32 @@
                                                         {{ session('importSuccess') }}
                                                     </div>
                                                 @endif
+                                                @if (session('importError'))
+                                                    <div class="alert alert-danger mt-4">
+                                                        {{ session('importError') }}
+                                                    </div>
+                                                @endif
+                                                @if (session('importErrors'))
+                                                    <div class="alert alert-danger mt-4">
+                                                        <ul>
+                                                            @foreach(session('importErrors') as $errorMessage)
+                                                                <li>{{ $errorMessage }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
+                                                @if (session('importValidationFailures'))
+                                                    <div class="alert alert-danger mt-4">
+                                                        <p>Detail Kesalahan:</p>
+                                                        <ul>
+                                                            @foreach(session('importValidationFailures') as $failure)
+                                                                <li>Baris: {{ $failure->row() }}, Kolom: {{ $failure->attribute() }}, Pesan: {{ implode(', ', $failure->errors()) }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                             </div>
+                                            <!--End::Import Form-->
                                             <!-- Filter Form -->
                                             <div class="mt-10">
                                                 <form action="{{ route('dosentetap') }}" method="GET">
