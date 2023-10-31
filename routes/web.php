@@ -38,9 +38,11 @@ Route::get('password', [ChangePasswordController::class, 'edit'])->name('passwor
 Route::patch('password', [ChangePasswordController::class, 'update'])->name('password.edit')->middleware('auth');
 
 // tendik
-Route::get('slipGajiTendik', [TendikUserController::class, 'index'])->middleware(['auth', 'tendik'])->name('slipGajiTendik');
-Route::get('slipGajiDosenLB', [DosenLbUserController::class, 'index'])->middleware(['auth', 'dosen_lb'])->name('slipGajiDosenLB');
-Route::get('slipGajiDosenTetap', [DosenTetapUserController::class, 'index'])->middleware(['auth', 'dosen_tetap'])->name('slipGajiDosenTetap');
+Route::get('/slipGajiTendik', [TendikUserController::class, 'index'])->middleware(['auth', 'tendik'])->name('slipGajiTendik');
+Route::get('/printSlipGajiTendik', [TendikUserController::class, 'printSlipGajiTendik'])->middleware(['auth', 'tendik'])->name('printSlipGajiTendik');
+
+Route::get('/slipGajiDosenLB', [DosenLbUserController::class, 'index'])->middleware(['auth', 'dosen_lb'])->name('slipGajiDosenLB');
+Route::get('/slipGajiDosenTetap', [DosenTetapUserController::class, 'index'])->middleware(['auth', 'dosen_tetap'])->name('slipGajiDosenTetap');
 
 
 

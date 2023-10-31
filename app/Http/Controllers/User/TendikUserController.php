@@ -29,6 +29,10 @@ class TendikUserController extends Controller
                 $Datas = null;
             }
 
+            // Menyimpan data tanggal di session
+            session()->put('bulan', $request->bulan);
+            session()->put('tahun', $request->tahun);
+
             // Mengecek apakah filter tanggal telah digunakan
             $filterUsed = $request->filled('bulan') && $request->filled('tahun');
 
@@ -43,6 +47,28 @@ class TendikUserController extends Controller
 
         return redirect('/userDashboard')->with('insertFail', 'Dilarang mengakses email yang berbeda!');
 
+
+    }
+
+    public function printSlipGajiTendik (){
+
+        $userEmail = auth()->user()->email;
+
+        $Datas = Tendik::where('email', $userEmail)
+            ->where('bulan', session('bulan'))
+            ->where('tahun', session('tahun'))
+            ->get();
+
+        $bulan = session('bulan');
+        $tahun = session('tahun');
+
+        return view('print.slip_tendik', [
+            'title' => 'Slip Gaji Tendik',
+            'secction' => 'Menu',
+            'Datas' => $Datas,
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ]);
 
     }
 
