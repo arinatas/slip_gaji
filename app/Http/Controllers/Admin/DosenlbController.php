@@ -70,6 +70,15 @@ class DosenlbController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Cek apakah email dengan bulan dan tahun yang sama sudah ada
+        $existingRecord = Dosenlb::where('email', $request->email)
+            ->where('bulan', $request->bulan)
+            ->where('tahun', $request->tahun)
+            ->first();
+        if ($existingRecord) {
+            return redirect()->back()->with('insertFail', 'Data dengan email, bulan, dan tahun yang sama sudah ada.');
+        }
+
         // Simpan data ke database
         try {
             DB::beginTransaction();
