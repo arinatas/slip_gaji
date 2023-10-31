@@ -18,36 +18,34 @@
 										<div class="row g-5 g-xl-8">
 											<div class="col-lg-12 mb-10">
                                                 <!--begin::Notice-->
-                                                <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+
                                                         <!--begin::Content-->
-                                                        <div class="mb-3 mb-md-0 fw-bold">
-                                                            <h4 class="text-gray-900 fw-bolder">Hai {{ auth()->user()->name }}, Selamat datang di sistem slip gaji online Primakara ❤️</h4>
-                                                            <div class="fs-6 text-gray-700 pe-7">Kami senang melihat Anda di sini. Dengan sistem ini, Anda akan dapat dengan mudah mengakses dan mengelola informasi gaji Anda.
+                                                        <div class="mb-6 mb-md-0 fw-bold">
+                                                            <h4 class="text-gray-900 fw-bolder text-center mb-8">Hai {{ auth()->user()->name }}, Selamat datang di sistem slip gaji online Primakara ❤️</h4>
+                                                            <div class="fs-6 text-gray-700 pe-7" style="text-align: justify">Kami senang melihat <b>{{ auth()->user()->name }}</b>  di sini. Dengan sistem ini, Kamu akan dapat dengan mudah mengakses dan mengelola informasi gaji. <br><br>
 
-                                                                Jika Anda memiliki pertanyaan atau memerlukan bantuan, jangan ragu untuk menghubungi SDM
+                                                                Jika Kamu memiliki pertanyaan atau memerlukan bantuan, jangan ragu untuk menghubungi SDM. <br><br>
 
-                                                                Terima kasih telah menjadi bagian dari keluarga Primakara. Semoga sistem ini membantu Anda dalam mengelola informasi gaji dengan lebih baik.
+                                                                Terima kasih telah menjadi bagian dari keluarga Primakara. Semoga sistem ini membantu <b>{{ auth()->user()->name }}</b> dalam mengelola informasi gaji dengan lebih baik.
 
                                                                 Salam Hangat,
                                                                 [SDM Primakara]</div>
                                                         </div>
                                                         <!--end::Content-->
-                                                        <!--begin::Action-->
-                                                        @if (auth()->user()->jenis_pegawai == 1)
-                                                            <a href="{{ url('slipGajiTendik') }}" class="btn btn-primary px-6 align-self-center text-nowrap">Lihat Slip Gaji</a>
-                                                        @endif
-                                                        @if (auth()->user()->jenis_pegawai == 2)
-                                                            <a href="{{ url('slipGajiDosenTetap') }}" class="btn btn-primary px-6 align-self-center text-nowrap">Lihat Slip Gaji</a>
-                                                        @endif
-                                                        @if (auth()->user()->jenis_pegawai == 3)
-                                                            <a href="{{ url('slipGajiDosenLB') }}" class="btn btn-primary px-6 align-self-center text-nowrap">Lihat Slip Gaji</a>
-                                                        @endif
-                                                        <!--end::Action-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                </div>
+                                                        <div class="text-center mt-8">
+                                                            <!--begin::Action-->
+                                                            @if (auth()->user()->jenis_pegawai == 1)
+                                                                <a href="{{ url('slipGajiTendik') }}" class="btn btn-primary px-6 align-self-center text-nowrap">Lihat Slip Gaji</a>
+                                                            @endif
+                                                            @if (auth()->user()->jenis_pegawai == 2)
+                                                                <a href="{{ url('slipGajiDosenTetap') }}" class="btn btn-primary px-6 align-self-center text-nowrap">Lihat Slip Gaji</a>
+                                                            @endif
+                                                            @if (auth()->user()->jenis_pegawai == 3)
+                                                                <a href="{{ url('slipGajiDosenLB') }}" class="btn btn-primary px-6 align-self-center text-nowrap">Lihat Slip Gaji</a>
+                                                            @endif
+                                                            <!--end::Action-->
+                                                        </div>
+
                                                 <!--end::Notice-->
                                             </div>
 										</div>
