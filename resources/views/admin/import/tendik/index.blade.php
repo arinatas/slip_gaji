@@ -31,23 +31,51 @@
                                         <!--begin::Table-->
                                         @if ($tendiks )
                                         <div class="table-responsive my-10 mx-8">
-                                             <!--begin::Import Form-->
-                                            <div class="mt-5">
-                                                <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
-                                                <form action="{{ route('import.tendik') }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="mb-3">
-                                                        <label for="excel_file" class="form-label">Pilih File Excel:</label>
-                                                        <input type="file" class="form-control" name="excel_file" id="excel_file" accept=".xls, .xlsx">
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Import Data</button>
-                                                </form>
-                                                @if (session('importSuccess'))
-                                                    <div class="alert alert-success mt-4">
-                                                        {{ session('importSuccess') }}
-                                                    </div>
-                                                @endif
-                                            </div>
+                                        <!--begin::Import Form-->
+                                        <div class="mt-5">
+                                            <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
+                                            <form action="{{ route('import.tendik') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label for="excel_file" class="form-label">Pilih File Excel:</label>
+                                                    <input type="file" class="form-control" name="excel_file" id="excel_file" accept=".xls, .xlsx">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Import Data</button>
+                                            </form>
+                                            @if (session('importSuccess'))
+                                                <div class="alert alert-success mt-4">
+                                                    {{ session('importSuccess') }}
+                                                </div>
+                                            @endif
+
+                                            @if (session('importError'))
+                                                <div class="alert alert-danger mt-4">
+                                                    {{ session('importError') }}
+                                                </div>
+                                            @endif
+
+                                            @if (session('importErrors'))
+                                                <div class="alert alert-danger mt-4">
+                                                    <ul>
+                                                        @foreach(session('importErrors') as $errorMessage)
+                                                            <li>{{ $errorMessage }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+
+                                            @if (session('importValidationFailures'))
+                                                <div class="alert alert-danger mt-4">
+                                                    <p>Detail Kesalahan:</p>
+                                                    <ul>
+                                                        @foreach(session('importValidationFailures') as $failure)
+                                                            <li>Baris: {{ $failure->row() }}, Kolom: {{ $failure->attribute() }}, Pesan: {{ implode(', ', $failure->errors()) }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <!--End::Import Form-->
                                             <!-- Filter Form -->
                                             <div class="mt-10">
                                                 <form action="{{ route('tendik') }}" method="GET">

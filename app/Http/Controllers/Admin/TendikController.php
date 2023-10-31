@@ -203,6 +203,23 @@ class TendikController extends Controller
         return view('import'); // Menampilkan tampilan untuk mengunggah file Excel
     }
 
+    // public function importExcel(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'excel_file' => 'required|mimes:xls,xlsx',
+    //     ]);
+    
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+    
+    //     $file = $request->file('excel_file');
+    //     $import = new TendikImport;
+    //     Excel::import($import, $file);
+    
+    //     return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
+    // }
+
     public function importExcel(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -214,11 +231,37 @@ class TendikController extends Controller
         }
     
         $file = $request->file('excel_file');
-        $import = new TendikImport;
-        Excel::import($import, $file);
+    
+        DB::beginTransaction(); // Memulai transaksi database
+    
+        try {
+            $import = new TendikImport;
+            Excel::import($import, $file);
+    
+            DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            DB::rollBack(); // Rollback jika terjadi kesalahan validasi
+            $failures = $e->failures();
+            $errorMessages = [];
+    
+            foreach ($failures as $failure) {
+                $rowNumber = $failure->row();
+                $column = $failure->attribute();
+                $errorMessages[] = "Baris $rowNumber, Kolom $column: " . implode(', ', $failure->errors());
+            }
+            // Simpan detail kesalahan validasi dalam sesi
+            return redirect()->back()
+                ->with('importValidationFailures', $failures)
+                ->with('importErrors', $errorMessages)
+                ->withInput();
+        } catch (\Exception $e) {
+            DB::rollBack(); // Rollback jika terjadi kesalahan umum selama impor
+            return redirect()->back()->with('importError', 'Terjadi kesalahan selama impor. Silakan coba lagi.');
+        }
     
         return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
     }
+    
     public function downloadExampleExcel()
     {
         $filePath = public_path('contoh-excel/tendik.xlsx'); // Sesuaikan dengan path file Excel contoh Anda
