@@ -17,7 +17,7 @@
                                         <div class="card-px pt-10 d-flex justify-content-between">
                                             <!--begin::Title-->
                                                 <div>
-                                                    <h1>Laporan {{ $title }}</h1>
+                                                    <h1 class="d-none d-md-block">Laporan {{ $title }}</h1>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center justify-content-end py-1">
                                                     <!--begin::Wrapper-->
