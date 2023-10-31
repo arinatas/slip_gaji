@@ -63,45 +63,45 @@
                                     <input type="text" value="{{$dosenlb->honor_pokok}}" class="form-control form-control-solid" required name="honor_pokok"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 1</label>
-                                    <input type="text" value="{{$dosenlb->matkul_1}}" class="form-control form-control-solid" required name="matkul_1"/>
+                                    <label for="exampleFormControlInput1" form-label">Matkul 1</label>
+                                    <input type="text" value="{{$dosenlb->matkul_1}}" class="form-control form-control-solid" name="matkul_1"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 1</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_1}}" class="form-control form-control-solid" required name="nominal_matkul_1"/>
+                                    <label for="exampleFormControlInput1" form-label">Nominal Matkul 1</label>
+                                    <input type="text" value="{{$dosenlb->nominal_matkul_1}}" class="form-control form-control-solid" name="nominal_matkul_1"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 2</label>
-                                    <input type="text" value="{{$dosenlb->matkul_2}}" class="form-control form-control-solid" required name="matkul_2"/>
+                                    <label for="exampleFormControlInput1" form-label">Matkul 2</label>
+                                    <input type="text" value="{{$dosenlb->matkul_2}}" class="form-control form-control-solid" name="matkul_2"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 2</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_2}}" class="form-control form-control-solid" required name="nominal_matkul_2"/>
+                                    <label for="exampleFormControlInput1" form-label">Nominal Matkul 2</label>
+                                    <input type="text" value="{{$dosenlb->nominal_matkul_2}}" class="form-control form-control-solid" name="nominal_matkul_2"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 3</label>
-                                    <input type="text" value="{{$dosenlb->matkul_3}}" class="form-control form-control-solid" required name="matkul_3"/>
+                                    <label for="exampleFormControlInput1" form-label">Matkul 3</label>
+                                    <input type="text" value="{{$dosenlb->matkul_3}}" class="form-control form-control-solid" name="matkul_3"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 3 </label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_3}}" class="form-control form-control-solid" required name="nominal_matkul_3"/>
+                                    <label for="exampleFormControlInput1" form-label">Nominal Matkul 3 </label>
+                                    <input type="text" value="{{$dosenlb->nominal_matkul_3}}" class="form-control form-control-solid" name="nominal_matkul_3"/>
                                 </div>
 
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 4</label>
-                                    <input type="text" value="{{$dosenlb->matkul_4}}" class="form-control form-control-solid" required name="matkul_4"/>
+                                    <label for="exampleFormControlInput1" form-label">Matkul 4</label>
+                                    <input type="text" value="{{$dosenlb->matkul_4}}" class="form-control form-control-solid" name="matkul_4"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 4</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_4}}" class="form-control form-control-solid" required name="nominal_matkul_4"/>
+                                    <label for="exampleFormControlInput1" form-label">Nominal Matkul 4</label>
+                                    <input type="text" value="{{$dosenlb->nominal_matkul_4}}" class="form-control form-control-solid" name="nominal_matkul_4"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Matkul 5</label>
-                                    <input type="text" value="{{$dosenlb->matkul_5}}" class="form-control form-control-solid" required name="matkul_5"/>
+                                    <label for="exampleFormControlInput1" form-label">Matkul 5</label>
+                                    <input type="text" value="{{$dosenlb->matkul_5}}" class="form-control form-control-solid" name="matkul_5"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Nominal Matkul 5</label>
-                                    <input type="text" value="{{$dosenlb->nominal_matkul_5}}" class="form-control form-control-solid" required name="nominal_matkul_5"/>
+                                    <label for="exampleFormControlInput1" form-label">Nominal Matkul 5</label>
+                                    <input type="text" value="{{$dosenlb->nominal_matkul_5}}" class="form-control form-control-solid" name="nominal_matkul_5"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Anggota Klp Dosen</label>

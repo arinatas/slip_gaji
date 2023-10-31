@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PegawaiController;
 use App\Http\Controllers\Admin\TendikController;
 use App\Http\Controllers\Admin\DosenlbController;
+use App\Http\Controllers\Admin\DosenTetapController;
 // User
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\TendikUserController;

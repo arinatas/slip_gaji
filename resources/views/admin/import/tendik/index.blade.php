@@ -31,23 +31,50 @@
                                         <!--begin::Table-->
                                         @if ($tendiks )
                                         <div class="table-responsive my-10 mx-8">
-                                             <!--begin::Import Form-->
-                                            <div class="mt-5">
-                                                <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
-                                                <form action="{{ route('import.tendik') }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="mb-3">
-                                                        <label for="excel_file" class="form-label">Pilih File Excel:</label>
-                                                        <input type="file" class="form-control" name="excel_file" id="excel_file" accept=".xls, .xlsx">
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Import Data</button>
-                                                </form>
-                                                @if (session('importSuccess'))
-                                                    <div class="alert alert-success mt-4">
-                                                        {{ session('importSuccess') }}
-                                                    </div>
-                                                @endif
-                                            </div>
+                                        <!--begin::Import Form-->
+                                        <div class="mt-5">
+                                            <h3 class="fs-4 fw-bolder mb-4">Import Data Excel</h3>
+                                            <form action="{{ route('import.tendik') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label for="excel_file" class="form-label">Pilih File Excel:</label>
+                                                    <input type="file" class="form-control" name="excel_file" id="excel_file" accept=".xls, .xlsx">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Import Data</button>
+                                            </form>
+                                            @if (session('importSuccess'))
+                                                <div class="alert alert-success mt-4">
+                                                    {{ session('importSuccess') }}
+                                                </div>
+                                            @endif
+
+                                            @if (session('importError'))
+                                                <div class="alert alert-danger mt-4">
+                                                    {{ session('importError') }}
+                                                </div>
+                                            @endif
+
+                                            @if (session('importErrors'))
+                                                <div class="alert alert-danger mt-4">
+                                                    <ul>
+                                                        @foreach(session('importErrors') as $errorMessage)
+                                                            <li>{{ $errorMessage }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            @if (session('importValidationFailures'))
+                                                <div class="alert alert-danger mt-4">
+                                                    <p>Detail Kesalahan:</p>
+                                                    <ul>
+                                                        @foreach(session('importValidationFailures') as $failure)
+                                                            <li>Baris: {{ $failure->row() }}, Kolom: {{ $failure->attribute() }}, Pesan: {{ implode(', ', $failure->errors()) }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <!--End::Import Form-->
                                             <!-- Filter Form -->
                                             <div class="mt-10">
                                                 <form action="{{ route('tendik') }}" method="GET">
@@ -96,7 +123,7 @@
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                                        <th class="min-w-250px">Action</th>
+                                                        <th class="min-w-300px">Action</th>
                                                         <th class="min-w-100px">No</th>
                                                         <th class="min-w-100px">Email</th>
                                                         <th class="min-w-100px">Nama</th>
@@ -126,6 +153,121 @@
                                                     @foreach ($tendiks as $item)
                                                     <tr>
                                                         <td>
+                                                        <a href="#" class="btn btn-sm btn-info btn-action" title="Detail Slip Gaji" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}"><i class="fas fa-eye"></i></a>
+                                                            {{-- modal here --}}
+                                                            <!--begin::Modal - New Card-->
+                                                            <div class="modal fade" id="detailModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                                                <!--begin::Modal dialog-->
+                                                                <div class="modal-dialog modal-dialog-centered mw-850px">
+                                                                    <!--begin::Modal content-->
+                                                                    <div class="modal-content">
+                                                                        <!--begin::Modal header-->
+                                                                        <div class="modal-header">
+                                                                            <!--begin::Modal title-->
+                                                                            <h2>Detail Slip Gaji : {{ $item->nama }}, {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }} </h2>
+                                                                            <!--end::Modal title-->
+                                                                            <!--begin::Close-->
+                                                                            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                                                                <span class="svg-icon svg-icon-1">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                                        <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                                                        <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                                                    </svg>
+                                                                                </span>
+                                                                                <!--end::Svg Icon-->
+                                                                            </div>
+                                                                            <!--end::Close-->
+                                                                        </div>
+                                                                        <!--end::Modal header-->
+                                                                        <!--begin::Modal body-->
+                                                                        <div class="modal-body scroll-y mx-xl-8">
+                                                                            <!--begin::content modal body-->
+                                                                            <div class="table-responsive my-10 mx-8">
+                                                                                <table class="table table-striped gy-7 gs-7">
+                                                                                <tr>
+                                                                                    <th>Email</th>
+                                                                                    <td>{{ $item->email }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Periode</th>
+                                                                                    <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Nama</th>
+                                                                                    <td>{{ $item->nama }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jabatan</th>
+                                                                                    <td>{{ $item->jabatan }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Gaji Pokok</th>
+                                                                                    <td>Rp. @currency($item->gaji_pokok )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Jabatan</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_jabatan )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Kehadiran</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_kehadiran )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Lembur</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_lembur )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunj. Pel. Mhs/Op. Feeder</th>
+                                                                                    <td>Rp. @currency( $item->tunj_pel_mhs_op_feeder )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Tunjangan Kinerja</th>
+                                                                                    <td>Rp. @currency( $item->tunjangan_kinerja )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-success">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah Penambah</th>
+                                                                                    <td><strong style="font-size: 14px;">+Rp. @currency( $item->jumlah_penambah )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Kasbon</th>
+                                                                                    <td>Rp. @currency( $item->potongan_kasbon )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Denda Keterlambatan</th>
+                                                                                    <td>Rp. @currency( $item->denda_keterlambatan )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Pph 21</th>
+                                                                                    <td>Rp. @currency( $item->potongan_pph_21 )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan Absensi</th>
+                                                                                    <td>Rp. @currency( $item->potongan_absensi )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Potongan BPJS</th>
+                                                                                    <td>Rp. @currency( $item->potongan_bpjs )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-danger">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah Potongan</th>
+                                                                                    <td><strong style="font-size: 14px;">-Rp. @currency( $item->jumlah_pengurang )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-primary">
+                                                                                    <th style="text-align: end;"><strong style="font-size: 16px;">Gaji yang Dibayarkan Rp. @currency( $item->gaji_yang_dibayar )</th>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                            <!--end::content modal body-->
+                                                                        </div>
+                                                                        <!--end::Modal body-->
+                                                                    </div>
+                                                                    <!--end::Modal content-->
+                                                                </div>
+                                                                <!--end::Modal dialog-->
+                                                            </div>
+                                                            <!--end::Modal - New Card-->
                                                             <a href="{{ route('edit.tendik', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             <form id="form-delete" action="{{ route('destroy.tendik', $item->id ) }}" method="POST"
                                                             class="d-inline-block">
@@ -391,7 +533,7 @@
                                                     <!--begin::Actions-->
                                                     <div class="text-center pt-15">
                                                         <button type="reset" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary">
+                                                        <button type="submit" onclick="submitForm(this)" class="btn btn-primary">
                                                             <span class="indicator-label">Submit</span>
                                                         </button>
                                                     </div>
@@ -418,6 +560,14 @@
                                 // Jika pengguna menekan OK dalam konfirmasi, lanjutkan dengan penghapusan
                                 event.target.form.submit();
                             }
+                        }
+                        // untuk submit tidak spam klik
+                        function submitForm(button) {
+                            button.disabled = true;
+                                    button.innerHTML = 'Submitting...';
+
+                                    // Mencegah pengiriman berulang
+                                    button.form.submit();
                         }
                     </script>
 @endsection

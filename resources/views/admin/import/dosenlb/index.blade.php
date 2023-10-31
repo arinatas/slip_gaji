@@ -47,7 +47,32 @@
                                                         {{ session('importSuccess') }}
                                                     </div>
                                                 @endif
+                                                @if (session('importError'))
+                                                    <div class="alert alert-danger mt-4">
+                                                        {{ session('importError') }}
+                                                    </div>
+                                                @endif
+                                                @if (session('importErrors'))
+                                                    <div class="alert alert-danger mt-4">
+                                                        <ul>
+                                                            @foreach(session('importErrors') as $errorMessage)
+                                                                <li>{{ $errorMessage }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
+                                                @if (session('importValidationFailures'))
+                                                    <div class="alert alert-danger mt-4">
+                                                        <p>Detail Kesalahan:</p>
+                                                        <ul>
+                                                            @foreach(session('importValidationFailures') as $failure)
+                                                                <li>Baris: {{ $failure->row() }}, Kolom: {{ $failure->attribute() }}, Pesan: {{ implode(', ', $failure->errors()) }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                             </div>
+                                            <!--End::Import Form-->
                                             <!-- Filter Form -->
                                             <div class="mt-10">
                                                 <form action="{{ route('dosenlb') }}" method="GET">
@@ -96,7 +121,7 @@
                                             <table class="table table-striped gy-7 gs-7">
                                                 <thead>
                                                     <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                                        <th class="min-w-250px">Action</th>
+                                                        <th class="min-w-300px">Action</th>
                                                         <th class="min-w-50px">No</th>
                                                         <th class="min-w-100px">Email</th>
                                                         <th class="min-w-200px">Nama</th>
@@ -131,6 +156,131 @@
                                                     @foreach ($dosenlbs as $item)
                                                     <tr>
                                                         <td>
+                                                            <a href="#" class="btn btn-sm btn-info btn-action" title="Detail Slip Gaji" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}"><i class="fas fa-eye"></i></a>
+                                                            {{-- modal here --}}
+                                                            <!--begin::Modal - New Card-->
+                                                            <div class="modal fade" id="detailModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                                                <!--begin::Modal dialog-->
+                                                                <div class="modal-dialog modal-dialog-centered mw-850px">
+                                                                    <!--begin::Modal content-->
+                                                                    <div class="modal-content">
+                                                                        <!--begin::Modal header-->
+                                                                        <div class="modal-header">
+                                                                            <!--begin::Modal title-->
+                                                                            <h2>Detail Slip Gaji : {{ $item->nama }}, {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }} </h2>
+                                                                            <!--end::Modal title-->
+                                                                            <!--begin::Close-->
+                                                                            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                                                                <span class="svg-icon svg-icon-1">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                                        <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                                                        <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                                                    </svg>
+                                                                                </span>
+                                                                                <!--end::Svg Icon-->
+                                                                            </div>
+                                                                            <!--end::Close-->
+                                                                        </div>
+                                                                        <!--end::Modal header-->
+                                                                        <!--begin::Modal body-->
+                                                                        <div class="modal-body scroll-y mx-xl-8">
+                                                                            <!--begin::content modal body-->
+                                                                            <div class="table-responsive my-10 mx-8">
+                                                                                <table class="table table-striped gy-7 gs-7">
+                                                                                <tr>
+                                                                                    <th>Email</th>
+                                                                                    <td>{{ $item->email }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Periode</th>
+                                                                                    <td>{{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Nama</th>
+                                                                                    <td>{{ $item->nama }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jabatan Struktural</th>
+                                                                                    <td>{{ $item->jabatan_struktural }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Jabatan Fungsional</th>
+                                                                                    <td>{{ $item->jabatan_fungsional }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Honor Pokok</th>
+                                                                                    <td>Rp. @currency( $item->honor_pokok )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    @if(!is_null($item->matkul_1) || !is_null($item->nominal_matkul_1))
+                                                                                        <th>MK 1 ({{ $item->matkul_1 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_1)</td>
+                                                                                    @endif
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    @if(!is_null($item->matkul_2) || !is_null($item->nominal_matkul_2))
+                                                                                        <th>MK 2 ({{ $item->matkul_2 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_2)</td>
+                                                                                    @endif
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    @if(!is_null($item->matkul_3) || !is_null($item->nominal_matkul_3))
+                                                                                        <th>MK 3 ({{ $item->matkul_3 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_3)</td>
+                                                                                    @endif
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    @if(!is_null($item->matkul_4) || !is_null($item->nominal_matkul_4))
+                                                                                        <th>MK 4 ({{ $item->matkul_4 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_4)</td>
+                                                                                    @endif
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    @if(!is_null($item->matkul_5) || !is_null($item->nominal_matkul_5))
+                                                                                        <th>MK 5 ({{ $item->matkul_5 }})</th>
+                                                                                        <td>Rp. @currency($item->nominal_matkul_5)</td>
+                                                                                    @endif
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Anggota Klp Dosen</th>
+                                                                                    <td>Rp. @currency( $item->anggota_klp_dosen )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pembuatan Soal</th>
+                                                                                    <td>Rp. @currency( $item->pembuatan_soal )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Koreksi Soal</th>
+                                                                                    <td>Rp. @currency( $item->koreksi_soal )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Pengawas Ujian</th>
+                                                                                    <td>Rp. @currency( $item->pengawas_ujian )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-success">
+                                                                                    <th><strong style="font-size: 14px;">Jumlah</th>
+                                                                                    <td><strong style="font-size: 14px;">Rp. @currency( $item->jumlah )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-danger">
+                                                                                    <th><strong style="font-size: 14px;">-Pph 21</th>
+                                                                                    <td><strong style="font-size: 14px;">Rp. @currency( $item->pph_21 )</td>
+                                                                                </tr>
+                                                                                <tr class="alert alert-primary">
+                                                                                    <th style="text-align: end;"><strong style="font-size: 16px;">Honor Yang dibayar Rp. @currency( $item->honor_yang_dibayar )</th>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                            <!--end::content modal body-->
+                                                                        </div>
+                                                                        <!--end::Modal body-->
+                                                                    </div>
+                                                                    <!--end::Modal content-->
+                                                                </div>
+                                                                <!--end::Modal dialog-->
+                                                            </div>
+                                                            <!--end::Modal - New Card-->
                                                             <a href="{{ route('edit.dosenlb', $item->id ) }}" class="btn btn-sm btn-primary btn-action" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             <form id="form-delete" action="{{ route('destroy.dosenlb', $item->id ) }}" method="POST"
                                                             class="d-inline-block">
@@ -152,16 +302,77 @@
                                                         <td>{{ $item->jabatan_struktural }}</td>
                                                         <td>{{ $item->jabatan_fungsional }}</td>
                                                         <td>{{ $item->honor_pokok }}</td>
-                                                        <td>{{ $item->matkul_1 }}</td>
-                                                        <td>{{ $item->nominal_matkul_1 }}</td>
-                                                        <td>{{ $item->matkul_2 }}</td>
-                                                        <td>{{ $item->nominal_matkul_2 }}</td>
-                                                        <td>{{ $item->matkul_3 }}</td>
-                                                        <td>{{ $item->nominal_matkul_3 }}</td>
-                                                        <td>{{ $item->matkul_4 }}</td>
-                                                        <td>{{ $item->nominal_matkul_4 }}</td>
-                                                        <td>{{ $item->matkul_5 }}</td>
-                                                        <td>{{ $item->nominal_matkul_5 }}</td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_1))
+                                                                {{ $item->matkul_1 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_1))
+                                                                Rp. @currency($item->nominal_matkul_1)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_2))
+                                                                {{ $item->matkul_2 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_2))
+                                                                Rp. @currency($item->nominal_matkul_2)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_3))
+                                                                {{ $item->matkul_3 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_3))
+                                                                Rp. @currency($item->nominal_matkul_3)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_4))
+                                                                {{ $item->matkul_4 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_4))
+                                                                Rp. @currency($item->nominal_matkul_4)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_5))
+                                                                {{ $item->matkul_5 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_5))
+                                                                Rp. @currency($item->nominal_matkul_5)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+
                                                         <td>{{ $item->anggota_klp_dosen }}</td>
                                                         <td>{{ $item->pembuatan_soal }}</td>
                                                         <td>{{ $item->koreksi_soal }}</td>
@@ -304,82 +515,82 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 1</span>
+                                                            <span>Matkul 1</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_1" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_1" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 1</span>
+                                                            <span>Nominal Matkul 1</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_1" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_1" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 2</span>
+                                                            <span>Matkul 2</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_2" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_2" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 2</span>
+                                                            <span>Nominal Matkul 2</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_2" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_2" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 3</span>
+                                                            <span>Matkul 3</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_3" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_3" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 3</span>
+                                                            <span>Nominal Matkul 3</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_3" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_3" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 4</span>
+                                                            <span>Matkul 4</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_4" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_4" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 4</span>
+                                                            <span>Nominal Matkul 4</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_4" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_4" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Matkul 5</span>
+                                                            <span>Matkul 5</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="matkul_5" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_5" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Nominal Matkul 5</span>
+                                                            <span>Nominal Matkul 5</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_5" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_5" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
@@ -441,7 +652,7 @@
                                                     <!--begin::Actions-->
                                                     <div class="text-center pt-15">
                                                         <button type="reset" data-bs-dismiss="modal" class="btn btn-light me-3">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary">
+                                                        <button type="submit" onclick="submitForm(this)" class="btn btn-primary">
                                                             <span class="indicator-label">Submit</span>
                                                         </button>
                                                     </div>
@@ -468,6 +679,14 @@
                                 // Jika pengguna menekan OK dalam konfirmasi, lanjutkan dengan penghapusan
                                 event.target.form.submit();
                             }
+                        }
+                        // untuk submit agar tidak spam klik
+                        function submitForm(button) {
+                            button.disabled = true;
+                                    button.innerHTML = 'Submitting...';
+
+                                    // Mencegah pengiriman berulang
+                                    button.form.submit();
                         }
                     </script>
 @endsection

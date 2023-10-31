@@ -84,6 +84,15 @@ class DosenTetapController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Cek apakah email dengan bulan dan tahun yang sama sudah ada
+        $existingRecord = DosenTetap::where('email', $request->email)
+            ->where('bulan', $request->bulan)
+            ->where('tahun', $request->tahun)
+            ->first();
+        if ($existingRecord) {
+            return redirect()->back()->with('insertFail', 'Data dengan email, bulan, dan tahun yang sama sudah ada.');
+        }
+
         // Simpan data ke database
         try {
             DB::beginTransaction();
@@ -290,11 +299,64 @@ class DosenTetapController extends Controller
         }
     
         $file = $request->file('excel_file');
+
+        // Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
         $import = new DosenTetapImport;
-        Excel::import($import, $file);
+        $rows = Excel::toCollection($import, $file)->first();
+
+        $duplicateEntries = [];
+
+        foreach ($rows as $row) {
+            $email = $row[0];
+            $bulan = $row[1];
+            $tahun = $row[2];
+
+            // Periksa apakah kombinasi email, bulan, dan tahun sudah ada di database
+            if (DosenTetap::where('email', $email)->where('bulan', $bulan)->where('tahun', $tahun)->exists()) {
+                $duplicateEntries[] = "Email: $email, Bulan: $bulan, Tahun: $tahun";
+            }
+        }
+
+        if (!empty($duplicateEntries)) {
+            $errorMessage = 'Data dengan email, bulan, dan tahun yang sama sudah ada:';
+            foreach ($duplicateEntries as $entry) {
+                $errorMessage .= "$entry";
+            }
+
+            return redirect()->back()->with('importError', $errorMessage);
+        }
+        // END Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
+    
+        DB::beginTransaction(); // Memulai transaksi database
+    
+        try {
+            $import = new DosenTetapImport;
+            Excel::import($import, $file);
+    
+            DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            DB::rollBack(); // Rollback jika terjadi kesalahan validasi
+            $failures = $e->failures();
+            $errorMessages = [];
+    
+            foreach ($failures as $failure) {
+                $rowNumber = $failure->row();
+                $column = $failure->attribute();
+                $errorMessages[] = "Baris $rowNumber, Kolom $column: " . implode(', ', $failure->errors());
+            }
+            // Simpan detail kesalahan validasi dalam sesi
+            return redirect()->back()
+                ->with('importValidationFailures', $failures)
+                ->with('importErrors', $errorMessages)
+                ->withInput();
+        } catch (\Exception $e) {
+            DB::rollBack(); // Rollback jika terjadi kesalahan umum selama impor
+            return redirect()->back()->with('importError', 'Terjadi kesalahan selama impor. Silakan coba lagi.');
+        }
     
         return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
     }
+
     public function downloadExampleExcel()
     {
         $filePath = public_path('contoh-excel/dosentetap.xlsx'); // Sesuaikan dengan path file Excel contoh Anda

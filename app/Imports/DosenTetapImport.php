@@ -3,13 +3,16 @@
 namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\Importable;
 use App\Models\DosenTetap;
 
-class DosenTetapImport implements ToModel
+class DosenTetapImport implements ToModel, WithValidation
 {
+    use Importable;
+
     public function model(array $row)
     {
-        // Logika untuk memasukkan data ke dalam model Tendik
         return new DosenTetap([
             'email' => $row[0],
             'bulan' => $row[1],
@@ -50,5 +53,49 @@ class DosenTetapImport implements ToModel
             'jumlah' => $row[36],
             'gaji_yang_dibayar' => $row[37]
         ]);
+    }
+
+    public function rules(): array
+    {
+        return [
+            '0' => 'required|string|max:100',
+            '1' => 'required|integer',
+            '2' => 'required|integer',
+            '3' => 'required|string|max:100',
+            '4' => 'required|string|max:100',
+            '5' => 'required|string|max:100',
+            '6' => 'required|integer',
+            '7' => 'required|integer',
+            '8' => 'required|integer',
+            '9' => 'required|integer',
+            '10' => 'required|integer',
+            '11' => 'required|integer',
+            '12' => 'required|integer',
+            '13' => 'required|integer',
+            '14' => 'required|integer',
+            '15' => 'required|integer',
+            '16' => 'required|integer',
+            '17' => 'required|integer',
+            '18' => 'required|integer',
+            '19' => 'required|integer',
+            '20' => 'required|integer',
+            '21' => 'required|integer',
+            '22' => 'required|integer',
+            '23' => 'required|integer',
+            '24' => 'required|integer',
+            '25' => 'required|integer',
+            '26' => 'required|integer',
+            '27' => 'required|integer',
+            '28' => 'required|integer',
+            '29' => 'required|integer',
+            '30' => 'required|integer',
+            '31' => 'required|integer',
+            '32' => 'required|integer',
+            '33' => 'required|integer',
+            '34' => 'required|integer',
+            '35' => 'required|integer',
+            '36' => 'required|integer',
+            '37' => 'required|integer',
+        ];
     }
 }
