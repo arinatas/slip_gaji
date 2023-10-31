@@ -102,15 +102,17 @@
                                                     </div>
                                                     <!--end::Wrapper-->
                                                     <!--begin::Button-->
-                                                    {{-- <a href="#" target="blank" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">
-                                                        <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Devices/Printer.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                <rect x="0" y="0" width="24" height="24"/>
-                                                                <path d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z" fill="#000000"/>
-                                                                <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1"/>
-                                                            </g>
-                                                        </svg><!--end::Svg Icon--></span>
-                                                        Print</a> --}}
+                                                    @if(session('bulan') && session('tahun'))
+                                                        <a href="{{ url('printSlipGajiDosenLB') }}" target="blank" class="btn btn-sm btn-warning">
+                                                            <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Devices/Printer.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                                    <path d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z" fill="#000000"/>
+                                                                    <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1"/>
+                                                                </g>
+                                                            </svg><!--end::Svg Icon--></span>
+                                                            Print</a>
+                                                    @endif
                                                     <!--end::Button-->
                                                 </div>
                                             <!--end::Title-->
@@ -171,7 +173,7 @@
                                                                     <div class="accordion-body">
                                                                         <!--begin::table-->
                                                                         <div class="table-responsive">
-                                                                            <table id="kt_datatable_jurnal" class="table table-row-bordered gy-5">
+                                                                            <table id="kt_datatable_slipDosenLb" class="table table-row-bordered gy-5">
                                                                                 <h1 style="text-align: center"><b>{{ auth()->user()->name }} | {{ $Datas[0]->jabatan_fungsional }} : {{ $Datas[0]->jabatan_struktural }}</b></h1>
                                                                                 <thead>
                                                                                     <tr class="fw-semibold fs-6 text-muted">
@@ -188,56 +190,6 @@
                                                                                         </td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->honor_pokok)</td>
                                                                                     </tr>
-                                                                                    @if ($Datas[0]->matkul_1 || $Datas[0]->nominal_matkul_1)
-                                                                                        <tr>
-                                                                                            <td>
-                                                                                                <div>
-                                                                                                    Matakuliah {{ $Datas[0]->matkul_1 }}
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_1)</td>
-                                                                                        </tr>
-                                                                                    @endif
-                                                                                    @if ($Datas[0]->matkul_2 || $Datas[0]->nominal_matkul_2)
-                                                                                        <tr>
-                                                                                            <td>
-                                                                                                <div>
-                                                                                                    Matakuliah {{ $Datas[0]->matkul_2 }}
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_2)</td>
-                                                                                        </tr>
-                                                                                    @endif
-                                                                                    @if ($Datas[0]->matkul_3 || $Datas[0]->nominal_matkul_3)
-                                                                                        <tr>
-                                                                                            <td>
-                                                                                                <div>
-                                                                                                    Matakuliah {{ $Datas[0]->matkul_3 }}
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_3)</td>
-                                                                                        </tr>
-                                                                                    @endif
-                                                                                    @if ($Datas[0]->matkul_4 || $Datas[0]->nominal_matkul_4)
-                                                                                        <tr>
-                                                                                            <td>
-                                                                                                <div>
-                                                                                                    Matakuliah {{ $Datas[0]->matkul_4 }}
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_4)</td>
-                                                                                        </tr>
-                                                                                    @endif
-                                                                                    @if ($Datas[0]->matkul_5 || $Datas[0]->nominal_matkul_5)
-                                                                                        <tr>
-                                                                                            <td>
-                                                                                                <div>
-                                                                                                    Matakuliah {{ $Datas[0]->matkul_5 }}
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_5)</td>
-                                                                                        </tr>
-                                                                                    @endif
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
@@ -270,6 +222,97 @@
                                                                                         </td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pengawas_ujian)</td>
                                                                                     </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <!--end::table-->
+                                                                        <!--begin::table-->
+                                                                        <div class="table-responsive">
+                                                                            <table id="kt_datatable_Matkul" class="table table-row-bordered gy-5">
+                                                                                <h5 style="text-align: center">Detail Pembayaran Per-Matakuliah</h5>
+                                                                                <thead>
+                                                                                    <tr class="fw-semibold fs-6 text-muted">
+                                                                                        <th>Matakuliah</th>
+                                                                                        <th>SKS</th>
+                                                                                        <th>Hadir / Jml</th>
+                                                                                        <th>Honor / SKS</th>
+                                                                                        <th style="text-align: end;">Total</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    @if ($Datas[0]->matkul_1 || $Datas[0]->nominal_matkul_1)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    {{ $Datas[0]->matkul_1 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>{{ $Datas[0]->sks_matkul_1 }}</td>
+                                                                                            <td>{{ $Datas[0]->jml_hadir_mkl_1 }}</td>
+                                                                                            <td>Rp. @currency($Datas[0]->honor_mk_1)</td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_1)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_2 || $Datas[0]->nominal_matkul_2)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    {{ $Datas[0]->matkul_2 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>{{ $Datas[0]->sks_matkul_2 }}</td>
+                                                                                            <td>{{ $Datas[0]->jml_hadir_mkl_2 }}</td>
+                                                                                            <td>Rp. @currency($Datas[0]->honor_mk_2)</td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_2)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_3 || $Datas[0]->nominal_matkul_3)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    {{ $Datas[0]->matkul_3 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>{{ $Datas[0]->sks_matkul_3 }}</td>
+                                                                                            <td>{{ $Datas[0]->jml_hadir_mkl_3 }}</td>
+                                                                                            <td>Rp. @currency($Datas[0]->honor_mk_3)</td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_3)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_4 || $Datas[0]->nominal_matkul_4)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    {{ $Datas[0]->matkul_4 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>{{ $Datas[0]->sks_matkul_4 }}</td>
+                                                                                            <td>{{ $Datas[0]->jml_hadir_mkl_4 }}</td>
+                                                                                            <td>Rp. @currency($Datas[0]->honor_mk_4)</td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_4)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                    @if ($Datas[0]->matkul_5 || $Datas[0]->nominal_matkul_5)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div>
+                                                                                                    {{ $Datas[0]->matkul_5 }}
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>{{ $Datas[0]->sks_matkul_5 }}</td>
+                                                                                            <td>{{ $Datas[0]->jml_hadir_mkl_5 }}</td>
+                                                                                            <td>Rp. @currency($Datas[0]->honor_mk_5)</td>
+                                                                                            <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_5)</td>
+                                                                                        </tr>
+                                                                                    @endif
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <!--end::table-->
+                                                                        <!--begin::table-->
+                                                                        <div class="table-responsive">
+                                                                            <table id="kt_datatable_totalSlip" class="table table-row-bordered gy-5">
+                                                                                <tbody>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>

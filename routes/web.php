@@ -42,7 +42,11 @@ Route::patch('password', [ChangePasswordController::class, 'update'])->name('pas
 Route::get('/slipGajiTendik', [TendikUserController::class, 'index'])->middleware(['auth', 'tendik'])->name('slipGajiTendik');
 Route::get('/printSlipGajiTendik', [TendikUserController::class, 'printSlipGajiTendik'])->middleware(['auth', 'tendik'])->name('printSlipGajiTendik');
 
+// dosen lb
 Route::get('/slipGajiDosenLB', [DosenLbUserController::class, 'index'])->middleware(['auth', 'dosen_lb'])->name('slipGajiDosenLB');
+Route::get('/printSlipGajiDosenLB', [DosenLbUserController::class, 'printSlipGajiDosenLB'])->middleware(['auth', 'dosen_lb'])->name('printSlipGajiDosenLB');
+
+// dosen tetap
 Route::get('/slipGajiDosenTetap', [DosenTetapUserController::class, 'index'])->middleware(['auth', 'dosen_tetap'])->name('slipGajiDosenTetap');
 
 

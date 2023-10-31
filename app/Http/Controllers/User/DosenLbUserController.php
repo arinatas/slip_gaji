@@ -29,6 +29,10 @@ class DosenLbUserController extends Controller
                 $Datas = null;
             }
 
+            // Menyimpan data tanggal di session
+            session()->put('bulan', $request->bulan);
+            session()->put('tahun', $request->tahun);
+
             // Mengecek apakah filter tanggal telah digunakan
             $filterUsed = $request->filled('bulan') && $request->filled('tahun');
 
@@ -43,7 +47,27 @@ class DosenLbUserController extends Controller
 
         return redirect('/userDashboard')->with('insertFail', 'Dilarang mengakses email yang berbeda!');
 
+    }
 
+    public function printSlipGajiDosenLB (){
+
+        $userEmail = auth()->user()->email;
+
+        $Datas = Dosenlb::where('email', $userEmail)
+            ->where('bulan', session('bulan'))
+            ->where('tahun', session('tahun'))
+            ->get();
+
+        $bulan = session('bulan');
+        $tahun = session('tahun');
+
+        return view('print.slip_dosenlb', [
+            'title' => 'Slip Gaji Dosen LB',
+            'secction' => 'Menu',
+            'Datas' => $Datas,
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ]);
     }
 
 }
