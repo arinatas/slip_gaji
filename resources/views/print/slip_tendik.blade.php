@@ -29,7 +29,7 @@
                         <img alt="Logo" class="" src="assets/media/logos/univ.png" width="160px" />
                     </div>
                     <div class="col-9 text-center">
-                        <h2>SLIP GAJI TENDIK</h2>
+                        <h2>SLIP GAJI KARYAWAN</h2>
                         <h1>PRIMAKARA UNIVERSITY</h1>
                         <h2>PERIODE @if ($bulan == 1)
                             JANUARY
@@ -118,6 +118,14 @@
                                         </div>
                                     </td>
                                     <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_jabatan)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            Bonus
+                                        </div>
+                                    </td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->bonus)</td>
                                 </tr>
                                 <tr>
                                     <td>

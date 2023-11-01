@@ -201,6 +201,14 @@
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
+                                                                                                Bonus
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->bonus)</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div>
                                                                                                 Tunjangan Kehadiran
                                                                                             </div>
                                                                                         </td>

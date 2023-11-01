@@ -29,7 +29,7 @@
                         <img alt="Logo" class="" src="assets/media/logos/univ.png" width="160px" />
                     </div>
                     <div class="col-9 text-center">
-                        <h2>SLIP GAJI TENDIK</h2>
+                        <h2>SLIP HONOR DOSEN</h2>
                         <h1>PRIMAKARA UNIVERSITY</h1>
                         <h2>PERIODE @if ($bulan == 1)
                             JANUARY

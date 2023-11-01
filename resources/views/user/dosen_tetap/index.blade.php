@@ -102,15 +102,17 @@
                                                     </div>
                                                     <!--end::Wrapper-->
                                                     <!--begin::Button-->
-                                                    {{-- <a href="#" target="blank" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">
-                                                        <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Devices/Printer.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                <rect x="0" y="0" width="24" height="24"/>
-                                                                <path d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z" fill="#000000"/>
-                                                                <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1"/>
-                                                            </g>
-                                                        </svg><!--end::Svg Icon--></span>
-                                                        Print</a> --}}
+                                                    @if(session('bulan') && session('tahun'))
+                                                        <a href="{{ url('printSlipGajiDosenTetap') }}" target="blank" class="btn btn-sm btn-warning">
+                                                            <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Devices/Printer.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <rect x="0" y="0" width="24" height="24"/>
+                                                                    <path d="M16,17 L16,21 C16,21.5522847 15.5522847,22 15,22 L9,22 C8.44771525,22 8,21.5522847 8,21 L8,17 L5,17 C3.8954305,17 3,16.1045695 3,15 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,15 C21,16.1045695 20.1045695,17 19,17 L16,17 Z M17.5,11 C18.3284271,11 19,10.3284271 19,9.5 C19,8.67157288 18.3284271,8 17.5,8 C16.6715729,8 16,8.67157288 16,9.5 C16,10.3284271 16.6715729,11 17.5,11 Z M10,14 L10,20 L14,20 L14,14 L10,14 Z" fill="#000000"/>
+                                                                    <rect fill="#000000" opacity="0.3" x="8" y="2" width="8" height="2" rx="1"/>
+                                                                </g>
+                                                            </svg><!--end::Svg Icon--></span>
+                                                            Print</a>
+                                                    @endif
                                                     <!--end::Button-->
                                                 </div>
                                             <!--end::Title-->
@@ -212,12 +214,23 @@
                                                                                         </td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_jabatan_fungsional)</td>
                                                                                     </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <!--end::table-->
+                                                                        <!--begin::table-->
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-row-bordered gy-5">
+                                                                                <tbody>
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
                                                                                                 Honor Mengajar (Pagi)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_honor_mengajar_kls_pagi }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_honor_mengajar_kls_pagi)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->honor_mengajar_kls_pagi)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -226,6 +239,9 @@
                                                                                                 Honor Mengajar (Malam)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_honor_mengajar_kls_malam }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_honor_mengajar_kls_malam)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->honor_mengajar_kls_malam)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -234,6 +250,9 @@
                                                                                                 Pmb./Penguji Kerja Praktek
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_atau_penguji_kp }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_atau_penguji_kp)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_atau_penguji_kp)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -242,6 +261,9 @@
                                                                                                 Penguji Sidang Proposal
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_penguji_sidang_proposal }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_penguji_sidang_proposal)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->penguji_sidang_proposal)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -250,6 +272,9 @@
                                                                                                 Penguji Sidang Skripsi
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_penguji_sidang_skripsi }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_penguji_sidang_skripsi)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->penguji_sidang_skripsi)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -258,6 +283,9 @@
                                                                                                 Pmb. I Proposal (kls pagi)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_1_proposal_pagi }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_1_proposal_pagi)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_proposal_pagi)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -266,6 +294,9 @@
                                                                                                 Pmb. I Proposal (kls malam)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_1_proposal_malam }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_1_proposal_malam)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_proposal_malam)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -274,6 +305,9 @@
                                                                                                 Pmb. I Skripsi (kls pagi)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_1_skripsi_pagi }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_1_skripsi_pagi)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_skripsi_pagi)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -282,6 +316,9 @@
                                                                                                 Pmb. I Skripsi (kls malam)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_1_skripsi_malam }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_1_skripsi_malam)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_skripsi_malam)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -290,6 +327,9 @@
                                                                                                 Pmb. II Proposal (kls pagi)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_2_proposal_pagi }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_2_proposal_pagi)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_proposal_pagi)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -298,6 +338,9 @@
                                                                                                 Pmb. II Proposal (kls malam)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_2_proposal_malam }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_2_proposal_malam)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_proposal_malam)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -306,6 +349,9 @@
                                                                                                 Pmb. II Skripsi (kls pagi)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_2_skripsi_pagi }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_2_skripsi_pagi)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_skripsi_pagi)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -314,6 +360,9 @@
                                                                                                 Pmb. II Skripsi (kls malam)
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_2_skripsi_malam }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_2_skripsi_malam)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_skripsi_malam)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -322,6 +371,9 @@
                                                                                                 Pembuatan Soal
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pembuatan_soal }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pembuatan_soal)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pembuatan_soal)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -330,6 +382,9 @@
                                                                                                 Koreksi Soal
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_koreksi_soal }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_koreksi_soal)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->koreksi_soal)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -338,6 +393,9 @@
                                                                                                 Dosen Wali
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_dosen_wali }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_dosen_wali)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->dosen_wali)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -346,15 +404,10 @@
                                                                                                 Pengawas Ujian
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pengawas_ujian }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pengawas_ujian)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pengawas_ujian)</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div>
-                                                                                                Pembina UKM
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->pembina_ukm)</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
@@ -362,6 +415,9 @@
                                                                                                 Remidial
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_remidial }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_remidial)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->remidial)</td>
                                                                                     </tr>
                                                                                     <tr>
@@ -370,7 +426,26 @@
                                                                                                 Pemb. Company Visit
                                                                                             </div>
                                                                                         </td>
+                                                                                        <td>{{ $Datas[0]->x_pmb_company_visit }}</td>
+                                                                                        <td>X</td>
+                                                                                        <td>Rp. @currency($Datas[0]->nominal_pmb_company_visit)</td>
                                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_company_visit)</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <!--end::table-->
+                                                                        <!--begin::table-->
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-row-bordered gy-5">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div>
+                                                                                                Pembina UKM
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->pembina_ukm)</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
@@ -386,7 +461,7 @@
                                                                                                <b>Jumlah Gaji, Tunjangan dan honor</b>
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;"><b>Rp. @currency($Datas[0]->jumlah_gaji_tunjangan_honor)</b></td>
+                                                                                        <td style="text-align: end;"><b>+ Rp. @currency($Datas[0]->jumlah_gaji_tunjangan_honor)</b></td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>
@@ -423,10 +498,10 @@
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
-                                                                                                <b>Jumlah</b>
+                                                                                                <b>Jumlah Pengurang</b>
                                                                                             </div>
                                                                                         </td>
-                                                                                        <td style="text-align: end;"><b>Rp. @currency($Datas[0]->jumlah)</b></td>
+                                                                                        <td style="text-align: end;"><b>- Rp. @currency($Datas[0]->jumlah)</b></td>
                                                                                     </tr>
                                                                                 </tbody>
                                                                             </table>

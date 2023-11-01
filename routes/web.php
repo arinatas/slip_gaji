@@ -48,6 +48,7 @@ Route::get('/printSlipGajiDosenLB', [DosenLbUserController::class, 'printSlipGaj
 
 // dosen tetap
 Route::get('/slipGajiDosenTetap', [DosenTetapUserController::class, 'index'])->middleware(['auth', 'dosen_tetap'])->name('slipGajiDosenTetap');
+Route::get('/printSlipGajiDosenTetap', [DosenTetapUserController::class, 'printSlipGajiDosenTetap'])->middleware(['auth', 'dosen_tetap'])->name('printSlipGajiDosenTetap');
 
 
 

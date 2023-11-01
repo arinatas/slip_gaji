@@ -29,6 +29,10 @@ class DosenTetapUserController extends Controller
                 $Datas = null;
             }
 
+            // Menyimpan data tanggal di session
+            session()->put('bulan', $request->bulan);
+            session()->put('tahun', $request->tahun);
+
             // Mengecek apakah filter tanggal telah digunakan
             $filterUsed = $request->filled('bulan') && $request->filled('tahun');
 
@@ -43,7 +47,27 @@ class DosenTetapUserController extends Controller
 
         return redirect('/userDashboard')->with('insertFail', 'Dilarang mengakses email yang berbeda!');
 
+    }
 
+    public function printSlipGajiDosenTetap (){
+
+        $userEmail = auth()->user()->email;
+
+        $Datas = DosenTetap::where('email', $userEmail)
+            ->where('bulan', session('bulan'))
+            ->where('tahun', session('tahun'))
+            ->get();
+
+        $bulan = session('bulan');
+        $tahun = session('tahun');
+
+        return view('print.slip_dosenTetap', [
+            'title' => 'Slip Gaji Dosen Tetap',
+            'secction' => 'Menu',
+            'Datas' => $Datas,
+            'bulan' => $bulan,
+            'tahun' => $tahun,
+        ]);
     }
 
 }
