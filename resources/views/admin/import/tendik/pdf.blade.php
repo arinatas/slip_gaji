@@ -58,6 +58,24 @@
                 <!-- Table row -->
         
                     <div class="col-12 table-responsive">
+                        <table>
+                        <tr>
+                            <td>
+                                <div>
+                                    Nama&nbsp;&nbsp;&nbsp;&nbsp;:
+                                </div>
+                                </td>
+                            <td style="text-align: left;"> {{ $item->nama }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    Jabatan :
+                                    </div>
+                                </td>
+                            <td style="text-align: left;"> {{ $item->jabatan }}</td>
+                        </tr>
+                        </table>
                         <table class="table table-sm table-bordered">
                             <thead>
                                 <tr class="fw-semibold fs-6 text-bold">
@@ -187,7 +205,7 @@
                         <div class="col-sm-12 invoice-col mt-5">
                             <address style="text-align: center;"> <!-- Atur text-align ke center -->
                                 <strong>Denpasar, 28 {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</strong><br>
-                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="200px" />
+                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="160px" />
                                 <br>
                                 <strong>I Made Artana, S.Kom.,M.M.</strong><br>
                                 <strong>Rektor Primakara University</strong><br>
