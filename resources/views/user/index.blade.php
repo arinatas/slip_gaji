@@ -22,7 +22,7 @@
                                                         <!--begin::Content-->
                                                         <div class="mb-6 mb-md-0 fw-bold">
                                                             <h4 class="text-gray-900 fw-bolder text-center mb-8">Hai {{ auth()->user()->name }}, Selamat datang di sistem slip gaji online Primakara ❤️</h4>
-                                                            <div class="fs-6 text-gray-700 pe-7" style="text-align: justify">Kami senang melihat <b>{{ auth()->user()->name }}</b>  di sini. Dengan sistem ini, Kamu akan dapat dengan mudah mengakses dan mengelola informasi gaji. <br><br>
+                                                            <div class="fs-6 text-gray-700" style="text-align: justify">Kami senang melihat <b>{{ auth()->user()->name }}</b>  di sini. Dengan sistem ini, Kamu akan dapat dengan mudah mengakses dan mengelola informasi gaji. <br><br>
 
                                                                 Jika Kamu memiliki pertanyaan atau memerlukan bantuan, jangan ragu untuk menghubungi SDM. <br><br>
 
