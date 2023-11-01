@@ -132,14 +132,29 @@
                                                         <th class="min-w-100px">Honor Pokok</th>
                                                         <th class="min-w-100px">Matkul 1</th>
                                                         <th class="min-w-100px">Nominal Matkul 1</th>
+                                                        <th class="min-w-100px">SKS Matkul 1</th>
+                                                        <th class="min-w-100px">Jml Hadir Matkul 1</th>
+                                                        <th class="min-w-100px">Honor MK 1</th>
                                                         <th class="min-w-100px">Matkul 2</th>
                                                         <th class="min-w-100px">Nominal Matkul 2</th>
+                                                        <th class="min-w-100px">SKS Matkul 2</th>
+                                                        <th class="min-w-100px">Jml Hadir Matkul 2</th>
+                                                        <th class="min-w-100px">Honor MK 2</th>
                                                         <th class="min-w-100px">Matkul 3</th>
                                                         <th class="min-w-100px">Nominal Matkul 3</th>
+                                                        <th class="min-w-100px">SKS Matkul 3</th>
+                                                        <th class="min-w-100px">Jml Hadir Matkul 3</th>
+                                                        <th class="min-w-100px">Honor MK 3</th>
                                                         <th class="min-w-100px">Matkul 4</th>
-                                                        <th class="min-w-100px">Nominal Matkul 1</th>
+                                                        <th class="min-w-100px">Nominal Matkul 4</th>
+                                                        <th class="min-w-100px">SKS Matkul 4</th>
+                                                        <th class="min-w-100px">Jml Hadir Matkul 4</th>
+                                                        <th class="min-w-100px">Honor MK 4</th>
                                                         <th class="min-w-100px">Matkul 5</th>
                                                         <th class="min-w-100px">Nominal Matkul 5</th>
+                                                        <th class="min-w-100px">SKS Matkul 5</th>
+                                                        <th class="min-w-100px">Jml Hadir Matkul 5</th>
+                                                        <th class="min-w-100px">Honor MK 5</th>
                                                         <th class="min-w-100px">Anggota Klp Dosen</th>
                                                         <th class="min-w-100px">Pembuatan Soal</th>
                                                         <th class="min-w-100px">Koreksi Soal</th>
@@ -213,32 +228,32 @@
                                                                                     <td>Rp. @currency( $item->honor_pokok )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    @if(!is_null($item->matkul_1) || !is_null($item->nominal_matkul_1))
-                                                                                        <th>MK 1 ({{ $item->matkul_1 }})</th>
+                                                                                    @if($item->matkul_1 !== null && $item->nominal_matkul_1 !== null && $item->sks_matkul_1 !== null && $item->jml_hadir_mkl_1 !== null && $item->honor_mk_1 !== null)
+                                                                                        <th>MK 1 ({{ $item->matkul_1 }}, {{ $item->sks_matkul_1 }} SKS ) : {{ $item->jml_hadir_mkl_1 }} Pertemuan X Rp. @currency($item->honor_mk_1)</th>
                                                                                         <td>Rp. @currency($item->nominal_matkul_1)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    @if(!is_null($item->matkul_2) || !is_null($item->nominal_matkul_2))
-                                                                                        <th>MK 2 ({{ $item->matkul_2 }})</th>
+                                                                                    @if($item->matkul_2 !== null && $item->nominal_matkul_2 !== null && $item->sks_matkul_2 !== null && $item->jml_hadir_mkl_2 !== null && $item->honor_mk_2 !== null)
+                                                                                        <th>MK 2 ({{ $item->matkul_2 }}, {{ $item->sks_matkul_2 }} SKS ) : {{ $item->jml_hadir_mkl_2 }} Pertemuan X Rp. @currency($item->honor_mk_2)</th>
                                                                                         <td>Rp. @currency($item->nominal_matkul_2)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    @if(!is_null($item->matkul_3) || !is_null($item->nominal_matkul_3))
-                                                                                        <th>MK 3 ({{ $item->matkul_3 }})</th>
+                                                                                    @if($item->matkul_3 !== null && $item->nominal_matkul_3 !== null && $item->sks_matkul_3 !== null && $item->jml_hadir_mkl_3 !== null && $item->honor_mk_3 !== null)
+                                                                                        <th>MK 3 ({{ $item->matkul_3 }}, {{ $item->sks_matkul_3 }} SKS ) : {{ $item->jml_hadir_mkl_3 }} Pertemuan X Rp. @currency($item->honor_mk_3)</th>
                                                                                         <td>Rp. @currency($item->nominal_matkul_3)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    @if(!is_null($item->matkul_4) || !is_null($item->nominal_matkul_4))
-                                                                                        <th>MK 4 ({{ $item->matkul_4 }})</th>
+                                                                                    @if($item->matkul_4 !== null && $item->nominal_matkul_4 !== null && $item->sks_matkul_4 !== null && $item->jml_hadir_mkl_4 !== null && $item->honor_mk_4 !== null)
+                                                                                        <th>MK 4 ({{ $item->matkul_4 }}, {{ $item->sks_matkul_4 }} SKS ) : {{ $item->jml_hadir_mkl_4 }} Pertemuan X Rp. @currency($item->honor_mk_4)</th>
                                                                                         <td>Rp. @currency($item->nominal_matkul_4)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    @if(!is_null($item->matkul_5) || !is_null($item->nominal_matkul_5))
-                                                                                        <th>MK 5 ({{ $item->matkul_5 }})</th>
+                                                                                    @if($item->matkul_5 !== null && $item->nominal_matkul_5 !== null && $item->sks_matkul_5 !== null && $item->jml_hadir_mkl_5 !== null && $item->honor_mk_5 !== null)
+                                                                                        <th>MK 5 ({{ $item->matkul_5 }}, {{ $item->sks_matkul_5 }} SKS ) : {{ $item->jml_hadir_mkl_5 }} Pertemuan X Rp. @currency($item->honor_mk_5)</th>
                                                                                         <td>Rp. @currency($item->nominal_matkul_5)</td>
                                                                                     @endif
                                                                                 </tr>
@@ -260,11 +275,11 @@
                                                                                 </tr>
                                                                                 <tr class="alert alert-success">
                                                                                     <th><strong style="font-size: 14px;">Jumlah</th>
-                                                                                    <td><strong style="font-size: 14px;">Rp. @currency( $item->jumlah )</td>
+                                                                                    <td><strong style="font-size: 14px;">+Rp. @currency( $item->jumlah )</td>
                                                                                 </tr>
                                                                                 <tr class="alert alert-danger">
-                                                                                    <th><strong style="font-size: 14px;">-Pph 21</th>
-                                                                                    <td><strong style="font-size: 14px;">Rp. @currency( $item->pph_21 )</td>
+                                                                                    <th><strong style="font-size: 14px;">Pph 21</th>
+                                                                                    <td><strong style="font-size: 14px;">-Rp. @currency( $item->pph_21 )</td>
                                                                                 </tr>
                                                                                 <tr class="alert alert-primary">
                                                                                     <th style="text-align: end;"><strong style="font-size: 16px;">Honor Yang dibayar Rp. @currency( $item->honor_yang_dibayar )</th>
@@ -317,6 +332,27 @@
                                                             @endif
                                                         </td>
                                                         <td>
+                                                            @if(!is_null($item->sks_matkul_1))
+                                                                {{ $item->sks_matkul_1 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->jml_hadir_mkl_1))
+                                                                {{ $item->jml_hadir_mkl_1 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->honor_mk_1))
+                                                                {{ $item->honor_mk_1 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
                                                             @if(!is_null($item->matkul_2))
                                                                 {{ $item->matkul_2 }}
                                                             @else
@@ -326,6 +362,27 @@
                                                         <td>
                                                             @if(!is_null($item->nominal_matkul_2))
                                                                 Rp. @currency($item->nominal_matkul_2)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->sks_matkul_2))
+                                                                {{ $item->sks_matkul_2 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->jml_hadir_mkl_2))
+                                                                {{ $item->jml_hadir_mkl_2 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->honor_mk_2))
+                                                                {{ $item->honor_mk_2 }}
                                                             @else
                                                                 -
                                                             @endif
@@ -345,6 +402,27 @@
                                                             @endif
                                                         </td>
                                                         <td>
+                                                            @if(!is_null($item->sks_matkul_3))
+                                                                {{ $item->sks_matkul_3 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->jml_hadir_mkl_3))
+                                                                {{ $item->jml_hadir_mkl_3 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->honor_mk_3))
+                                                                {{ $item->honor_mk_3 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
                                                             @if(!is_null($item->matkul_4))
                                                                 {{ $item->matkul_4 }}
                                                             @else
@@ -359,6 +437,27 @@
                                                             @endif
                                                         </td>
                                                         <td>
+                                                            @if(!is_null($item->sks_matkul_4))
+                                                                {{ $item->sks_matkul_4 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->jml_hadir_mkl_4))
+                                                                {{ $item->jml_hadir_mkl_4 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->honor_mk_4))
+                                                                {{ $item->honor_mk_4 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
                                                             @if(!is_null($item->matkul_5))
                                                                 {{ $item->matkul_5 }}
                                                             @else
@@ -368,6 +467,27 @@
                                                         <td>
                                                             @if(!is_null($item->nominal_matkul_5))
                                                                 Rp. @currency($item->nominal_matkul_5)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->sks_matkul_5))
+                                                                {{ $item->sks_matkul_5 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->jml_hadir_mkl_5))
+                                                                {{ $item->jml_hadir_mkl_5 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->honor_mk_5))
+                                                                {{ $item->honor_mk_5 }}
                                                             @else
                                                                 -
                                                             @endif
@@ -531,6 +651,30 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>SKS Matkul 1</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="sks_matkul_1" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Jml Hadir Matkul 1</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_hadir_mkl_1" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Honor Matkul 1</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mk_1" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                             <span>Matkul 2</span>
                                                         </label>
                                                         <!--end::Label-->
@@ -543,6 +687,30 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="nominal_matkul_2" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>SKS Matkul 2</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="sks_matkul_2" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Jml Hadir Matkul 2</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_hadir_mkl_2" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Honor Matkul 2</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mk_2" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
@@ -563,6 +731,30 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>SKS Matkul 3</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="sks_matkul_3" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Jml Hadir Matkul 3</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_hadir_mkl_3" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Honor Matkul 3</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mk_3" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                             <span>Matkul 4</span>
                                                         </label>
                                                         <!--end::Label-->
@@ -579,6 +771,30 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>SKS Matkul 4</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="sks_matkul_4" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Jml Hadir Matkul 4</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_hadir_mkl_4" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Honor Matkul 4</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mk_4" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                             <span>Matkul 5</span>
                                                         </label>
                                                         <!--end::Label-->
@@ -591,6 +807,30 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="nominal_matkul_5" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>SKS Matkul 5</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="sks_matkul_5" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Jml Hadir Matkul 5</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_hadir_mkl_5" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Honor Matkul 5</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mk_5" />
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->

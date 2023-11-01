@@ -70,6 +70,18 @@
                                     <label for="exampleFormControlInput1" form-label">Nominal Matkul 1</label>
                                     <input type="text" value="{{$dosenlb->nominal_matkul_1}}" class="form-control form-control-solid" name="nominal_matkul_1"/>
                                 </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">SKS Matkul 1</label>
+                                    <input type="text" value="{{$dosenlb->sks_matkul_1}}" class="form-control form-control-solid" name="sks_matkul_1"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Jml Hadir Matkul 1</label>
+                                    <input type="text" value="{{$dosenlb->jml_hadir_mkl_1}}" class="form-control form-control-solid" name="jml_hadir_mkl_1"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Honor Matkul 1</label>
+                                    <input type="text" value="{{$dosenlb->honor_mk_1}}" class="form-control form-control-solid" name="honor_mk_1"/>
+                                </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" form-label">Matkul 2</label>
                                     <input type="text" value="{{$dosenlb->matkul_2}}" class="form-control form-control-solid" name="matkul_2"/>
@@ -78,6 +90,18 @@
                                     <label for="exampleFormControlInput1" form-label">Nominal Matkul 2</label>
                                     <input type="text" value="{{$dosenlb->nominal_matkul_2}}" class="form-control form-control-solid" name="nominal_matkul_2"/>
                                 </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">SKS Matkul 2</label>
+                                    <input type="text" value="{{$dosenlb->sks_matkul_2}}" class="form-control form-control-solid" name="sks_matkul_2"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Jml Hadir Matkul 2</label>
+                                    <input type="text" value="{{$dosenlb->jml_hadir_mkl_2}}" class="form-control form-control-solid" name="jml_hadir_mkl_2"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Honor Matkul 2</label>
+                                    <input type="text" value="{{$dosenlb->honor_mk_2}}" class="form-control form-control-solid" name="honor_mk_2"/>
+                                </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" form-label">Matkul 3</label>
                                     <input type="text" value="{{$dosenlb->matkul_3}}" class="form-control form-control-solid" name="matkul_3"/>
@@ -85,6 +109,18 @@
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" form-label">Nominal Matkul 3 </label>
                                     <input type="text" value="{{$dosenlb->nominal_matkul_3}}" class="form-control form-control-solid" name="nominal_matkul_3"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">SKS Matkul 3</label>
+                                    <input type="text" value="{{$dosenlb->sks_matkul_3}}" class="form-control form-control-solid" name="sks_matkul_3"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Jml Hadir Matkul 3</label>
+                                    <input type="text" value="{{$dosenlb->jml_hadir_mkl_3}}" class="form-control form-control-solid" name="jml_hadir_mkl_3"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Honor Matkul 3</label>
+                                    <input type="text" value="{{$dosenlb->honor_mk_3}}" class="form-control form-control-solid" name="honor_mk_3"/>
                                 </div>
 
 								<div class="mb-10">
@@ -95,6 +131,18 @@
                                     <label for="exampleFormControlInput1" form-label">Nominal Matkul 4</label>
                                     <input type="text" value="{{$dosenlb->nominal_matkul_4}}" class="form-control form-control-solid" name="nominal_matkul_4"/>
                                 </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">SKS Matkul 4</label>
+                                    <input type="text" value="{{$dosenlb->sks_matkul_4}}" class="form-control form-control-solid" name="sks_matkul_4"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Jml Hadir Matkul 4</label>
+                                    <input type="text" value="{{$dosenlb->jml_hadir_mkl_4}}" class="form-control form-control-solid" name="jml_hadir_mkl_4"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Honor Matkul 4</label>
+                                    <input type="text" value="{{$dosenlb->honor_mk_4}}" class="form-control form-control-solid" name="honor_mk_4"/>
+                                </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" form-label">Matkul 5</label>
                                     <input type="text" value="{{$dosenlb->matkul_5}}" class="form-control form-control-solid" name="matkul_5"/>
@@ -102,6 +150,18 @@
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" form-label">Nominal Matkul 5</label>
                                     <input type="text" value="{{$dosenlb->nominal_matkul_5}}" class="form-control form-control-solid" name="nominal_matkul_5"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">SKS Matkul 5</label>
+                                    <input type="text" value="{{$dosenlb->sks_matkul_5}}" class="form-control form-control-solid" name="sks_matkul_5"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Jml Hadir Matkul 5</label>
+                                    <input type="text" value="{{$dosenlb->jml_hadir_mkl_5}}" class="form-control form-control-solid" name="jml_hadir_mkl_5"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" form-label">Honor Matkul 5</label>
+                                    <input type="text" value="{{$dosenlb->honor_mk_5}}" class="form-control form-control-solid" name="honor_mk_5"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Anggota Klp Dosen</label>
