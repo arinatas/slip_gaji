@@ -334,7 +334,7 @@ class TendikController extends Controller
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
 
-        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a5');
+        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a4');
 
         return $pdf->download('slip_gaji_pegawai_' . $id . '.pdf');
     }

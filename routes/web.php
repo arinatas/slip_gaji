@@ -69,9 +69,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/import-tendik', [TendikController::class, 'showImportForm'])->name('import.tendik.view');
     Route::post('/import-tendik', [TendikController::class, 'importExcel'])->name('import.tendik');
     Route::get('download-example-excel', [TendikController::class, 'downloadExampleExcel'])->name('download.example.excel');
-    Route::get('/export-pdf/{bulan}/{tahun}', [TendikController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
+    Route::get('/export-pdf/{bulan}/{tahun}', [TendikController::class, 'exportPdf'])->middleware('auth')->name('export.pdf.tendik');
     // Route untuk menampilkan slip gaji berdasarkan ID Pegawai
-    Route::get('/export-pdf/{id}', [TendikController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
+    Route::get('/export-pdf/{id}', [TendikController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid.tendik');
 
     // Slip Dosen LB
     Route::get('dosenlb', [DosenlbController::class, 'index'])->middleware('auth')->name('dosenlb');
@@ -82,8 +82,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/import-dosenlb', [DosenlbController::class, 'showImportForm'])->name('import.dosenlb.view');
     Route::post('/import-dosenlb', [DosenlbController::class, 'importExcel'])->name('import.dosenlb');
     Route::get('excel-dosen-lb', [DosenlbController::class, 'downloadExampleExcel'])->name('excel.dosen.lb');
-    Route::get('/export-pdf-dosenlb/{bulan}/{tahun}', [DosenlbController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
-    Route::get('/export-pdf-dosenlb/{id}', [DosenlbController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
+    Route::get('/export-pdf-dosenlb/{bulan}/{tahun}', [DosenlbController::class, 'exportPdf'])->middleware('auth')->name('export.pdf.dosenlb');
+    Route::get('/export-pdf-dosenlb/{id}', [DosenlbController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid.dosenlb');
 
     // Slip Dosen Tetap
     Route::get('dosentetap', [DosenTetapController::class, 'index'])->middleware('auth')->name('dosentetap');
@@ -94,8 +94,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/import-dosentetap', [DosenTetapController::class, 'showImportForm'])->name('import.dosentetap.view');
     Route::post('/import-dosentetap', [DosenTetapController::class, 'importExcel'])->name('import.dosentetap');
     Route::get('excel-dosen-tetap', [DosenTetapController::class, 'downloadExampleExcel'])->name('excel.dosen.tetap');
-    Route::get('/export-pdf-dosentetap/{bulan}/{tahun}', [DosenTetapController::class, 'exportPdf'])->middleware('auth')->name('export.pdf');
-    Route::get('/export-pdf-dosentetap/{id}', [DosenTetapController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid');
+    Route::get('/export-pdf-dosentetap/{bulan}/{tahun}', [DosenTetapController::class, 'exportPdf'])->middleware('auth')->name('export.pdf.dosentetap');
+    Route::get('/export-pdf-dosentetap/{id}', [DosenTetapController::class, 'exportPdfbyid'])->middleware('auth')->name('export.pdfbyid.dosentetap');
 
 
 });

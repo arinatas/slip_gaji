@@ -106,7 +106,7 @@
                                                             <button type="submit" class="btn btn-primary mt-4">Filter</button>
                                                             <!-- Tombol Export PDF -->
                                                             @if (request('bulan') && request('tahun'))
-                                                                <a href="{{ route('export.pdf', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}" class="btn btn-danger mt-4" title="Unduh Slip Gaji Semua">Export Slip Gaji</a>
+                                                                <a href="{{ route('export.pdf.tendik', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}" class="btn btn-danger mt-4" title="Unduh Slip Gaji Semua">Export Slip Gaji</a>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -277,7 +277,7 @@
                                                                 class="btn btn-sm btn-danger btn-action" onclick="confirmDelete(event)"
                                                                 ><i class="fas fa-trash" title="Hapus Data Slip Gaji per Pegawai"></i></i></button>
                                                             </form>
-                                                            <a href="{{ route('export.pdfbyid', $item->id) }}" class="btn btn-sm btn-warning btn-action" data-toggle="tooltip" title="Unduh Slip Gaji per Pegawai"><i class="fas fa-download"></i></a>
+                                                            <a href="{{ route('export.pdfbyid.tendik', $item->id) }}" class="btn btn-sm btn-warning btn-action" data-toggle="tooltip" title="Unduh Slip Gaji per Pegawai"><i class="fas fa-download"></i></a>
                                                         </td>
                                                         <td>{{ $no }}</td>
                                                         <td>{{ $item->email }}</td>
