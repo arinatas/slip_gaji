@@ -226,10 +226,10 @@
                     <!-- /.col -->
     
                     <div class="row">
-                        <div class="col-sm-12 invoice-col mt-5">
+                        <div class="col-sm-12 invoice-col mt-3">
                             <address style="text-align: right; padding-right: 10px;"> <!-- Atur text-align ke center -->
                                 <p style="font-size: 12px;">Denpasar, 28 {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</p><br>
-                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="160px" />
+                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="160px" style="margin-top: -35px;" />
                                 <br>
                                 <strong style="font-size: 14px; text-decoration: underline;">I Made Artana, S.Kom.,M.M.</strong><br>
                                 <strong style="font-size: 14px;">Rektor Primakara University</strong><br>
