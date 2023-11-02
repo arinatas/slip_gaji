@@ -21,18 +21,19 @@ class TendikImport implements ToModel, WithValidation
             'jabatan' => $row[4],
             'gaji_pokok' => $row[5],
             'tunjangan_jabatan' => $row[6],
-            'tunjangan_kehadiran' => $row[7],
-            'tunjangan_lembur' => $row[8],
-            'tunj_pel_mhs_op_feeder' => $row[9],
-            'tunjangan_kinerja' => $row[10],
-            'jumlah_penambah' => $row[11],
-            'potongan_kasbon' => $row[12],
-            'denda_keterlambatan' => $row[13],
-            'potongan_pph_21' => $row[14],
-            'potongan_absensi' => $row[15],
-            'potongan_bpjs' => $row[16],
-            'jumlah_pengurang' => $row[17],
-            'gaji_yang_dibayar' => $row[18]
+            'bonus' => $row[7],
+            'tunjangan_kehadiran' => $row[8],
+            'tunjangan_lembur' => $row[9],
+            'tunj_pel_mhs_op_feeder' => $row[10],
+            'tunjangan_kinerja' => $row[11],
+            'jumlah_penambah' => $row[12],
+            'potongan_kasbon' => $row[13],
+            'denda_keterlambatan' => $row[14],
+            'potongan_pph_21' => $row[15],
+            'potongan_absensi' => $row[16],
+            'potongan_bpjs' => $row[17],
+            'jumlah_pengurang' => $row[18],
+            'gaji_yang_dibayar' => $row[19]
         ]);
     }
 
@@ -58,6 +59,7 @@ class TendikImport implements ToModel, WithValidation
             '16' => 'required|integer',
             '17' => 'required|integer',
             '18' => 'required|integer',
+            '19' => 'required|integer',
         ];
     }
 }

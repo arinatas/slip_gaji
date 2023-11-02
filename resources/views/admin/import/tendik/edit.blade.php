@@ -63,6 +63,10 @@
                                     <input type="text" value="{{$tendik->tunjangan_jabatan}}" class="form-control form-control-solid" required name="tunjangan_jabatan"/>
                                 </div>
 								<div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Bonus</label>
+                                    <input type="text" value="{{$tendik->bonus}}" class="form-control form-control-solid" required name="bonus"/>
+                                </div>
+								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kehadiran</label>
                                     <input type="text" value="{{$tendik->tunjangan_kehadiran}}" class="form-control form-control-solid" required name="tunjangan_kehadiran"/>
                                 </div>

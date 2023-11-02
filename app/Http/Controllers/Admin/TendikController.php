@@ -46,6 +46,7 @@ class TendikController extends Controller
             'jabatan' => 'required|string|max:100',
             'gaji_pokok' => 'required|integer',
             'tunjangan_jabatan' => 'required|integer',
+            'bonus' => 'required|integer',
             'tunjangan_kehadiran' => 'required|integer',
             'tunjangan_lembur' => 'required|integer',
             'tunj_pel_mhs_op_feeder' => 'required|integer',
@@ -87,6 +88,7 @@ class TendikController extends Controller
                 'jabatan' => $request->jabatan,
                 'gaji_pokok' => $request->gaji_pokok,
                 'tunjangan_jabatan' => $request->tunjangan_jabatan,
+                'bonus' => $request->bonus,
                 'tunjangan_kehadiran' => $request->tunjangan_kehadiran,
                 'tunjangan_lembur' => $request->tunjangan_lembur,
                 'tunj_pel_mhs_op_feeder' => $request->tunj_pel_mhs_op_feeder,
@@ -144,6 +146,7 @@ class TendikController extends Controller
             'jabatan' => 'required|string|max:100',
             'gaji_pokok' => 'required|integer',
             'tunjangan_jabatan' => 'required|integer',
+            'bonus' => 'required|integer',
             'tunjangan_kehadiran' => 'required|integer',
             'tunjangan_lembur' => 'required|integer',
             'tunj_pel_mhs_op_feeder' => 'required|integer',
@@ -171,6 +174,7 @@ class TendikController extends Controller
             $tendik->jabatan = $request->jabatan;
             $tendik->gaji_pokok = $request->gaji_pokok;
             $tendik->tunjangan_jabatan = $request->tunjangan_jabatan;
+            $tendik->bonus = $request->bonus;
             $tendik->tunjangan_kehadiran = $request->tunjangan_kehadiran;
             $tendik->tunjangan_lembur = $request->tunjangan_lembur;
             $tendik->tunj_pel_mhs_op_feeder = $request->tunj_pel_mhs_op_feeder;

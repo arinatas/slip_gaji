@@ -28,16 +28,6 @@
                 page-break-before: auto; /* Tidak ada page break pada elemen pertama */
             }
 
-            .logo {
-                flex: 1; /* Mengambil sebagian besar ruang di sebelah kanan untuk logo */
-                text-align: right;
-            }
-
-            .judul {
-                flex: 2; /* Mengambil sebagian besar ruang di tengah untuk judul */
-                text-align: center;
-            }
-
             .table-sm td {
                 font-size: 12px; /* You can adjust the font size as needed */
             }
@@ -55,20 +45,28 @@
         @foreach ($data as $item)
         <div class="slip-gaji">
                 <!-- title row -->
-                <div class="row">
-                    <div class="col-2">
-                        <img alt="Logo" class="" src="assets/media/logos/univ.png" width="160px" />
+                    <div style="padding-bottom: 35px;">
+                        <table>
+                            <tr>
+                                <td style="text-align: left;">
+                                <div >
+                                    <img alt="Logo" class="" src="assets/media/logos/univ.png" width="150px" />
+                                </div>
+                                </td>
+                                <td style="text-align: center;"> 
+                                <div style="padding-left: 40px;">
+                                    <h4>SLIP HONOR DOSEN</h4>
+                                    <h3>PRIMAKARA UNIVERSITY</h3>
+                                    <h6 style="text-transform: uppercase;">PERIODE {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</h6>
+                                </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="col-12 table-responsive" style="text-align: center; padding: 10px;">
-                        <h4 style="margin: 5px 0;">SLIP HONOR DOSEN</h4>
-                        <h3 style="margin: 5px 0;">PRIMAKARA UNIVERSITY</h3>
-                        <h6 style="margin: 5px 0; text-transform: uppercase;">PERIODE {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</h6>
-                    </div>
-                </div>
 
                 <!-- Table row -->
                     <div class="col-12 table-responsive">
-                        <table>
+                        <table style="padding-bottom: 5px;">
                         <tr>
                             <td>
                                 <div>
@@ -226,10 +224,10 @@
                     <!-- /.col -->
     
                     <div class="row">
-                        <div class="col-sm-12 invoice-col mt-5">
+                        <div class="col-sm-12 invoice-col mt-3">
                             <address style="text-align: right; padding-right: 10px;"> <!-- Atur text-align ke center -->
                                 <p style="font-size: 12px;">Denpasar, 28 {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</p><br>
-                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="160px" />
+                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="160px" style="margin-top: -35px;" />
                                 <br>
                                 <strong style="font-size: 14px; text-decoration: underline;">I Made Artana, S.Kom.,M.M.</strong><br>
                                 <strong style="font-size: 14px;">Rektor Primakara University</strong><br>
