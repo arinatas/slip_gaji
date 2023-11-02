@@ -132,6 +132,7 @@
                                                         <th class="min-w-100px">Tahun</th>
                                                         <th class="min-w-100px">Gaji Pokok</th>
                                                         <th class="min-w-100px">Tunjangan Jabatan</th>
+                                                        <th class="min-w-100px">Bonus</th>
                                                         <th class="min-w-100px">Tunjangan Kehadiran</th>
                                                         <th class="min-w-100px">Tunjangan Lembur</th>
                                                         <th class="min-w-100px">Tunj. Pel. Mhs/Op. Feeder</th>
@@ -208,6 +209,10 @@
                                                                                 <tr>
                                                                                     <th>Tunjangan Jabatan</th>
                                                                                     <td>Rp. @currency( $item->tunjangan_jabatan )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Bonus</th>
+                                                                                    <td>Rp. @currency( $item->bonus )</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>Tunjangan Kehadiran</th>
@@ -287,20 +292,21 @@
                                                             {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }}
                                                         </td>
                                                         <td>{{ $item->tahun }}</td>
-                                                        <td>{{ $item->gaji_pokok }}</td>
-                                                        <td>{{ $item->tunjangan_jabatan }}</td>
-                                                        <td>{{ $item->tunjangan_kehadiran }}</td>
-                                                        <td>{{ $item->tunjangan_lembur }}</td>
-                                                        <td>{{ $item->tunj_pel_mhs_op_feeder }}</td>
-                                                        <td>{{ $item->tunjangan_kinerja }}</td>
-                                                        <td>{{ $item->jumlah_penambah }}</td>
-                                                        <td>{{ $item->potongan_kasbon }}</td>
-                                                        <td>{{ $item->denda_keterlambatan }}</td>
-                                                        <td>{{ $item->potongan_pph_21 }}</td>
-                                                        <td>{{ $item->potongan_absensi }}</td>
-                                                        <td>{{ $item->potongan_bpjs }}</td>
-                                                        <td>{{ $item->jumlah_pengurang }}</td>
-                                                        <td>{{ $item->gaji_yang_dibayar }}</td>
+                                                        <td>@currency( $item->gaji_pokok )</td>
+                                                        <td>@currency( $item->tunjangan_jabatan )</td>
+                                                        <td>@currency( $item->bonus )</td>
+                                                        <td>@currency( $item->tunjangan_kehadiran )</td>
+                                                        <td>@currency( $item->tunjangan_lembur )</td>
+                                                        <td>@currency( $item->tunj_pel_mhs_op_feeder )</td>
+                                                        <td>@currency( $item->tunjangan_kinerja )</td>
+                                                        <td>@currency( $item->jumlah_penambah )</td>
+                                                        <td>@currency( $item->potongan_kasbon )</td>
+                                                        <td>@currency( $item->denda_keterlambatan )</td>
+                                                        <td>@currency( $item->potongan_pph_21 )</td>
+                                                        <td>@currency( $item->potongan_absensi )</td>
+                                                        <td>@currency( $item->potongan_bpjs )</td>
+                                                        <td>@currency( $item->jumlah_pengurang )</td>
+                                                        <td>@currency( $item->gaji_yang_dibayar )</td>
                                                     </tr>
                                                     @php
                                                         $no++; // Tambahkan no setiap kali iterasi
@@ -432,6 +438,14 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="tunjangan_jabatan" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Bonus</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="bonus" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
