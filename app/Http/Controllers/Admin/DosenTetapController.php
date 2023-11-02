@@ -545,7 +545,7 @@ class DosenTetapController extends Controller
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
 
-        $pdf = PDF::loadView('admin.import.dosentetap.pdf', compact('data'))->setPaper('a5');
+        $pdf = PDF::loadView('admin.import.dosentetap.pdf', compact('data'))->setPaper('a4');
 
         return $pdf->download('slip_gaji_dosen_tetap_' . $id . '.pdf');
     }
