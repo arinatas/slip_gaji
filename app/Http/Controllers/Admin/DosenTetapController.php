@@ -459,9 +459,9 @@ class DosenTetapController extends Controller
         $duplicateEntries = [];
 
         foreach ($rows as $row) {
-            $email = $row[0];
-            $bulan = $row[1];
-            $tahun = $row[2];
+            $email = $row['email'];
+            $bulan = $row['bulan'];
+            $tahun = $row['tahun'];
 
             // Periksa apakah kombinasi email, bulan, dan tahun sudah ada di database
             if (DosenTetap::where('email', $email)->where('bulan', $bulan)->where('tahun', $tahun)->exists()) {
@@ -482,7 +482,6 @@ class DosenTetapController extends Controller
         DB::beginTransaction(); // Memulai transaksi database
     
         try {
-            $import = new DosenTetapImport;
             Excel::import($import, $file);
     
             DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
