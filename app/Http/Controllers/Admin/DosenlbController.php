@@ -10,7 +10,6 @@ use App\Models\Dosenlb;
 use App\Imports\DosenlbImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
-use PDF;
 
 class DosenlbController extends Controller
 {
@@ -381,10 +380,13 @@ class DosenlbController extends Controller
         $data = Dosenlb::where('bulan', $bulan)
                       ->where('tahun', $tahun)
                       ->get();
-    
-        $pdf = PDF::loadView('admin.import.dosenlb.pdf', compact('data'));
-    
-        return $pdf->download('slip_gaji_semua_dosen_lb.pdf');
+
+        return view('admin.import.dosenlb.printslip', [
+            'title' => 'Dosen LB',
+            'section' => 'Import',
+            'active' => 'dosenlb',
+            'data' => $data
+            ]);
     }
 
     // Metode untuk menampilkan slip gaji berdasarkan ID Pegawai
@@ -395,9 +397,11 @@ class DosenlbController extends Controller
         if ($data->isEmpty()) {
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
-
-        $pdf = PDF::loadView('admin.import.dosenlb.pdf', compact('data'))->setPaper('a4');
-
-        return $pdf->download('slip_gaji_dosen_lb_' . $id . '.pdf');
+        return view('admin.import.dosenlb.printslip', [
+            'title' => 'Dosen LB',
+            'section' => 'Import',
+            'active' => 'dosenlb',
+            'data' => $data
+            ]);
     }
 }

@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Slip Gaji Primakara</title>
-		<link rel="shortcut icon" href="assets/media/logos/univ.png" />
+        <title>Slip Gaji</title>
+		<link rel="shortcut icon" href="/assets/media/logos/smallprimakara.png" />
 
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,90 +13,74 @@
         <!-- Font Awesome -->
         <!-- Ionicons -->
         <!-- adminlte css-->
-        <link rel="stylesheet" href="css/adminlte.min.css">
+        <link rel="stylesheet" href="/css/adminlte.min.css">
+
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
         <style>
             .slip-gaji {
                 page-break-before: always; /* Membuat halaman baru setiap slip gaji */
-                margin: 10px;
-                padding: 10px 25px 10px 10px;
-                border: 1px solid #000;
-                display: flex;
-                align-items: center;
             }
 
             .slip-gaji:first-of-type {
                 page-break-before: auto; /* Tidak ada page break pada elemen pertama */
             }
-
-            .table-sm td {
-                font-size: 12px; /* You can adjust the font size as needed */
-            }
-
-            .table-sm th {
-                font-size: 12px; /* You can adjust the font size as needed */
-            }
-            .table-responsive td {
-                font-size: 12px; /* You can adjust the font size as needed */
-            }
     </style>
     </head>
 
     <body>
-        @foreach ($data as $item)
-        <div class="slip-gaji">
+    @foreach ($data as $item)
+    <div class="slip-gaji">
+        <div class="wrapper">
+            <!-- Main content -->
+            <section class="invoice">
                 <!-- title row -->
-                    <div style="padding-bottom: 35px;">
-                        <table>
-                            <tr>
-                                <td style="text-align: left;">
-                                <div >
-                                    <img alt="Logo" class="" src="assets/media/logos/univ.png" width="150px" />
-                                </div>
-                                </td>
-                                <td style="text-align: center;"> 
-                                <div style="padding-left: 40px;">
-                                    <h4>SLIP GAJI DOSEN</h4>
-                                    <h3>PRIMAKARA UNIVERSITY</h3>
-                                    <h6 style="text-transform: uppercase;">PERIODE {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</h6>
-                                </div>
-                                </td>
-                            </tr>
-                        </table>
+                <div class="row">
+                    <div class="col-2">
+                        <img alt="Logo" class="" src="/assets/media/logos/univ.png" width="160px" />
                     </div>
+                    <div class="col-9 text-center">
+                        <h2>SLIP GAJI DOSEN</h2>
+                        <h1>PRIMAKARA UNIVERSITY</h1>
+                        <h2 style="text-transform: uppercase;">PERIODE {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</h2>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- info row -->
+                <div class="row invoice-info">
+                    <div class="col-sm-9 invoice-col mt-3">
+                        <address>
+                            <table>
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>: &nbsp;&nbsp;&nbsp;{{ $item->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jabatan Struktural</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>: &nbsp;&nbsp;&nbsp;{{ $item->jabatan_struktural }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jabatan Fungsional</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>: &nbsp;&nbsp;&nbsp;{{ $item->jabatan_fungsional }}</td>
+                                </tr>
+                            </table>
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
 
                 <!-- Table row -->
+                <div class="row">
                     <div class="col-12 table-responsive">
-                        <table style="padding-bottom: 5px;">
-                        <tr>
-                            <td>
-                                <div>
-                                    Nama
-                                </div>
-                                </td>
-                            <td style="text-align: left;"> : {{ $item->nama }}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div>
-                                    Jabatan Struktural 
-                                    </div>
-                                </td>
-                            <td style="text-align: left;"> : {{ $item->jabatan_struktural }}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div>
-                                    Jabatan Fungsional
-                                    </div>
-                                </td>
-                            <td style="text-align: left;"> : {{ $item->jabatan_fungsional }}</td>
-                        </tr>
-                        </table>
                         <table class="table table-sm table-bordered">
                             <thead>
                                 <tr class="fw-semibold fs-6 text-bold">
                                     <th>Deskripsi</th>
-                                    <th>Nominal</th>
+                                    <th style="text-align: end;">Nominal</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,7 +90,7 @@
                                             Gaji Pokok
                                         </div>
                                     </td>
-                                    <td style="text-align: right;">Rp. @currency( $item->gaji_pokok )</td>
+                                    <td style="text-align: end;">Rp. @currency( $item->gaji_pokok )</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -114,7 +98,7 @@
                                             Tujangan Kehadiran
                                         </div>
                                     </td>
-                                    <td style="text-align: right;">Rp. @currency( $item->tunjangan_kehadiran )</td>
+                                    <td style="text-align: end;">Rp. @currency( $item->tunjangan_jabatan )</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -137,11 +121,11 @@
                         <table class="table table-sm table-bordered">
                             <thead>
                                 <tr class="fw-semibold fs-6 text-bold">
-                                    <th>Deskripsi</th>
-                                    <th>Qty</th>
-                                    <th></th>
-                                    <th>Nominal</th>
-                                    <th>Total</th>
+                                    <th style="text-align: center;">Deskripsi</th>
+                                    <th style="text-align: center;">Qty</th>
+                                    <th style="text-align: center;"></th>
+                                    <th style="text-align: center;">Nominal</th>
+                                    <th style="text-align: center;">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -326,19 +310,47 @@
                         </table>
                     </div>
                     <!-- /.col -->
-    
-                    <div class="row">
-                        <div class="col-sm-12 invoice-col mt-3">
-                            <address style="text-align: right; padding-right: 10px;"> <!-- Atur text-align ke center -->
-                                <p style="font-size: 12px;">Denpasar, 28 {{ ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][$item->bulan - 1] }} {{ $item->tahun }}</p><br>
-                                <img alt="Logo" class="" src="assets/media/logos/ttd.png" width="160px" style="margin-top: -35px;" />
-                                <br>
-                                <strong style="font-size: 14px; text-decoration: underline;">I Made Artana, S.Kom.,M.M.</strong><br>
-                                <strong style="font-size: 14px;">Rektor Primakara University</strong><br>
-                            </address>
-                        </div>
-                    </div>
                 </div>
-        @endforeach
+                <!-- /.row -->
+
+                <!-- info row -->
+                <div class="row">
+                    <div class="col-sm-12 invoice-col mt-5">
+                        <address style="float: inline-end;" class="mr-5">
+                            <p>Denpasar, {{ date('d F Y', strtotime($item->created_at)) }}</strong><br>
+                            <img alt="Logo" class="" src="/assets/media/logos/ttd.png" width="160px" />
+                            <br>
+                            <strong><u>I Made Artana, S.Kom.,M.M.</u></strong><br>
+                            <strong>Rektor Primakara University</strong><br>
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+
+            </section>
+
+            </div>
+        </div>
+        <!-- ./wrapper -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var dateElements = document.querySelectorAll('[data-date]');
+
+                dateElements.forEach(function(element) {
+                    var dateValue = element.getAttribute('data-date');
+                    var formattedDate = new Date(dateValue).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+                    element.textContent = formattedDate;
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            window.addEventListener("load", window.print());
+        </script>
+    @endforeach
     </body>
 </html>

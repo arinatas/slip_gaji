@@ -530,9 +530,12 @@ class DosenTetapController extends Controller
                       ->where('tahun', $tahun)
                       ->get();
     
-        $pdf = PDF::loadView('admin.import.dosentetap.pdf', compact('data'));
-    
-        return $pdf->download('slip_gaji_semua_dosen_tetap.pdf');
+        return view('admin.import.dosentetap.printslip', [
+            'title' => 'Dosen Tetap',
+            'section' => 'Import',
+            'active' => 'dosentetap',
+            'data' => $data
+            ]);
     }
 
     // Metode untuk menampilkan slip gaji berdasarkan ID Pegawai
@@ -544,8 +547,11 @@ class DosenTetapController extends Controller
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
 
-        $pdf = PDF::loadView('admin.import.dosentetap.pdf', compact('data'))->setPaper('a4');
-
-        return $pdf->download('slip_gaji_dosen_tetap_' . $id . '.pdf');
+        return view('admin.import.dosentetap.printslip', [
+            'title' => 'Dosen Tetap',
+            'section' => 'Import',
+            'active' => 'dosentetap',
+            'data' => $data
+            ]);
     }
 }
