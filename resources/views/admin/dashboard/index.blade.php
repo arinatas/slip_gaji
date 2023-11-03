@@ -30,8 +30,8 @@
 															</g>
 														</svg><!--end::Svg Icon--></span>
 														<!--end::Svg Icon-->
-														<div class="text-white fw-bolder fs-2 mb-2 mt-5">12</div>
-														<div class="fw-bold text-white">Admin</div>
+														<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{ $tendikCount }}</div>
+														<div class="fw-bold text-white">Tendik</div>
 													</div>
 													<!--end::Body-->
 												</a>
@@ -52,8 +52,8 @@
 															</g>
 														</svg><!--end::Svg Icon--></span>
 														<!--end::Svg Icon-->
-														<div class="text-white fw-bolder fs-2 mb-2 mt-5">12</div>
-														<div class="fw-bold text-white">Kelas</div>
+														<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{ $dosentetapCount }}</div>
+														<div class="fw-bold text-white">Dosen Tetap</div>
 													</div>
 													<!--end::Body-->
 												</a>
@@ -61,7 +61,7 @@
 											</div>
 											<div class="col-xl-4">
 												<!--begin::Statistics Widget 5-->
-												<a href="#" class="card bg-warning hoverable card-xl-stretch mb-5 mb-xl-8">
+												<a href="#" class="card bg-primary hoverable card-xl-stretch mb-5 mb-xl-8">
 													<!--begin::Body-->
 													<div class="card-body">
 														<!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
@@ -72,8 +72,8 @@
 															</svg>
 														</span>
 														<!--end::Svg Icon-->
-														<div class="text-white fw-bolder fs-2 mb-2 mt-5">12</div>
-														<div class="fw-bold text-white">Mahasiswa</div>
+														<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{ $dosenlbCount }}</div>
+														<div class="fw-bold text-white">Dosen LB</div>
 													</div>
 													<!--end::Body-->
 												</a>
