@@ -3,63 +3,66 @@
 namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\WithHeadingRow; // row 1 sebagai heading
+use Maatwebsite\Excel\Concerns\WithValidation; // validasi string / integer
 use Maatwebsite\Excel\Concerns\Importable;
 use App\Models\Tendik;
 
-class TendikImport implements ToModel, WithValidation
+class TendikImport implements ToModel, WithHeadingRow, WithValidation // Gunakan WithHeadingRow
 {
     use Importable;
+
     public function model(array $row)
     {
         // Logika untuk memasukkan data ke dalam model Tendik
         return new Tendik([
-            'email' => $row[0],
-            'bulan' => $row[1],
-            'tahun' => $row[2],
-            'nama' => $row[3],
-            'jabatan' => $row[4],
-            'gaji_pokok' => $row[5],
-            'tunjangan_jabatan' => $row[6],
-            'bonus' => $row[7],
-            'tunjangan_kehadiran' => $row[8],
-            'tunjangan_lembur' => $row[9],
-            'tunj_pel_mhs_op_feeder' => $row[10],
-            'tunjangan_kinerja' => $row[11],
-            'jumlah_penambah' => $row[12],
-            'potongan_kasbon' => $row[13],
-            'denda_keterlambatan' => $row[14],
-            'potongan_pph_21' => $row[15],
-            'potongan_absensi' => $row[16],
-            'potongan_bpjs' => $row[17],
-            'jumlah_pengurang' => $row[18],
-            'gaji_yang_dibayar' => $row[19]
+            'email' => $row['email'],
+            'bulan' => $row['bulan'],
+            'tahun' => $row['tahun'],
+            'nama' => $row['nama'],
+            'jabatan' => $row['jabatan'],
+            'gaji_pokok' => $row['gaji_pokok'],
+            'tunjangan_jabatan' => $row['tunjangan_jabatan'],
+            'bonus' => $row['bonus'],
+            'tunjangan_kehadiran' => $row['tunjangan_kehadiran'],
+            'tunjangan_lembur' => $row['tunjangan_lembur'],
+            'tunj_pel_mhs_op_feeder' => $row['tunj_pel_mhs_op_feeder'],
+            'tunjangan_kinerja' => $row['tunjangan_kinerja'],
+            'jumlah_penambah' => $row['jumlah_penambah'],
+            'potongan_kasbon' => $row['potongan_kasbon'],
+            'denda_keterlambatan' => $row['denda_keterlambatan'],
+            'potongan_pph_21' => $row['potongan_pph_21'],
+            'potongan_absensi' => $row['potongan_absensi'],
+            'potongan_bpjs' => $row['potongan_bpjs'],
+            'jumlah_pengurang' => $row['jumlah_pengurang'],
+            'gaji_yang_dibayar' => $row['gaji_yang_dibayar']
         ]);
     }
 
     public function rules(): array
     {
         return [
-            '0' => 'required|string|max:255',
-            '1' => 'required|integer',
-            '2' => 'required|integer',
-            '3' => 'required|string|max:100',
-            '4' => 'required|string|max:100',
-            '5' => 'required|integer',
-            '6' => 'required|integer',
-            '7' => 'required|integer',
-            '8' => 'required|integer',
-            '9' => 'required|integer',
-            '10' => 'required|integer',
-            '11' => 'required|integer',
-            '12' => 'required|integer',
-            '13' => 'required|integer',
-            '14' => 'required|integer',
-            '15' => 'required|integer',
-            '16' => 'required|integer',
-            '17' => 'required|integer',
-            '18' => 'required|integer',
-            '19' => 'required|integer',
+            // Sesuaikan aturan validasi dengan kunci (header) yang Anda tetapkan
+            'email' => 'required|string|max:255',
+            'bulan' => 'required|integer',
+            'tahun' => 'required|integer',
+            'nama' => 'required|string|max:100',
+            'jabatan' => 'required|string|max:100',
+            'gaji_pokok' => 'required|integer',
+            'tunjangan_jabatan' => 'required|integer',
+            'bonus' => 'required|integer',
+            'tunjangan_kehadiran' => 'required|integer',
+            'tunjangan_lembur' => 'required|integer',
+            'tunj_pel_mhs_op_feeder' => 'required|integer',
+            'tunjangan_kinerja' => 'required|integer',
+            'jumlah_penambah' => 'required|integer',
+            'potongan_kasbon' => 'required|integer',
+            'denda_keterlambatan' => 'required|integer',
+            'potongan_pph_21' => 'required|integer',
+            'potongan_absensi' => 'required|integer',
+            'potongan_bpjs' => 'required|integer',
+            'jumlah_pengurang' => 'required|integer',
+            'gaji_yang_dibayar' => 'required|integer',
         ];
     }
 }

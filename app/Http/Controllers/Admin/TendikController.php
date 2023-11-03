@@ -10,7 +10,6 @@ use App\Models\Tendik;
 use App\Imports\TendikImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
-use PDF;
 
 class TendikController extends Controller
 {
@@ -252,9 +251,9 @@ class TendikController extends Controller
         $duplicateEntries = [];
 
         foreach ($rows as $row) {
-            $email = $row[0];
-            $bulan = $row[1];
-            $tahun = $row[2];
+            $email = $row['email'];
+            $bulan = $row['bulan'];
+            $tahun = $row['tahun'];
 
             // Periksa apakah kombinasi email, bulan, dan tahun sudah ada di database
             if (Tendik::where('email', $email)->where('bulan', $bulan)->where('tahun', $tahun)->exists()) {
@@ -275,7 +274,6 @@ class TendikController extends Controller
         DB::beginTransaction(); // Memulai transaksi database
     
         try {
-            $import = new TendikImport;
             Excel::import($import, $file);
     
             DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
@@ -324,9 +322,16 @@ class TendikController extends Controller
                       ->where('tahun', $tahun)
                       ->get();
     
-        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'));
-    
-        return $pdf->download('slip_gaji_semua_pegawai.pdf');
+        $tendiks = Tendik::where('bulan', $bulan)
+        ->where('tahun', $tahun)
+        ->get();
+
+        return view('admin.import.tendik.printslip', [
+        'title' => 'Tendik',
+        'section' => 'Import',
+        'active' => 'tendik',
+        'data' => $data
+        ]);
     }
 
     // Metode untuk menampilkan slip gaji berdasarkan ID Pegawai
@@ -337,9 +342,12 @@ class TendikController extends Controller
         if ($data->isEmpty()) {
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
-
-        $pdf = PDF::loadView('admin.import.tendik.pdf', compact('data'))->setPaper('a4');
-
-        return $pdf->download('slip_gaji_pegawai_' . $id . '.pdf');
+        
+        return view('admin.import.tendik.printslip', [
+            'title' => 'Tendik',
+            'section' => 'Import',
+            'active' => 'tendik',
+            'data' => $data
+            ]);
     }
 }

@@ -459,9 +459,9 @@ class DosenTetapController extends Controller
         $duplicateEntries = [];
 
         foreach ($rows as $row) {
-            $email = $row[0];
-            $bulan = $row[1];
-            $tahun = $row[2];
+            $email = $row['email'];
+            $bulan = $row['bulan'];
+            $tahun = $row['tahun'];
 
             // Periksa apakah kombinasi email, bulan, dan tahun sudah ada di database
             if (DosenTetap::where('email', $email)->where('bulan', $bulan)->where('tahun', $tahun)->exists()) {
@@ -482,7 +482,6 @@ class DosenTetapController extends Controller
         DB::beginTransaction(); // Memulai transaksi database
     
         try {
-            $import = new DosenTetapImport;
             Excel::import($import, $file);
     
             DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
@@ -531,9 +530,12 @@ class DosenTetapController extends Controller
                       ->where('tahun', $tahun)
                       ->get();
     
-        $pdf = PDF::loadView('admin.import.dosentetap.pdf', compact('data'));
-    
-        return $pdf->download('slip_gaji_semua_dosen_tetap.pdf');
+        return view('admin.import.dosentetap.printslip', [
+            'title' => 'Dosen Tetap',
+            'section' => 'Import',
+            'active' => 'dosentetap',
+            'data' => $data
+            ]);
     }
 
     // Metode untuk menampilkan slip gaji berdasarkan ID Pegawai
@@ -545,8 +547,11 @@ class DosenTetapController extends Controller
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
 
-        $pdf = PDF::loadView('admin.import.dosentetap.pdf', compact('data'))->setPaper('a4');
-
-        return $pdf->download('slip_gaji_dosen_tetap_' . $id . '.pdf');
+        return view('admin.import.dosentetap.printslip', [
+            'title' => 'Dosen Tetap',
+            'section' => 'Import',
+            'active' => 'dosentetap',
+            'data' => $data
+            ]);
     }
 }
