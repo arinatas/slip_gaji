@@ -98,7 +98,7 @@
                                             Tujangan Kehadiran
                                         </div>
                                     </td>
-                                    <td style="text-align: end;">Rp. @currency( $item->tunjangan_jabatan )</td>
+                                    <td style="text-align: end;">Rp. @currency( $item->tunjangan_kehadiran )</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -134,7 +134,7 @@
                                     <td style="text-align: center;">@currency( $item->x_honor_mengajar_kls_pagi )</td>
                                     <td style="text-align: center;">X</td>
                                     <td style="text-align: center;">@currency( $item->honor_mengajar_kls_pagi )</td>
-                                    <td style="text-align: right;">@currency( $item->nominal_mengajar_kls_pagi )</td>
+                                    <td style="text-align: right;">@currency( $item->nominal_honor_mengajar_kls_pagi )</td>
                                 </tr>
                                 <tr>
                                     <td>Honor Mengajar (Malam)</td>
