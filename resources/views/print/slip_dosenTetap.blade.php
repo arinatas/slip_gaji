@@ -416,7 +416,7 @@
                                 <tr>
                                     <td>
                                         <div>
-                                            <b>Jumlah Pengurang</b>
+                                            <b>Jumlah</b>
                                         </div>
                                     </td>
                                     <td style="text-align: end;"><b>- Rp. @currency($Datas[0]->jumlah)</b></td>

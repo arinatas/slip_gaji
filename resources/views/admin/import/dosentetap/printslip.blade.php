@@ -297,7 +297,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <b>Jumlah Pengurang</b>
+                                        <b>Jumlah</b>
                                     </td>
                                     <td style="text-align: right;"><b> - Rp. @currency( $item->jumlah )</b></td>
                                 </tr>

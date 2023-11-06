@@ -22,12 +22,12 @@
                                                 <div class="d-inline">
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_tendik" title="Tambah Data Slip Gaji per Pegawai">Tambah</a>
                                                     <a href="{{ route('download.example.excel') }}" class="btn btn-sm btn-secondary">Download Contoh Excel</a>
-                                                  
+
                                                 </div>
                                             <!--end::Title-->
                                         </div>
                                         <!--end::Heading-->
-                                        
+
                                         <!--begin::Table-->
                                         @if ($tendiks )
                                         <div class="table-responsive my-10 mx-8">
@@ -137,13 +137,13 @@
                                                         <th class="min-w-100px">Tunjangan Lembur</th>
                                                         <th class="min-w-100px">Tunj. Pel. Mhs/Op. Feeder</th>
                                                         <th class="min-w-100px">Tunjangan Kinerja</th>
-                                                        <th class="min-w-100px">Jumlah Penambah</th>
+                                                        <th class="min-w-100px">Jumlah</th>
                                                         <th class="min-w-100px">Potongan Kasbon</th>
                                                         <th class="min-w-100px">Denda Keterlambatan</th>
                                                         <th class="min-w-100px">Potongan PPH 21</th>
                                                         <th class="min-w-100px">Potongan Absensi</th>
                                                         <th class="min-w-100px">Potongan BPJS</th>
-                                                        <th class="min-w-100px">Jumlah Pengurang</th>
+                                                        <th class="min-w-100px">Jumlah</th>
                                                         <th class="min-w-100px">Gaji yang Dibayar</th>
                                                     </tr>
                                                 </thead>
@@ -231,7 +231,7 @@
                                                                                     <td>Rp. @currency( $item->tunjangan_kinerja )</td>
                                                                                 </tr>
                                                                                 <tr class="alert alert-success">
-                                                                                    <th><strong style="font-size: 14px;">Jumlah Penambah</th>
+                                                                                    <th><strong style="font-size: 14px;">Jumlah</th>
                                                                                     <td><strong style="font-size: 14px;">+Rp. @currency( $item->jumlah_penambah )</td>
                                                                                 </tr>
                                                                                 <tr>
@@ -482,7 +482,7 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Jumlah Penambah</span>
+                                                            <span class="required">Jumlah</span>
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="jumlah_penambah" required value=""/>
@@ -530,7 +530,7 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Jumlah Pengurang</span>
+                                                            <span class="required">Jumlah</span>
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="jumlah_pengurang" required value=""/>

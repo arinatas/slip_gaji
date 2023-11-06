@@ -83,7 +83,7 @@
                                     <input type="text" value="{{$tendik->tunjangan_kinerja}}" class="form-control form-control-solid" required name="tunjangan_kinerja"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah Penambah</label>
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah</label>
                                     <input type="text" value="{{$tendik->jumlah_penambah}}" class="form-control form-control-solid" required name="jumlah_penambah"/>
                                 </div>
 								<div class="mb-10">
@@ -108,7 +108,7 @@
                                     <input type="text" value="{{$tendik->potongan_bpjs}}" class="form-control form-control-solid" required name="potongan_bpjs"/>
                                 </div>
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah Pengurang</label>
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah</label>
                                     <input type="text" value="{{$tendik->jumlah_pengurang}}" class="form-control form-control-solid" required name="jumlah_pengurang"/>
                                 </div>
 								<div class="mb-10">

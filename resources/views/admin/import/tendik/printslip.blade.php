@@ -138,7 +138,7 @@
                                 <tr>
                                     <td>
                                         <div>
-                                            <b>Jumlah Penambah</b>
+                                            <b>Jumlah</b>
                                         </div>
                                     </td>
                                     <td style="text-align: end;"><b> + Rp. @currency( $item->jumlah_penambah )</b></td>
@@ -186,7 +186,7 @@
                                 <tr>
                                     <td>
                                         <div>
-                                            <b>Jumlah Pengurang</b>
+                                            <b>Jumlah</b>
                                         </div>
                                     </td>
                                     <td style="text-align: end;"><b> - Rp. @currency( $item->jumlah_pengurang )</b></td>
