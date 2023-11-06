@@ -19,7 +19,7 @@
 										<div class="row g-5 g-xl-8">
 											<div class="col-xl-4">
 												<!--begin::Statistics Widget 5-->
-												<a href="#" class="card bg-info hoverable card-xl-stretch mb-xl-8">
+												<a class="card bg-info hoverable card-xl-stretch mb-xl-8">
 													<!--begin::Body-->
 													<div class="card-body">
 														<span class="svg-icon svg-icon-white svg-icon-3x ms-n1"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Shopping/Money.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -39,7 +39,7 @@
 											</div>
 											<div class="col-xl-4">
 												<!--begin::Statistics Widget 5-->
-												<a href="#" class="card bg-success hoverable card-xl-stretch mb-xl-8">
+												<a class="card bg-success hoverable card-xl-stretch mb-xl-8">
 													<!--begin::Body-->
 													<div class="card-body">
 														<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
@@ -61,7 +61,7 @@
 											</div>
 											<div class="col-xl-4">
 												<!--begin::Statistics Widget 5-->
-												<a href="#" class="card bg-primary hoverable card-xl-stretch mb-5 mb-xl-8">
+												<a class="card bg-primary hoverable card-xl-stretch mb-5 mb-xl-8">
 													<!--begin::Body-->
 													<div class="card-body">
 														<!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
