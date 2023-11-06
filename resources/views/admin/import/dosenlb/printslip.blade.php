@@ -122,7 +122,7 @@
                                             Pengawas Ujian
                                         </div>
                                     </td>
-                                    <td style="text-align: end;">Rp. @currency( $item->tunjangan_lembur )</td>
+                                    <td style="text-align: end;">Rp. @currency( $item->pengawas_ujian )</td>
                                 </tr>
                             </tbody>
                         </table>
