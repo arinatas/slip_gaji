@@ -152,8 +152,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_honor_mengajar_kls_pagi }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_honor_mengajar_kls_pagi)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->honor_mengajar_kls_pagi)</td>
+                                    <td>Rp. @currency($Datas[0]->honor_mengajar_kls_pagi)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_honor_mengajar_kls_pagi)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -163,8 +163,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_honor_mengajar_kls_malam }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_honor_mengajar_kls_malam)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->honor_mengajar_kls_malam)</td>
+                                    <td>Rp. @currency($Datas[0]->honor_mengajar_kls_malam)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_honor_mengajar_kls_malam)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -174,8 +174,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_atau_penguji_kp }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_atau_penguji_kp)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_atau_penguji_kp)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_atau_penguji_kp)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_atau_penguji_kp)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -185,8 +185,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_penguji_sidang_proposal }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_penguji_sidang_proposal)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->penguji_sidang_proposal)</td>
+                                    <td>Rp. @currency($Datas[0]->penguji_sidang_proposal)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_penguji_sidang_proposal)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -196,8 +196,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_penguji_sidang_skripsi }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_penguji_sidang_skripsi)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->penguji_sidang_skripsi)</td>
+                                    <td>Rp. @currency($Datas[0]->penguji_sidang_skripsi)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_penguji_sidang_skripsi)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -207,8 +207,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_1_proposal_pagi }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_1_proposal_pagi)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_proposal_pagi)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_1_proposal_pagi)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_1_proposal_pagi)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -218,8 +218,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_1_proposal_malam }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_1_proposal_malam)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_proposal_malam)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_1_proposal_malam)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_1_proposal_malam)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -229,8 +229,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_1_skripsi_pagi }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_1_skripsi_pagi)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_skripsi_pagi)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_1_skripsi_pagi)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_1_skripsi_pagi)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -240,8 +240,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_1_skripsi_malam }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_1_skripsi_malam)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_1_skripsi_malam)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_1_skripsi_malam)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_1_skripsi_malam)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -251,8 +251,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_2_proposal_pagi }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_2_proposal_pagi)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_proposal_pagi)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_2_proposal_pagi)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_2_proposal_pagi)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -262,8 +262,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_2_proposal_malam }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_2_proposal_malam)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_proposal_malam)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_2_proposal_malam)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_2_proposal_malam)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -273,8 +273,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_2_skripsi_pagi }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_2_skripsi_pagi)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_skripsi_pagi)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_2_skripsi_pagi)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_2_skripsi_pagi)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -284,8 +284,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_2_skripsi_malam }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_2_skripsi_malam)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_2_skripsi_malam)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_2_skripsi_malam)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_2_skripsi_malam)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -295,8 +295,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pembuatan_soal }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pembuatan_soal)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pembuatan_soal)</td>
+                                    <td>Rp. @currency($Datas[0]->pembuatan_soal)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pembuatan_soal)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -306,8 +306,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_koreksi_soal }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_koreksi_soal)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->koreksi_soal)</td>
+                                    <td>Rp. @currency($Datas[0]->koreksi_soal)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_koreksi_soal)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -317,8 +317,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_dosen_wali }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_dosen_wali)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->dosen_wali)</td>
+                                    <td>Rp. @currency($Datas[0]->dosen_wali)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_dosen_wali)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -328,8 +328,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pengawas_ujian }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pengawas_ujian)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pengawas_ujian)</td>
+                                    <td>Rp. @currency($Datas[0]->pengawas_ujian)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pengawas_ujian)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -339,8 +339,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_remidial }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_remidial)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->remidial)</td>
+                                    <td>Rp. @currency($Datas[0]->remidial)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_remidial)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -350,8 +350,8 @@
                                     </td>
                                     <td>{{ $Datas[0]->x_pmb_company_visit }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->nominal_pmb_company_visit)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->pmb_company_visit)</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_company_visit)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_company_visit)</td>
                                 </tr>
                             </tbody>
                         </table>

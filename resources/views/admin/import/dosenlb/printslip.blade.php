@@ -142,8 +142,8 @@
                                         <td>{{ $item->matkul_1 }}</td>
                                         <td style="text-align: center;">{{ $item->sks_matkul_1 }}</td>
                                         <td style="text-align: center;">{{ $item->jml_hadir_mkl_1 }}</td>
-                                        <td style="text-align: center;"> X Rp. @currency( $item->honor_mk_1 )</td>
-                                        <td style="text-align: right;">Rp. @currency( $item->nominal_matkul_1 )</td>
+                                        <td style="text-align: center;"> X Rp. @currency( $item->nominal_matkul_1 )</td>
+                                        <td style="text-align: right;">Rp. @currency( $item->honor_mk_1 )</td>
                                     @endif
                                 </tr>
                                 <tr>
@@ -151,8 +151,8 @@
                                         <td>{{ $item->matkul_2 }}</td>
                                         <td style="text-align: center;">{{ $item->sks_matkul_2 }}</td>
                                         <td style="text-align: center;">{{ $item->jml_hadir_mkl_2 }}</td>
-                                        <td style="text-align: center;"> X Rp. @currency( $item->honor_mk_2 )</td>
-                                        <td style="text-align: right;">Rp. @currency( $item->nominal_matkul_2 )</td>
+                                        <td style="text-align: center;"> X Rp. @currency( $item->nominal_matkul_2 )</td>
+                                        <td style="text-align: right;">Rp. @currency( $item->honor_mk_2 )</td>
                                     @endif
                                 </tr>
                                 <tr>
@@ -160,8 +160,8 @@
                                         <td>{{ $item->matkul_3 }}</td>
                                         <td style="text-align: center;">{{ $item->sks_matkul_3 }}</td>
                                         <td style="text-align: center;">{{ $item->jml_hadir_mkl_3 }}</td>
-                                        <td style="text-align: center;"> X Rp. @currency( $item->honor_mk_3 )</td>
-                                        <td style="text-align: right;">Rp. @currency( $item->nominal_matkul_3 )</td>
+                                        <td style="text-align: center;"> X Rp. @currency( $item->nominal_matkul_3 )</td>
+                                        <td style="text-align: right;">Rp. @currency( $item->honor_mk_3 )</td>
                                     @endif
                                 </tr>
                                 <tr>
@@ -169,8 +169,8 @@
                                         <td>{{ $item->matkul_4 }}</td>
                                         <td style="text-align: center;">{{ $item->sks_matkul_4 }}</td>
                                         <td style="text-align: center;">{{ $item->jml_hadir_mkl_4 }}</td>
-                                        <td style="text-align: center;"> X Rp. @currency( $item->honor_mk_4 )</td>
-                                        <td style="text-align: right;">Rp. @currency( $item->nominal_matkul_4 )</td>
+                                        <td style="text-align: center;"> X Rp. @currency( $item->nominal_matkul_4 )</td>
+                                        <td style="text-align: right;">Rp. @currency( $item->honor_mk_4 )</td>
                                     @endif
                                 </tr>
                                 <tr>
@@ -178,8 +178,8 @@
                                         <td>{{ $item->matkul_5 }}</td>
                                         <td style="text-align: center;">{{ $item->sks_matkul_5 }}</td>
                                         <td style="text-align: center;">{{ $item->jml_hadir_mkl_5 }}</td>
-                                        <td style="text-align: center;"> X Rp. @currency( $item->honor_mk_5 )</td>
-                                        <td style="text-align: right;">Rp. @currency( $item->nominal_matkul_5 )</td>
+                                        <td style="text-align: center;"> X Rp. @currency( $item->nominal_matkul_5 )</td>
+                                        <td style="text-align: right;">Rp. @currency( $item->honor_mk_5 )</td>
                                     @endif
                                 </tr>
                             </tbody>

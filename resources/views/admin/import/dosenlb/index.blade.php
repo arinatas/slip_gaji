@@ -229,32 +229,32 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     @if($item->matkul_1 !== null && $item->nominal_matkul_1 !== null && $item->sks_matkul_1 !== null && $item->jml_hadir_mkl_1 !== null && $item->honor_mk_1 !== null)
-                                                                                        <th>MK 1 ({{ $item->matkul_1 }}, {{ $item->sks_matkul_1 }} SKS ) : {{ $item->jml_hadir_mkl_1 }} Pertemuan X Rp. @currency($item->honor_mk_1)</th>
-                                                                                        <td>Rp. @currency($item->nominal_matkul_1)</td>
+                                                                                        <th>MK 1 ({{ $item->matkul_1 }}, {{ $item->sks_matkul_1 }} SKS ) : {{ $item->jml_hadir_mkl_1 }} Pertemuan X Rp. @currency($item->nominal_matkul_1)</th>
+                                                                                        <td>Rp. @currency($item->honor_mk_1)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
                                                                                     @if($item->matkul_2 !== null && $item->nominal_matkul_2 !== null && $item->sks_matkul_2 !== null && $item->jml_hadir_mkl_2 !== null && $item->honor_mk_2 !== null)
-                                                                                        <th>MK 2 ({{ $item->matkul_2 }}, {{ $item->sks_matkul_2 }} SKS ) : {{ $item->jml_hadir_mkl_2 }} Pertemuan X Rp. @currency($item->honor_mk_2)</th>
-                                                                                        <td>Rp. @currency($item->nominal_matkul_2)</td>
+                                                                                        <th>MK 2 ({{ $item->matkul_2 }}, {{ $item->sks_matkul_2 }} SKS ) : {{ $item->jml_hadir_mkl_2 }} Pertemuan X Rp. @currency($item->nominal_matkul_2)</th>
+                                                                                        <td>Rp. @currency($item->honor_mk_2)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
                                                                                     @if($item->matkul_3 !== null && $item->nominal_matkul_3 !== null && $item->sks_matkul_3 !== null && $item->jml_hadir_mkl_3 !== null && $item->honor_mk_3 !== null)
-                                                                                        <th>MK 3 ({{ $item->matkul_3 }}, {{ $item->sks_matkul_3 }} SKS ) : {{ $item->jml_hadir_mkl_3 }} Pertemuan X Rp. @currency($item->honor_mk_3)</th>
-                                                                                        <td>Rp. @currency($item->nominal_matkul_3)</td>
+                                                                                        <th>MK 3 ({{ $item->matkul_3 }}, {{ $item->sks_matkul_3 }} SKS ) : {{ $item->jml_hadir_mkl_3 }} Pertemuan X Rp. @currency($item->nominal_matkul_3)</th>
+                                                                                        <td>Rp. @currency($item->honor_mk_3)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
                                                                                     @if($item->matkul_4 !== null && $item->nominal_matkul_4 !== null && $item->sks_matkul_4 !== null && $item->jml_hadir_mkl_4 !== null && $item->honor_mk_4 !== null)
-                                                                                        <th>MK 4 ({{ $item->matkul_4 }}, {{ $item->sks_matkul_4 }} SKS ) : {{ $item->jml_hadir_mkl_4 }} Pertemuan X Rp. @currency($item->honor_mk_4)</th>
-                                                                                        <td>Rp. @currency($item->nominal_matkul_4)</td>
+                                                                                        <th>MK 4 ({{ $item->matkul_4 }}, {{ $item->sks_matkul_4 }} SKS ) : {{ $item->jml_hadir_mkl_4 }} Pertemuan X Rp. @currency($item->nominal_matkul_4)</th>
+                                                                                        <td>Rp. @currency($item->honor_mk_4)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
                                                                                     @if($item->matkul_5 !== null && $item->nominal_matkul_5 !== null && $item->sks_matkul_5 !== null && $item->jml_hadir_mkl_5 !== null && $item->honor_mk_5 !== null)
-                                                                                        <th>MK 5 ({{ $item->matkul_5 }}, {{ $item->sks_matkul_5 }} SKS ) : {{ $item->jml_hadir_mkl_5 }} Pertemuan X Rp. @currency($item->honor_mk_5)</th>
-                                                                                        <td>Rp. @currency($item->nominal_matkul_5)</td>
+                                                                                        <th>MK 5 ({{ $item->matkul_5 }}, {{ $item->sks_matkul_5 }} SKS ) : {{ $item->jml_hadir_mkl_5 }} Pertemuan X Rp. @currency($item->nominal_matkul_5)</th>
+                                                                                        <td>Rp. @currency($item->honor_mk_5)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
