@@ -78,8 +78,9 @@
                                                                         <!--begin::Input-->
                                                                         <div class="me-2">
                                                                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" id="tahun" name="tahun" required>
-                                                                                <option value="2023">2023</option>
-                                                                                <option value="2024">2024</option>
+                                                                                <option value="<?= $previousYear ?>"><?= $previousYear ?></option>
+                                                                                <option value="<?= $nowYear ?>"><?= $nowYear ?></option>
+                                                                                <option value="<?= $nextYear ?>"><?= $nextYear ?></option>
                                                                             </select>
                                                                         </div>
                                                                         <!--end::Input-->
@@ -594,4 +595,15 @@
 						</div>
 						<!--end::Post-->
 					</div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            // Mendapatkan bulan dan tahun saat ini dari PHP
+                            const nowMonth = <?= $nowMonth ?>;
+                            const nowYear = <?= $nowYear ?>;
+                    
+                            // Mengatur nilai default untuk bulan dan tahun
+                            document.getElementById('bulan').value = nowMonth;
+                            document.getElementById('tahun').value = nowYear;
+                        });
+                    </script>
 @endsection

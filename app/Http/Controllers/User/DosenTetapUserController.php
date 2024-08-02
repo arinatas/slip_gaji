@@ -33,6 +33,11 @@ class DosenTetapUserController extends Controller
             session()->put('bulan', $request->bulan);
             session()->put('tahun', $request->tahun);
 
+            $nowMonth = date('n'); // Mendapatkan bulan saat ini (1-12)
+            $nowYear = date('Y'); // Mendapatkan tahun saat ini (4 digit)
+            $previousYear = $nowYear - 1; // Tahun sebelumnya
+            $nextYear = $nowYear + 1; // Tahun berikutnya
+
             // Mengecek apakah filter tanggal telah digunakan
             $filterUsed = $request->filled('bulan') && $request->filled('tahun');
 
@@ -41,6 +46,10 @@ class DosenTetapUserController extends Controller
                     'secction' => 'Menu',
                     'active' => 'Slip Gaji Dosen Tetap',
                     'Datas' => $Datas,
+                    'nowMonth' => $nowMonth,
+                    'nowYear' => $nowYear,
+                    'previousYear' => $previousYear,
+                    'nextYear' => $nextYear,
                     'filterUsed' => $filterUsed, // Mengirimkan status penggunaan filter ke tampilan
                 ]);
         }
