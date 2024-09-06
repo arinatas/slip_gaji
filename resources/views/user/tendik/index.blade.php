@@ -199,14 +199,14 @@
                                                                         </td>
                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_jabatan)</td>
                                                                     </tr>
-                                                                    <tr>
+                                                                    <!-- <tr>
                                                                         <td>
                                                                             <div>
                                                                                 Bonus
                                                                             </div>
                                                                         </td>
                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->bonus)</td>
-                                                                    </tr>
+                                                                    </tr> -->
                                                                     <tr>
                                                                         <td>
                                                                             <div>
@@ -223,14 +223,14 @@
                                                                         </td>
                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->tunjangan_lembur)</td>
                                                                     </tr>
-                                                                    <tr>
+                                                                    <!-- <tr>
                                                                         <td>
                                                                             <div>
                                                                                 Tunj. Pel. Mhs/Op. Feeder
                                                                             </div>
                                                                         </td>
                                                                         <td style="text-align: end;">Rp. @currency($Datas[0]->tunj_pel_mhs_op_feeder)</td>
-                                                                    </tr>
+                                                                    </tr> -->
                                                                     <tr>
                                                                         <td>
                                                                             <div>
@@ -391,7 +391,7 @@
             // Mendapatkan bulan dan tahun saat ini dari PHP
             const nowMonth = <?= $nowMonth ?>;
             const nowYear = <?= $nowYear ?>;
-    
+
             // Mengatur nilai default untuk bulan dan tahun
             document.getElementById('bulan').value = nowMonth;
             document.getElementById('tahun').value = nowYear;
