@@ -100,15 +100,15 @@
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pmb./Penguji Kerja Praktek </label>
-                                    <input type="text" value="{{$dosenTetap->pmb_atau_penguji_kp}}" class="form-control form-control-solid" required name="pmb_atau_penguji_kp"/>
+                                    <input type="text" value="{{$dosenTetap->pmb_atau_penguji_mbkm}}" class="form-control form-control-solid" required name="pmb_atau_penguji_mbkm"/>
                                 </div>
                                 <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pengali</label>
-                                    <input type="text" value="{{$dosenTetap->x_pmb_atau_penguji_kp}}" class="form-control form-control-solid" required name="x_pmb_atau_penguji_kp"/>
+                                    <input type="text" value="{{$dosenTetap->x_pmb_atau_penguji_mbkm}}" class="form-control form-control-solid" required name="x_pmb_atau_penguji_mbkm"/>
                                 </div>
                                 <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Total Pmb./Penguji Kerja Praktek</label>
-                                    <input type="text" value="{{$dosenTetap->nominal_pmb_atau_penguji_kp}}" class="form-control form-control-solid" required name="nominal_pmb_atau_penguji_kp"/>
+                                    <input type="text" value="{{$dosenTetap->nominal_pmb_atau_penguji_mbkm}}" class="form-control form-control-solid" required name="nominal_pmb_atau_penguji_mbkm"/>
                                 </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pmb. I Proposal (kls pagi)</label>

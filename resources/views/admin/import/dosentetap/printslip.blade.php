@@ -145,10 +145,10 @@
                                 </tr>
                                 <tr>
                                     <td>Pmb./Penguji Kerja Praktek</td>
-                                    <td style="text-align: center;">@currency( $item->x_pmb_atau_penguji_kp )</td>
+                                    <td style="text-align: center;">@currency( $item->x_pmb_atau_penguji_mbkm )</td>
                                     <td style="text-align: center;">X</td>
-                                    <td style="text-align: center;">@currency( $item->pmb_atau_penguji_kp )</td>
-                                    <td style="text-align: right;">@currency( $item->nominal_pmb_atau_penguji_kp )</td>
+                                    <td style="text-align: center;">@currency( $item->pmb_atau_penguji_mbkm )</td>
+                                    <td style="text-align: right;">@currency( $item->nominal_pmb_atau_penguji_mbkm )</td>
                                 </tr>
                                 <tr>
                                     <td>Pmb. I Proposal (kls pagi)</td>

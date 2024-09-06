@@ -139,9 +139,9 @@
                                                         <th class="min-w-100px">Honor Mengajar Kelas Malam</th>
                                                         <th class="min-w-100px">Pengali</th>
                                                         <th class="min-w-100px">Total Honor Mengajar Kelas Malam</th>
-                                                        <th class="min-w-100px">Pmb./Penguji Kerja Praktek</th>
+                                                        <th class="min-w-100px">Pmb./Penguji MBKM</th>
                                                         <th class="min-w-100px">Pengali</th>
-                                                        <th class="min-w-100px">Total Pmb./Penguji Kerja Praktek</th>
+                                                        <th class="min-w-100px">Total Pmb./Penguji MBKM</th>
                                                         <th class="min-w-100px">Pmb. I Proposal (kls pagi)</th>
                                                         <th class="min-w-100px">Pengali</th>
                                                         <th class="min-w-100px">Total Pmb. I Proposal (kls pagi)</th>
@@ -285,8 +285,8 @@
                                                                                     <td>Rp. @currency( $item->nominal_honor_mengajar_kls_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>Pmb./Penguji Kerja Praktek (Rp. @currency( $item->pmb_atau_penguji_kp )) X @currency( $item->x_pmb_atau_penguji_kp )</th>
-                                                                                    <td>Rp. @currency( $item->nominal_pmb_atau_penguji_kp )</td>
+                                                                                    <th>Pmb./Penguji MBKM (Rp. @currency( $item->pmb_atau_penguji_mbkm )) X @currency( $item->x_pmb_atau_penguji_mbkm )</th>
+                                                                                    <td>Rp. @currency( $item->nominal_pmb_atau_penguji_mbkm )</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>Pmb. I Proposal (kls pagi) (Rp. @currency( $item->pmb_1_proposal_pagi )) X @currency( $item->x_pmb_1_proposal_pagi )</th>
@@ -429,9 +429,9 @@
                                                         <td>{{ $item->honor_mengajar_kls_malam }}</td>
                                                         <td>{{ $item->x_honor_mengajar_kls_malam }}</td>
                                                         <td>{{ $item->nominal_honor_mengajar_kls_malam }}</td>
-                                                        <td>{{ $item->pmb_atau_penguji_kp }}</td>
-                                                        <td>{{ $item->x_pmb_atau_penguji_kp }}</td>
-                                                        <td>{{ $item->nominal_pmb_atau_penguji_kp }}</td>
+                                                        <td>{{ $item->pmb_atau_penguji_mbkm }}</td>
+                                                        <td>{{ $item->x_pmb_atau_penguji_mbkm }}</td>
+                                                        <td>{{ $item->nominal_pmb_atau_penguji_mbkm }}</td>
                                                         <td>{{ $item->pmb_1_proposal_pagi }}</td>
                                                         <td>{{ $item->x_pmb_1_proposal_pagi }}</td>
                                                         <td>{{ $item->nominal_pmb_1_proposal_pagi }}</td>
@@ -696,10 +696,10 @@
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Pmb./Penguji Kerja Praktek</span>
+                                                            <span class="required">Pmb./Penguji MBKM</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="pmb_atau_penguji_kp" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="pmb_atau_penguji_mbkm" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
@@ -707,15 +707,15 @@
                                                             <span class="required">Pengali</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="x_pmb_atau_penguji_kp" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="x_pmb_atau_penguji_mbkm" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Total Pmb./Penguji Kerja Praktek</span>
+                                                            <span class="required">Total Pmb./Penguji MBKM</span>
                                                         </label>
                                                         <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="nominal_pmb_atau_penguji_kp" required value=""/>
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_pmb_atau_penguji_mbkm" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
