@@ -132,10 +132,10 @@
                                                         <th class="min-w-100px">Tahun</th>
                                                         <th class="min-w-100px">Gaji Pokok</th>
                                                         <th class="min-w-100px">Tunjangan Jabatan</th>
-                                                        <th class="min-w-100px">Bonus</th>
+                                                        <!-- <th class="min-w-100px">Bonus</th> -->
                                                         <th class="min-w-100px">Tunjangan Kehadiran</th>
                                                         <th class="min-w-100px">Tunjangan Lembur</th>
-                                                        <th class="min-w-100px">Tunj. Pel. Mhs/Op. Feeder</th>
+                                                        <!-- <th class="min-w-100px">Tunj. Pel. Mhs/Op. Feeder</th> -->
                                                         <th class="min-w-100px">Tunjangan Kinerja</th>
                                                         <th class="min-w-100px">Jumlah</th>
                                                         <th class="min-w-100px">Potongan Kasbon</th>
@@ -210,10 +210,10 @@
                                                                                     <th>Tunjangan Jabatan</th>
                                                                                     <td>Rp. @currency( $item->tunjangan_jabatan )</td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <!-- <tr>
                                                                                     <th>Bonus</th>
                                                                                     <td>Rp. @currency( $item->bonus )</td>
-                                                                                </tr>
+                                                                                </tr> -->
                                                                                 <tr>
                                                                                     <th>Tunjangan Kehadiran</th>
                                                                                     <td>Rp. @currency( $item->tunjangan_kehadiran )</td>
@@ -222,10 +222,10 @@
                                                                                     <th>Tunjangan Lembur</th>
                                                                                     <td>Rp. @currency( $item->tunjangan_lembur )</td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <!-- <tr>
                                                                                     <th>Tunj. Pel. Mhs/Op. Feeder</th>
                                                                                     <td>Rp. @currency( $item->tunj_pel_mhs_op_feeder )</td>
-                                                                                </tr>
+                                                                                </tr> -->
                                                                                 <tr>
                                                                                     <th>Tunjangan Kinerja</th>
                                                                                     <td>Rp. @currency( $item->tunjangan_kinerja )</td>
@@ -294,10 +294,10 @@
                                                         <td>{{ $item->tahun }}</td>
                                                         <td>@currency( $item->gaji_pokok )</td>
                                                         <td>@currency( $item->tunjangan_jabatan )</td>
-                                                        <td>@currency( $item->bonus )</td>
+                                                        <!-- <td>@currency( $item->bonus )</td> -->
                                                         <td>@currency( $item->tunjangan_kehadiran )</td>
                                                         <td>@currency( $item->tunjangan_lembur )</td>
-                                                        <td>@currency( $item->tunj_pel_mhs_op_feeder )</td>
+                                                        <!-- <td>@currency( $item->tunj_pel_mhs_op_feeder )</td> -->
                                                         <td>@currency( $item->tunjangan_kinerja )</td>
                                                         <td>@currency( $item->jumlah_penambah )</td>
                                                         <td>@currency( $item->potongan_kasbon )</td>
@@ -439,14 +439,7 @@
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="tunjangan_jabatan" required value=""/>
                                                     </div>
-                                                    <div class="d-flex flex-column mb-7 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Bonus</span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="bonus" required value=""/>
-                                                    </div>
+
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
@@ -463,14 +456,7 @@
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="tunjangan_lembur" required value=""/>
                                                     </div>
-                                                    <div class="d-flex flex-column mb-7 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Tunj. Pel. Mhs/Op. Feeder</span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="tunj_pel_mhs_op_feeder" required value=""/>
-                                                    </div>
+
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">

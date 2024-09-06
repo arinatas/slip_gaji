@@ -62,10 +62,10 @@
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan Jabatan</label>
                                     <input type="text" value="{{$tendik->tunjangan_jabatan}}" class="form-control form-control-solid" required name="tunjangan_jabatan"/>
                                 </div>
-								<div class="mb-10">
+								<!-- <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Bonus</label>
                                     <input type="text" value="{{$tendik->bonus}}" class="form-control form-control-solid" required name="bonus"/>
-                                </div>
+                                </div> -->
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kehadiran</label>
                                     <input type="text" value="{{$tendik->tunjangan_kehadiran}}" class="form-control form-control-solid" required name="tunjangan_kehadiran"/>
@@ -74,10 +74,10 @@
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan lembur</label>
                                     <input type="text" value="{{$tendik->tunjangan_lembur}}" class="form-control form-control-solid" required name="tunjangan_lembur"/>
                                 </div>
-								<div class="mb-10">
+								<!-- <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tunj. Pel. Mhs/Op. Feeder</label>
                                     <input type="text" value="{{$tendik->tunj_pel_mhs_op_feeder}}" class="form-control form-control-solid" required name="tunj_pel_mhs_op_feeder"/>
-                                </div>
+                                </div> -->
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kinerja</label>
                                     <input type="text" value="{{$tendik->tunjangan_kinerja}}" class="form-control form-control-solid" required name="tunjangan_kinerja"/>

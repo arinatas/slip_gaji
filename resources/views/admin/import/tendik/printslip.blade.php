@@ -95,14 +95,14 @@
                                     </td>
                                     <td style="text-align: end;">Rp. @currency( $item->tunjangan_jabatan )</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <div>
                                             Bonus
                                         </div>
                                     </td>
                                     <td style="text-align: end;">Rp. @currency( $item->bonus )</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>
                                         <div>
@@ -119,14 +119,14 @@
                                     </td>
                                     <td style="text-align: end;">Rp. @currency( $item->tunjangan_lembur )</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <div>
                                             Tunj. Pel. Mhs/Op. Feeder
                                         </div>
                                     </td>
                                     <td style="text-align: end;">Rp. @currency( $item->tunj_pel_mhs_op_feeder )</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>
                                         <div>

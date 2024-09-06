@@ -17,14 +17,14 @@ class TendikController extends Controller
     {
         $bulan = $request->input('bulan'); // Get the selected month from the request
         $tahun = $request->input('tahun'); // Get the selected year from the request
-    
+
         // Fetch distinct years from the database
         $distinctYears = Tendik::distinct('tahun')->pluck('tahun');
-    
+
         $tendiks = Tendik::where('bulan', $bulan)
                          ->where('tahun', $tahun)
                          ->get();
-    
+
         return view('admin.import.tendik.index', [
             'title' => 'Tendik',
             'section' => 'Import',
@@ -32,7 +32,7 @@ class TendikController extends Controller
             'tendiks' => $tendiks,
             'distinctYears' => $distinctYears,
         ]);
-    }    
+    }
 
     public function store(Request $request)
     {
@@ -45,10 +45,10 @@ class TendikController extends Controller
             'jabatan' => 'required|string|max:100',
             'gaji_pokok' => 'required|integer',
             'tunjangan_jabatan' => 'required|integer',
-            'bonus' => 'required|integer',
+            // 'bonus' => 'required|integer',
             'tunjangan_kehadiran' => 'required|integer',
             'tunjangan_lembur' => 'required|integer',
-            'tunj_pel_mhs_op_feeder' => 'required|integer',
+            // 'tunj_pel_mhs_op_feeder' => 'required|integer',
             'tunjangan_kinerja' => 'required|integer',
             'jumlah_penambah' => 'required|integer',
             'potongan_kasbon' => 'required|integer',
@@ -87,10 +87,10 @@ class TendikController extends Controller
                 'jabatan' => $request->jabatan,
                 'gaji_pokok' => $request->gaji_pokok,
                 'tunjangan_jabatan' => $request->tunjangan_jabatan,
-                'bonus' => $request->bonus,
+                // 'bonus' => $request->bonus,
                 'tunjangan_kehadiran' => $request->tunjangan_kehadiran,
                 'tunjangan_lembur' => $request->tunjangan_lembur,
-                'tunj_pel_mhs_op_feeder' => $request->tunj_pel_mhs_op_feeder,
+                // 'tunj_pel_mhs_op_feeder' => $request->tunj_pel_mhs_op_feeder,
                 'tunjangan_kinerja' => $request->tunjangan_kinerja,
                 'jumlah_penambah' => $request->jumlah_penambah,
                 'potongan_kasbon' => $request->potongan_kasbon,
@@ -145,10 +145,10 @@ class TendikController extends Controller
             'jabatan' => 'required|string|max:100',
             'gaji_pokok' => 'required|integer',
             'tunjangan_jabatan' => 'required|integer',
-            'bonus' => 'required|integer',
+            // 'bonus' => 'required|integer',
             'tunjangan_kehadiran' => 'required|integer',
             'tunjangan_lembur' => 'required|integer',
-            'tunj_pel_mhs_op_feeder' => 'required|integer',
+            // 'tunj_pel_mhs_op_feeder' => 'required|integer',
             'tunjangan_kinerja' => 'required|integer',
             'jumlah_penambah' => 'required|integer',
             'potongan_kasbon' => 'required|integer',
@@ -173,10 +173,10 @@ class TendikController extends Controller
             $tendik->jabatan = $request->jabatan;
             $tendik->gaji_pokok = $request->gaji_pokok;
             $tendik->tunjangan_jabatan = $request->tunjangan_jabatan;
-            $tendik->bonus = $request->bonus;
+            // $tendik->bonus = $request->bonus;
             $tendik->tunjangan_kehadiran = $request->tunjangan_kehadiran;
             $tendik->tunjangan_lembur = $request->tunjangan_lembur;
-            $tendik->tunj_pel_mhs_op_feeder = $request->tunj_pel_mhs_op_feeder;
+            // $tendik->tunj_pel_mhs_op_feeder = $request->tunj_pel_mhs_op_feeder;
             $tendik->tunjangan_kinerja = $request->tunjangan_kinerja;
             $tendik->jumlah_penambah = $request->jumlah_penambah;
             $tendik->potongan_kasbon = $request->potongan_kasbon;
@@ -220,15 +220,15 @@ class TendikController extends Controller
     //     $validator = Validator::make($request->all(), [
     //         'excel_file' => 'required|mimes:xls,xlsx',
     //     ]);
-    
+
     //     if ($validator->fails()) {
     //         return redirect()->back()->withErrors($validator)->withInput();
     //     }
-    
+
     //     $file = $request->file('excel_file');
     //     $import = new TendikImport;
     //     Excel::import($import, $file);
-    
+
     //     return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
     // }
 
@@ -237,11 +237,11 @@ class TendikController extends Controller
         $validator = Validator::make($request->all(), [
             'excel_file' => 'required|mimes:xls,xlsx',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $file = $request->file('excel_file');
 
         // Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
@@ -270,18 +270,18 @@ class TendikController extends Controller
             return redirect()->back()->with('importError', $errorMessage);
         }
         // END Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
-    
+
         DB::beginTransaction(); // Memulai transaksi database
-    
+
         try {
             Excel::import($import, $file);
-    
+
             DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan validasi
             $failures = $e->failures();
             $errorMessages = [];
-    
+
             foreach ($failures as $failure) {
                 $rowNumber = $failure->row();
                 $column = $failure->attribute();
@@ -296,24 +296,24 @@ class TendikController extends Controller
             DB::rollBack(); // Rollback jika terjadi kesalahan umum selama impor
             return redirect()->back()->with('importError', 'Terjadi kesalahan selama impor. Silakan coba lagi.');
         }
-    
+
         return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
     }
-    
+
     public function downloadExampleExcel()
     {
         $filePath = public_path('contoh-excel/tendik.xlsx'); // Sesuaikan dengan path file Excel contoh Anda
-    
+
         if (file_exists($filePath)) {
             $headers = [
                 'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             ];
-    
+
             return response()->download($filePath, 'tendik.xlsx', $headers);
         } else {
             return redirect()->back()->with('downloadFail', 'File contoh tidak ditemukan.');
         }
-    } 
+    }
 
     // Metode untuk menampilkan slip gaji keseluruhan
     public function exportPdf($bulan, $tahun)
@@ -321,7 +321,7 @@ class TendikController extends Controller
         $data = Tendik::where('bulan', $bulan)
                       ->where('tahun', $tahun)
                       ->get();
-    
+
         $tendiks = Tendik::where('bulan', $bulan)
         ->where('tahun', $tahun)
         ->get();
@@ -342,7 +342,7 @@ class TendikController extends Controller
         if ($data->isEmpty()) {
             return redirect()->back()->with('error', 'Data Pegawai tidak ditemukan.');
         }
-        
+
         return view('admin.import.tendik.printslip', [
             'title' => 'Tendik',
             'section' => 'Import',
