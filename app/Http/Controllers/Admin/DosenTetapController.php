@@ -18,14 +18,14 @@ class DosenTetapController extends Controller
     {
         $bulan = $request->input('bulan'); // Get the selected month from the request
         $tahun = $request->input('tahun'); // Get the selected year from the request
-    
+
         // Fetch distinct years from the database
         $distinctYears = DosenTetap::distinct('tahun')->pluck('tahun');
-    
+
         $dosenTetaps = DosenTetap::where('bulan', $bulan)
                          ->where('tahun', $tahun)
                          ->get();
-    
+
         return view('admin.import.dosentetap.index', [
             'title' => 'Dosen Tetap',
             'section' => 'Import',
@@ -33,7 +33,7 @@ class DosenTetapController extends Controller
             'dosenTetaps' => $dosenTetaps,
             'distinctYears' => $distinctYears,
         ]);
-    }    
+    }
 
     public function store(Request $request)
     {
@@ -106,12 +106,12 @@ class DosenTetapController extends Controller
             'pmb_company_visit' => 'required|integer',
             'x_pmb_company_visit' => 'required|integer',
             'nominal_pmb_company_visit' => 'required|integer',
-            'pembina_ukm' => 'required|integer',
+            // 'pembina_ukm' => 'required|integer',
             'reward_ekin' => 'required|integer',
             'jumlah_gaji_tunjangan_honor' => 'required|integer',
             'potongan_kas_bon' => 'required|integer',
             'pph_21' => 'required|integer',
-            'potongan_absensi' => 'required|integer',
+            // 'potongan_absensi' => 'required|integer',
             'potongan_bpjs' => 'required|integer',
             'jumlah' => 'required|integer',
             'gaji_yang_dibayar' => 'required|integer'
@@ -204,12 +204,12 @@ class DosenTetapController extends Controller
                 'pmb_company_visit' => $request->pmb_company_visit,
                 'x_pmb_company_visit' => $request->x_pmb_company_visit,
                 'nominal_pmb_company_visit' => $request->nominal_pmb_company_visit,
-                'pembina_ukm' => $request->pembina_ukm,
+                // 'pembina_ukm' => $request->pembina_ukm,
                 'reward_ekin' => $request->reward_ekin,
                 'jumlah_gaji_tunjangan_honor' => $request->jumlah_gaji_tunjangan_honor,
                 'potongan_kas_bon' => $request->potongan_kas_bon,
                 'pph_21' => $request->pph_21,
-                'potongan_absensi' => $request->potongan_absensi,
+                // 'potongan_absensi' => $request->potongan_absensi,
                 'potongan_bpjs' => $request->potongan_bpjs,
                 'jumlah' => $request->jumlah,
                 'gaji_yang_dibayar' => $request->gaji_yang_dibayar
@@ -318,12 +318,12 @@ class DosenTetapController extends Controller
             'pmb_company_visit' => 'required|integer',
             'x_pmb_company_visit' => 'required|integer',
             'nominal_pmb_company_visit' => 'required|integer',
-            'pembina_ukm' => 'required|integer',
+            // 'pembina_ukm' => 'required|integer',
             'reward_ekin' => 'required|integer',
             'jumlah_gaji_tunjangan_honor' => 'required|integer',
             'potongan_kas_bon' => 'required|integer',
             'pph_21' => 'required|integer',
-            'potongan_absensi' => 'required|integer',
+            // 'potongan_absensi' => 'required|integer',
             'potongan_bpjs' => 'required|integer',
             'jumlah' => 'required|integer',
             'gaji_yang_dibayar' => 'required|integer'
@@ -402,12 +402,12 @@ class DosenTetapController extends Controller
             $dosenTetap->pmb_company_visit = $request->pmb_company_visit;
             $dosenTetap->x_pmb_company_visit = $request->x_pmb_company_visit;
             $dosenTetap->nominal_pmb_company_visit = $request->nominal_pmb_company_visit;
-            $dosenTetap->pembina_ukm = $request->pembina_ukm;
+            // $dosenTetap->pembina_ukm = $request->pembina_ukm;
             $dosenTetap->reward_ekin = $request->reward_ekin;
             $dosenTetap->jumlah_gaji_tunjangan_honor = $request->jumlah_gaji_tunjangan_honor;
             $dosenTetap->potongan_kas_bon = $request->potongan_kas_bon;
             $dosenTetap->pph_21 = $request->pph_21;
-            $dosenTetap->potongan_absensi = $request->potongan_absensi;
+            // $dosenTetap->potongan_absensi = $request->potongan_absensi;
             $dosenTetap->potongan_bpjs = $request->potongan_bpjs;
             $dosenTetap->jumlah = $request->jumlah;
             $dosenTetap->gaji_yang_dibayar = $request->gaji_yang_dibayar;
@@ -445,11 +445,11 @@ class DosenTetapController extends Controller
         $validator = Validator::make($request->all(), [
             'excel_file' => 'required|mimes:xls,xlsx',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $file = $request->file('excel_file');
 
         // Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
@@ -478,18 +478,18 @@ class DosenTetapController extends Controller
             return redirect()->back()->with('importError', $errorMessage);
         }
         // END Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
-    
+
         DB::beginTransaction(); // Memulai transaksi database
-    
+
         try {
             Excel::import($import, $file);
-    
+
             DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan validasi
             $failures = $e->failures();
             $errorMessages = [];
-    
+
             foreach ($failures as $failure) {
                 $rowNumber = $failure->row();
                 $column = $failure->attribute();
@@ -504,24 +504,24 @@ class DosenTetapController extends Controller
             DB::rollBack(); // Rollback jika terjadi kesalahan umum selama impor
             return redirect()->back()->with('importError', 'Terjadi kesalahan selama impor. Silakan coba lagi.');
         }
-    
+
         return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
     }
 
     public function downloadExampleExcel()
     {
         $filePath = public_path('contoh-excel/dosentetap.xlsx'); // Sesuaikan dengan path file Excel contoh Anda
-    
+
         if (file_exists($filePath)) {
             $headers = [
                 'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             ];
-    
+
             return response()->download($filePath, 'dosentetap.xlsx', $headers);
         } else {
             return redirect()->back()->with('downloadFail', 'File contoh tidak ditemukan.');
         }
-    } 
+    }
 
     // Metode untuk menampilkan slip gaji keseluruhan
     public function exportPdf($bulan, $tahun)
@@ -529,7 +529,7 @@ class DosenTetapController extends Controller
         $data = DosenTetap::where('bulan', $bulan)
                       ->where('tahun', $tahun)
                       ->get();
-    
+
         return view('admin.import.dosentetap.printslip', [
             'title' => 'Dosen Tetap',
             'section' => 'Import',

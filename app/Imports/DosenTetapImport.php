@@ -82,15 +82,15 @@ class DosenTetapImport implements ToModel, WithHeadingRow, WithValidation // Gun
             'pmb_company_visit' => $row['pmb_company_visit'],
             'x_pmb_company_visit' => $row['x_pmb_company_visit'],
             'nominal_pmb_company_visit' => $row['nominal_pmb_company_visit'],
-            'pembina_ukm' => $row['pembina_ukm'],
+            // 'pembina_ukm' => $row['pembina_ukm'],
             'reward_ekin' => $row['reward_ekin'],
             'jumlah_gaji_tunjangan_honor' => $row['jumlah_gaji_tunjangan_honor'],
             'potongan_kas_bon' => $row['potongan_kas_bon'],
             'pph_21' => $row['pph_21'],
-            'potongan_absensi' => $row['potongan_absensi'],
+            // 'potongan_absensi' => $row['potongan_absensi'],
             'potongan_bpjs' => $row['potongan_bpjs'],
             'jumlah' => $row['jumlah'],
-            'gaji_yang_dibayar' => $row['gaji_yang_dibayar']            
+            'gaji_yang_dibayar' => $row['gaji_yang_dibayar']
         ]);
     }
 
@@ -164,16 +164,16 @@ class DosenTetapImport implements ToModel, WithHeadingRow, WithValidation // Gun
             'pmb_company_visit' => 'required|integer',
             'x_pmb_company_visit' => 'required|integer',
             'nominal_pmb_company_visit' => 'required|integer',
-            'pembina_ukm' => 'required|integer',
+            // 'pembina_ukm' => 'required|integer',
             'reward_ekin' => 'required|integer',
             'jumlah_gaji_tunjangan_honor' => 'required|integer',
             'potongan_kas_bon' => 'required|integer',
             'pph_21' => 'required|integer',
-            'potongan_absensi' => 'required|integer',
+            // 'potongan_absensi' => 'required|integer',
             'potongan_bpjs' => 'required|integer',
             'jumlah' => 'required|integer',
             'gaji_yang_dibayar' => 'required|integer'
-            
+
         ];
     }
 }
