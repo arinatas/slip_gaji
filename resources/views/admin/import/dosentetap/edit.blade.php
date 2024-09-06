@@ -302,10 +302,10 @@
                                     <label for="exampleFormControlInput1" class="required form-label">Total Pemb. Company Visit</label>
                                     <input type="text" value="{{$dosenTetap->nominal_pmb_company_visit}}" class="form-control form-control-solid" required name="nominal_pmb_company_visit"/>
                                 </div>
-                                <div class="mb-10">
+                                <!-- <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pembina UKM</label>
                                     <input type="text" value="{{$dosenTetap->pembina_ukm}}" class="form-control form-control-solid" required name="pembina_ukm"/>
-                                </div>
+                                </div> -->
                                 <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Reward EKIN</label>
                                     <input type="text" value="{{$dosenTetap->reward_ekin}}" class="form-control form-control-solid" required name="reward_ekin"/>
@@ -322,10 +322,10 @@
                                     <label for="exampleFormControlInput1" class="required form-label">Pph 21</label>
                                     <input type="text" value="{{$dosenTetap->pph_21}}" class="form-control form-control-solid" required name="pph_21"/>
                                 </div>
-                                <div class="mb-10">
+                                <!-- <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Potongan Absensi </label>
                                     <input type="text" value="{{$dosenTetap->potongan_absensi}}" class="form-control form-control-solid" required name="potongan_absensi"/>
-                                </div>
+                                </div> -->
                                 <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Potongan BPJS</label>
                                     <input type="text" value="{{$dosenTetap->potongan_bpjs}}" class="form-control form-control-solid" required name="potongan_bpjs"/>

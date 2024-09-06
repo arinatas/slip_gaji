@@ -22,12 +22,12 @@
                                                 <div class="d-inline">
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_dosentetap" title="Tambah Data Slip Gaji per Pegawai">Tambah</a>
                                                     <a href="{{ route('excel.dosen.tetap') }}" class="btn btn-sm btn-secondary">Download Contoh Excel</a>
-                                                  
+
                                                 </div>
                                             <!--end::Title-->
                                         </div>
                                         <!--end::Heading-->
-                                        
+
                                         <!--begin::Table-->
                                         @if ($dosenTetaps )
                                         <div class="table-responsive my-10 mx-8">
@@ -190,12 +190,12 @@
                                                         <th class="min-w-200px">Pemb. Company Visit</th>
                                                         <th class="min-w-100px">Pengali</th>
                                                         <th class="min-w-100px">Total Pemb. Company Visit</th>
-                                                        <th class="min-w-100px">Pembina UKM</th>
+                                                        <!-- <th class="min-w-100px">Pembina UKM</th> -->
                                                         <th class="min-w-100px">Reward EKIN</th>
                                                         <th class="min-w-100px">Jumlah Gaji, Tunjangan dan honor</th>
                                                         <th class="min-w-100px">Potongan Kas Bon</th>
                                                         <th class="min-w-100px">Pph 21</th>
-                                                        <th class="min-w-100px">Potongan Absensi</th>
+                                                        <!-- <th class="min-w-100px">Potongan Absensi</th> -->
                                                         <th class="min-w-100px">Potongan BPJS</th>
                                                         <th class="min-w-100px">Jumlah</th>
                                                         <th class="min-w-100px">Gaji Yang dibayar</th>
@@ -352,10 +352,10 @@
                                                                                     <th>Pemb. Company Visit (Rp. @currency( $item->pmb_company_visit )) X @currency( $item->x_pmb_company_visit )</th>
                                                                                     <td>Rp. @currency( $item->nominal_pmb_company_visit )</td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <!-- <tr>
                                                                                     <th>Pembina UKM</th>
                                                                                     <td>Rp. @currency( $item->pembina_ukm )</td>
-                                                                                </tr>
+                                                                                </tr> -->
                                                                                 <tr>
                                                                                     <th>Reward EKIN</th>
                                                                                     <td>Rp. @currency( $item->reward_ekin )</td>
@@ -372,10 +372,10 @@
                                                                                     <th>Pph 21</th>
                                                                                     <td>Rp. @currency( $item->pph_21 )</td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <!-- <tr>
                                                                                     <th>Potongan Absensi</th>
                                                                                     <td>Rp. @currency( $item->potongan_absensi )</td>
-                                                                                </tr>
+                                                                                </tr> -->
                                                                                 <tr>
                                                                                     <th>Potongan BPJS</th>
                                                                                     <td>Rp. @currency( $item->potongan_bpjs )</td>
@@ -480,12 +480,12 @@
                                                         <td>{{ $item->pmb_company_visit }}</td>
                                                         <td>{{ $item->x_pmb_company_visit }}</td>
                                                         <td>{{ $item->nominal_pmb_company_visit }}</td>
-                                                        <td>{{ $item->pembina_ukm }}</td>
+                                                        <!-- <td>{{ $item->pembina_ukm }}</td> -->
                                                         <td>{{ $item->reward_ekin }}</td>
                                                         <td>{{ $item->jumlah_gaji_tunjangan_honor }}</td>
                                                         <td>{{ $item->potongan_kas_bon }}</td>
                                                         <td>{{ $item->pph_21 }}</td>
-                                                        <td>{{ $item->potongan_absensi }}</td>
+                                                        <!-- <td>{{ $item->potongan_absensi }}</td> -->
                                                         <td>{{ $item->potongan_bpjs }}</td>
                                                         <td>{{ $item->jumlah }}</td>
                                                         <td>{{ $item->gaji_yang_dibayar }}</td>
@@ -1101,14 +1101,7 @@
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="nominal_pmb_company_visit" required value=""/>
                                                     </div>
-                                                    <div class="d-flex flex-column mb-7 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Pembina UKM</span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="pembina_ukm" required value=""/>
-                                                    </div>
+
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
@@ -1141,14 +1134,7 @@
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="pph_21" required value=""/>
                                                     </div>
-                                                    <div class="d-flex flex-column mb-7 fv-row">
-                                                        <!--begin::Label-->
-                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                                            <span class="required">Potongan Absensi</span>
-                                                        </label>
-                                                        <!--end::Label-->
-                                                        <input class="form-control form-control-solid" type="text" name="potongan_absensi" required value=""/>
-                                                    </div>
+
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">

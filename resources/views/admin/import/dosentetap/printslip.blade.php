@@ -265,10 +265,10 @@
                             </tbody>
                         </table>
                         <table class="table table-sm table-bordered">
-                                <tr>
+                                <!-- <tr>
                                     <td>Pembina UMKM</td>
                                     <td style="text-align: right;">Rp. @currency( $item->pembina_ukm )</b></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>Reward EKIN</td>
                                     <td style="text-align: right;">Rp. @currency( $item->reward_ekin )</td>
@@ -287,10 +287,10 @@
                                     <td>Potongan Pph 21</td>
                                     <td style="text-align: right;">Rp. @currency( $item->pph_21 )</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>Potongan Absensi</td>
                                     <td style="text-align: right;">Rp. @currency( $item->potongan_absensi )</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>Potongan BPJS</td>
                                     <td style="text-align: right;">Rp. @currency( $item->potongan_bpjs )</td>
