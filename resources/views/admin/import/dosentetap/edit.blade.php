@@ -98,8 +98,34 @@
                                     <label for="exampleFormControlInput1" class="required form-label">Total Honor Mengajar Kelas Malam</label>
                                     <input type="text" value="{{$dosenTetap->nominal_honor_mengajar_kls_malam}}" class="form-control form-control-solid" required name="nominal_honor_mengajar_kls_malam"/>
                                 </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Koordinator Matkul </label>
+                                    <input type="text" value="{{$dosenTetap->koordinator_matkul}}" class="form-control form-control-solid" required name="koordinator_matkul"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pengali</label>
+                                    <input type="text" value="{{$dosenTetap->x_koordinator_matkul}}" class="form-control form-control-solid" required name="x_koordinator_matkul"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Total Koordinator Matkul</label>
+                                    <input type="text" value="{{$dosenTetap->nominal_koordinator_matkul}}" class="form-control form-control-solid" required name="nominal_koordinator_matkul"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Koordinator / Anggota MBKM </label>
+                                    <input type="text" value="{{$dosenTetap->koor_anggota_mbkm}}" class="form-control form-control-solid" required name="koor_anggota_mbkm"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Pengali</label>
+                                    <input type="text" value="{{$dosenTetap->x_koor_anggota_mbkm}}" class="form-control form-control-solid" required name="x_koor_anggota_mbkm"/>
+                                </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Total Koordinator / Anggota MBKM</label>
+                                    <input type="text" value="{{$dosenTetap->nominal_koor_anggota_mbkm}}" class="form-control form-control-solid" required name="nominal_koor_anggota_mbkm"/>
+                                </div>
+
+
 								<div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Pmb./Penguji Kerja Praktek </label>
+                                    <label for="exampleFormControlInput1" class="required form-label">Pmb./Penguji MBKM </label>
                                     <input type="text" value="{{$dosenTetap->pmb_atau_penguji_mbkm}}" class="form-control form-control-solid" required name="pmb_atau_penguji_mbkm"/>
                                 </div>
                                 <div class="mb-10">
@@ -107,7 +133,7 @@
                                     <input type="text" value="{{$dosenTetap->x_pmb_atau_penguji_mbkm}}" class="form-control form-control-solid" required name="x_pmb_atau_penguji_mbkm"/>
                                 </div>
                                 <div class="mb-10">
-                                    <label for="exampleFormControlInput1" class="required form-label">Total Pmb./Penguji Kerja Praktek</label>
+                                    <label for="exampleFormControlInput1" class="required form-label">Total Pmb./Penguji MBKM</label>
                                     <input type="text" value="{{$dosenTetap->nominal_pmb_atau_penguji_mbkm}}" class="form-control form-control-solid" required name="nominal_pmb_atau_penguji_mbkm"/>
                                 </div>
 								<div class="mb-10">

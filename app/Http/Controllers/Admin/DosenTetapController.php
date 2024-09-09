@@ -55,6 +55,13 @@ class DosenTetapController extends Controller
             'honor_mengajar_kls_malam' => 'required|integer',
             'x_honor_mengajar_kls_malam' => 'required|integer',
             'nominal_honor_mengajar_kls_malam' => 'required|integer',
+            'koordinator_matkul' => 'required|integer',
+            'x_koordinator_matkul' => 'required|integer',
+            'nominal_koordinator_matkul' => 'required|integer',
+            'koor_anggota_mbkm' => 'required|integer',
+            'x_koor_anggota_mbkm' => 'required|integer',
+            'nominal_koor_anggota_mbkm' => 'required|integer',
+
             'pmb_atau_penguji_mbkm' => 'required|integer',
             'x_pmb_atau_penguji_mbkm' => 'required|integer',
             'nominal_pmb_atau_penguji_mbkm' => 'required|integer',
@@ -153,6 +160,13 @@ class DosenTetapController extends Controller
                 'honor_mengajar_kls_malam' => $request->honor_mengajar_kls_malam,
                 'x_honor_mengajar_kls_malam' => $request->x_honor_mengajar_kls_malam,
                 'nominal_honor_mengajar_kls_malam' => $request->nominal_honor_mengajar_kls_malam,
+                'koordinator_matkul' => $request->koordinator_matkul,
+                'x_koordinator_matkul' => $request->x_koordinator_matkul,
+                'nominal_koordinator_matkul' => $request->nominal_koordinator_matkul,
+                'koor_anggota_mbkm' => $request->koor_anggota_mbkm,
+                'x_koor_anggota_mbkm' => $request->x_koor_anggota_mbkm,
+                'nominal_koor_anggota_mbkm' => $request->nominal_koor_anggota_mbkm,
+
                 'pmb_atau_penguji_mbkm' => $request->pmb_atau_penguji_mbkm,
                 'x_pmb_atau_penguji_mbkm' => $request->x_pmb_atau_penguji_mbkm,
                 'nominal_pmb_atau_penguji_mbkm' => $request->nominal_pmb_atau_penguji_mbkm,
@@ -267,6 +281,12 @@ class DosenTetapController extends Controller
             'honor_mengajar_kls_malam' => 'required|integer',
             'x_honor_mengajar_kls_malam' => 'required|integer',
             'nominal_honor_mengajar_kls_malam' => 'required|integer',
+            'koordinator_matkul' => 'required|integer',
+            'x_koordinator_matkul' => 'required|integer',
+            'nominal_koordinator_matkul' => 'required|integer',
+            'koor_anggota_mbkm' => 'required|integer',
+            'x_koor_anggota_mbkm' => 'required|integer',
+            'nominal_koor_anggota_mbkm' => 'required|integer',
             'pmb_atau_penguji_mbkm' => 'required|integer',
             'x_pmb_atau_penguji_mbkm' => 'required|integer',
             'nominal_pmb_atau_penguji_mbkm' => 'required|integer',
@@ -351,6 +371,13 @@ class DosenTetapController extends Controller
             $dosenTetap->honor_mengajar_kls_malam = $request->honor_mengajar_kls_malam;
             $dosenTetap->x_honor_mengajar_kls_malam = $request->x_honor_mengajar_kls_malam;
             $dosenTetap->nominal_honor_mengajar_kls_malam = $request->nominal_honor_mengajar_kls_malam;
+            $dosenTetap->koordinator_matkul = $request->koordinator_matkul;
+            $dosenTetap->x_koordinator_matkul = $request->x_koordinator_matkul;
+            $dosenTetap->nominal_koordinator_matkul = $request->nominal_koordinator_matkul;
+            $dosenTetap->koor_anggota_mbkm = $request->koor_anggota_mbkm;
+            $dosenTetap->x_koor_anggota_mbkm = $request->x_koor_anggota_mbkm;
+            $dosenTetap->nominal_koor_anggota_mbkm = $request->nominal_koor_anggota_mbkm;
+
             $dosenTetap->pmb_atau_penguji_mbkm = $request->pmb_atau_penguji_mbkm;
             $dosenTetap->x_pmb_atau_penguji_mbkm = $request->x_pmb_atau_penguji_mbkm;
             $dosenTetap->nominal_pmb_atau_penguji_mbkm = $request->nominal_pmb_atau_penguji_mbkm;

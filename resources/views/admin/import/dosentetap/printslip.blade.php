@@ -144,7 +144,22 @@
                                     <td style="text-align: right;">@currency( $item->nominal_honor_mengajar_kls_malam )</td>
                                 </tr>
                                 <tr>
-                                    <td>Pmb./Penguji Kerja Praktek</td>
+                                    <td>Koordinator Matkul</td>
+                                    <td style="text-align: center;">@currency( $item->koordinator_matkul )</td>
+                                    <td style="text-align: center;">X</td>
+                                    <td style="text-align: center;">@currency( $item->x_koordinator_matkul )</td>
+                                    <td style="text-align: right;">@currency( $item->nominal_koordinator_matkul )</td>
+                                </tr>
+                                <tr>
+                                    <td>Koordinator / Anggota MBKM</td>
+                                    <td style="text-align: center;">@currency( $item->koor_anggota_mbkm )</td>
+                                    <td style="text-align: center;">X</td>
+                                    <td style="text-align: center;">@currency( $item->x_koor_anggota_mbkm )</td>
+                                    <td style="text-align: right;">@currency( $item->nominal_koor_anggota_mbkm )</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Pmb./Penguji MBKM</td>
                                     <td style="text-align: center;">@currency( $item->x_pmb_atau_penguji_mbkm )</td>
                                     <td style="text-align: center;">X</td>
                                     <td style="text-align: center;">@currency( $item->pmb_atau_penguji_mbkm )</td>

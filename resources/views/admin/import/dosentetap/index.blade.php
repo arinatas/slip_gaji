@@ -139,6 +139,12 @@
                                                         <th class="min-w-100px">Honor Mengajar Kelas Malam</th>
                                                         <th class="min-w-100px">Pengali</th>
                                                         <th class="min-w-100px">Total Honor Mengajar Kelas Malam</th>
+                                                        <th class="min-w-100px">Koordinator Matkul</th>
+                                                        <th class="min-w-100px">Pengali</th>
+                                                        <th class="min-w-100px">Total Koordinator Matkul</th>
+                                                        <th class="min-w-100px">Koordinator / Anggota MBKM</th>
+                                                        <th class="min-w-100px">Pengali</th>
+                                                        <th class="min-w-100px">Total Koordinator / Anggota MBKM</th>
                                                         <th class="min-w-100px">Pmb./Penguji MBKM</th>
                                                         <th class="min-w-100px">Pengali</th>
                                                         <th class="min-w-100px">Total Pmb./Penguji MBKM</th>
@@ -285,6 +291,15 @@
                                                                                     <td>Rp. @currency( $item->nominal_honor_mengajar_kls_malam )</td>
                                                                                 </tr>
                                                                                 <tr>
+                                                                                    <th>Koordinator Matkul (Rp. @currency( $item->koordinator_matkul )) X @currency( $item->x_koordinator_matkul )</th>
+                                                                                    <td>Rp. @currency( $item->nominal_koordinator_matkul )</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>Koordinator / Anggota MBKM (Rp. @currency( $item->koor_anggota_mbkm )) X @currency( $item->x_koor_anggota_mbkm )</th>
+                                                                                    <td>Rp. @currency( $item->nominal_koor_anggota_mbkm )</td>
+                                                                                </tr>
+
+                                                                                <tr>
                                                                                     <th>Pmb./Penguji MBKM (Rp. @currency( $item->pmb_atau_penguji_mbkm )) X @currency( $item->x_pmb_atau_penguji_mbkm )</th>
                                                                                     <td>Rp. @currency( $item->nominal_pmb_atau_penguji_mbkm )</td>
                                                                                 </tr>
@@ -429,6 +444,12 @@
                                                         <td>{{ $item->honor_mengajar_kls_malam }}</td>
                                                         <td>{{ $item->x_honor_mengajar_kls_malam }}</td>
                                                         <td>{{ $item->nominal_honor_mengajar_kls_malam }}</td>
+                                                        <td>{{ $item->koordinator_matkul }}</td>
+                                                        <td>{{ $item->x_koordinator_matkul }}</td>
+                                                        <td>{{ $item->nominal_koordinator_matkul }}</td>
+                                                        <td>{{ $item->koor_anggota_mbkm }}</td>
+                                                        <td>{{ $item->x_koor_anggota_mbkm }}</td>
+                                                        <td>{{ $item->nominal_koor_anggota_mbkm }}</td>
                                                         <td>{{ $item->pmb_atau_penguji_mbkm }}</td>
                                                         <td>{{ $item->x_pmb_atau_penguji_mbkm }}</td>
                                                         <td>{{ $item->nominal_pmb_atau_penguji_mbkm }}</td>
@@ -693,6 +714,56 @@
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="nominal_honor_mengajar_kls_malam" required value=""/>
                                                     </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Koordinator Matkul</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="koordinator_matkul" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Pengali</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="x_koordinator_matkul" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Total Koordinator Matkul</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_koordinator_matkul" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Koordinator / Anggota MBKM</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="koor_anggota_mbkm" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Pengali</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="x_koor_anggota_mbkm" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Total Koordinator / Anggota MBKM</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_koor_anggota_mbkm" required value=""/>
+                                                    </div>
+
+
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
