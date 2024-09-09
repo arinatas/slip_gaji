@@ -169,13 +169,36 @@
                                 <tr>
                                     <td>
                                         <div>
-                                            Pmb./Penguji Kerja Praktek
+                                            Koordinator Matakuliah
                                         </div>
                                     </td>
-                                    <td>{{ $Datas[0]->x_pmb_atau_penguji_kp }}</td>
+                                    <td>{{ $Datas[0]->x_koordinator_matkul }}</td>
                                     <td>X</td>
-                                    <td>Rp. @currency($Datas[0]->pmb_atau_penguji_kp)</td>
-                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_atau_penguji_kp)</td>
+                                    <td>Rp. @currency($Datas[0]->koordinator_matkul)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_koordinator_matkul)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            Koordinator / Anggota Skema MBKM
+                                        </div>
+                                    </td>
+                                    <td>{{ $Datas[0]->x_koor_anggota_mbkm }}</td>
+                                    <td>X</td>
+                                    <td>Rp. @currency($Datas[0]->koor_anggota_mbkm)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_koor_anggota_mbkm)</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div>
+                                            Pembimbing MBKM
+                                        </div>
+                                    </td>
+                                    <td>{{ $Datas[0]->x_pmb_atau_penguji_mbkm }}</td>
+                                    <td>X</td>
+                                    <td>Rp. @currency($Datas[0]->pmb_atau_penguji_mbkm)</td>
+                                    <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_pmb_atau_penguji_mbkm)</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -357,14 +380,14 @@
                         </table>
                         <table class="table table-sm table-bordered">
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <div>
                                             Pembina UKM
                                         </div>
                                     </td>
                                     <td style="text-align: end;">Rp. @currency($Datas[0]->pembina_ukm)</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>
                                         <div>
@@ -397,14 +420,14 @@
                                     </td>
                                     <td style="text-align: end;"> Rp. @currency($Datas[0]->pph_21)</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <div>
                                             Potongan Absensi
                                         </div>
                                     </td>
                                     <td style="text-align: end;">Rp. @currency($Datas[0]->potongan_absensi)</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>
                                         <div>
