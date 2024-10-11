@@ -70,6 +70,10 @@
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan Kehadiran</label>
                                     <input type="text" value="{{$tendik->tunjangan_kehadiran}}" class="form-control form-control-solid" required name="tunjangan_kehadiran"/>
                                 </div>
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Jumlah Jam lembur</label>
+                                    <input type="text" value="{{$tendik->jml_jam_lembur}}" class="form-control form-control-solid" required name="jml_jam_lembur"/>
+                                </div>
 								<div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Tunjangan lembur</label>
                                     <input type="text" value="{{$tendik->tunjangan_lembur}}" class="form-control form-control-solid" required name="tunjangan_lembur"/>

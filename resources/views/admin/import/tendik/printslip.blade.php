@@ -114,6 +114,14 @@
                                 <tr>
                                     <td>
                                         <div>
+                                            Jumlah Jam lembur
+                                        </div>
+                                    </td>
+                                    <td style="text-align: end;">{{ $item->jml_jam_lembur }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
                                             Tunjangan lembur
                                         </div>
                                     </td>

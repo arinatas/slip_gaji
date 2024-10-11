@@ -134,6 +134,7 @@
                                                         <th class="min-w-100px">Tunjangan Jabatan</th>
                                                         <!-- <th class="min-w-100px">Bonus</th> -->
                                                         <th class="min-w-100px">Tunjangan Kehadiran</th>
+                                                        <th class="min-w-100px">Jumlah Jam Lembur</th>
                                                         <th class="min-w-100px">Tunjangan Lembur</th>
                                                         <!-- <th class="min-w-100px">Tunj. Pel. Mhs/Op. Feeder</th> -->
                                                         <th class="min-w-100px">Tunjangan Kinerja</th>
@@ -219,6 +220,10 @@
                                                                                     <td>Rp. @currency( $item->tunjangan_kehadiran )</td>
                                                                                 </tr>
                                                                                 <tr>
+                                                                                    <th>Jumlah Jam Lembur</th>
+                                                                                    <td>{{$item->jml_jam_lembur }}</td>
+                                                                                </tr>
+                                                                                <tr>
                                                                                     <th>Tunjangan Lembur</th>
                                                                                     <td>Rp. @currency( $item->tunjangan_lembur )</td>
                                                                                 </tr>
@@ -296,6 +301,7 @@
                                                         <td>@currency( $item->tunjangan_jabatan )</td>
                                                         <!-- <td>@currency( $item->bonus )</td> -->
                                                         <td>@currency( $item->tunjangan_kehadiran )</td>
+                                                        <td>{{$item->jml_jam_lembur }}</td>
                                                         <td>@currency( $item->tunjangan_lembur )</td>
                                                         <!-- <td>@currency( $item->tunj_pel_mhs_op_feeder )</td> -->
                                                         <td>@currency( $item->tunjangan_kinerja )</td>
@@ -447,6 +453,14 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="tunjangan_kehadiran" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Jumlah Jam lembur</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_jam_lembur" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->

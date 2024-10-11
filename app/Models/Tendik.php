@@ -23,6 +23,7 @@ class Tendik extends Model
         'tunjangan_jabatan',
         'bonus',
         'tunjangan_kehadiran',
+        'jml_jam_lembur',
         'tunjangan_lembur',
         'tunj_pel_mhs_op_feeder',
         'tunjangan_kinerja',
