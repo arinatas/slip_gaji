@@ -498,6 +498,14 @@
                                                                                     <tr>
                                                                                         <td>
                                                                                             <div>
+                                                                                                Punishment EKIN
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td style="text-align: end;">Rp. @currency($Datas[0]->punishment_ekin)</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div>
                                                                                                 Potongan Pph 21
                                                                                             </div>
                                                                                         </td>
