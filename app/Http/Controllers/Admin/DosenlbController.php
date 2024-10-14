@@ -17,14 +17,14 @@ class DosenlbController extends Controller
     {
         $bulan = $request->input('bulan'); // Get the selected month from the request
         $tahun = $request->input('tahun'); // Get the selected year from the request
-    
+
         // Fetch distinct years from the database
         $distinctYears = Dosenlb::distinct('tahun')->pluck('tahun');
-    
+
         $dosenlbs = Dosenlb::where('bulan', $bulan)
                          ->where('tahun', $tahun)
                          ->get();
-    
+
         return view('admin.import.dosenlb.index', [
             'title' => 'Dosen LB',
             'section' => 'Import',
@@ -32,7 +32,7 @@ class DosenlbController extends Controller
             'dosenlbs' => $dosenlbs,
             'distinctYears' => $distinctYears,
         ]);
-    }    
+    }
 
     public function store(Request $request)
     {
@@ -70,6 +70,11 @@ class DosenlbController extends Controller
             'sks_maktul_5' => 'nullable|integer',
             'jml_hadir_mkl_5' => 'nullable|integer',
             'honor_mk_5' => 'nullable|integer',
+            'matkul_6' => 'nullable|string|max:100',
+            'nominal_matkul_6' => 'nullable|integer',
+            'sks_maktul_6' => 'nullable|integer',
+            'jml_hadir_mkl_6' => 'nullable|integer',
+            'honor_mk_6' => 'nullable|integer',
             'anggota_klp_dosen' => 'required|integer',
             'pembuatan_soal' => 'required|integer',
             'koreksi_soal' => 'required|integer',
@@ -131,6 +136,11 @@ class DosenlbController extends Controller
                 'sks_matkul_5' => $request->sks_matkul_5,
                 'jml_hadir_mkl_5' => $request->jml_hadir_mkl_5,
                 'honor_mk_5' => $request->honor_mk_5,
+                'matkul_6' => $request->matkul_6,
+                'nominal_matkul_6' => $request->nominal_matkul_6,
+                'sks_matkul_6' => $request->sks_matkul_6,
+                'jml_hadir_mkl_6' => $request->jml_hadir_mkl_6,
+                'honor_mk_6' => $request->honor_mk_6,
                 'anggota_klp_dosen' => $request->anggota_klp_dosen,
                 'pembuatan_soal' => $request->pembuatan_soal,
                 'koreksi_soal' => $request->koreksi_soal,
@@ -208,6 +218,11 @@ class DosenlbController extends Controller
             'sks_maktul_5' => 'nullable|integer',
             'jml_hadir_mkl_5' => 'nullable|integer',
             'honor_mk_5' => 'nullable|integer',
+            'matkul_6' => 'nullable|string|max:100',
+            'nominal_matkul_6' => 'nullable|integer',
+            'sks_maktul_6' => 'nullable|integer',
+            'jml_hadir_mkl_6' => 'nullable|integer',
+            'honor_mk_6' => 'nullable|integer',
             'anggota_klp_dosen' => 'required|integer',
             'pembuatan_soal' => 'required|integer',
             'koreksi_soal' => 'required|integer',
@@ -255,6 +270,11 @@ class DosenlbController extends Controller
             $dosenlb->sks_matkul_5 = $request->sks_matkul_5;
             $dosenlb->jml_hadir_mkl_5 = $request->jml_hadir_mkl_5;
             $dosenlb->honor_mk_5 = $request->honor_mk_5;
+            $dosenlb->matkul_6 = $request->matkul_6;
+            $dosenlb->nominal_matkul_6 = $request->nominal_matkul_6;
+            $dosenlb->sks_matkul_6 = $request->sks_matkul_6;
+            $dosenlb->jml_hadir_mkl_6 = $request->jml_hadir_mkl_6;
+            $dosenlb->honor_mk_6 = $request->honor_mk_6;
             $dosenlb->anggota_klp_dosen = $request->anggota_klp_dosen;
             $dosenlb->pembuatan_soal = $request->pembuatan_soal;
             $dosenlb->koreksi_soal = $request->koreksi_soal;
@@ -296,11 +316,11 @@ class DosenlbController extends Controller
         $validator = Validator::make($request->all(), [
             'excel_file' => 'required|mimes:xls,xlsx',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $file = $request->file('excel_file');
 
         // Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
@@ -329,18 +349,18 @@ class DosenlbController extends Controller
             return redirect()->back()->with('importError', $errorMessage);
         }
         // END Validasi Data duplikat atau dengan email & bulan & tahun yang sama sebelum di impor
-    
+
         DB::beginTransaction(); // Memulai transaksi database
-    
+
         try {
             Excel::import($import, $file);
-    
+
             DB::commit(); // Jika tidak ada kesalahan, lakukan commit untuk menyimpan perubahan ke database
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan validasi
             $failures = $e->failures();
             $errorMessages = [];
-    
+
             foreach ($failures as $failure) {
                 $rowNumber = $failure->row();
                 $column = $failure->attribute();
@@ -355,24 +375,24 @@ class DosenlbController extends Controller
             DB::rollBack(); // Rollback jika terjadi kesalahan umum selama impor
             return redirect()->back()->with('importError', 'Terjadi kesalahan selama impor. Silakan coba lagi.');
         }
-    
+
         return redirect()->back()->with('importSuccess', 'Data berhasil diimpor.');
     }
 
     public function downloadExampleExcel()
     {
         $filePath = public_path('contoh-excel/dosenlb.xlsx'); // Sesuaikan dengan path file Excel contoh Anda
-    
+
         if (file_exists($filePath)) {
             $headers = [
                 'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             ];
-    
+
             return response()->download($filePath, 'dosenlb.xlsx', $headers);
         } else {
             return redirect()->back()->with('downloadFail', 'File contoh tidak ditemukan.');
         }
-    } 
+    }
 
     // Metode untuk menampilkan slip gaji keseluruhan
     public function exportPdf($bulan, $tahun)

@@ -182,6 +182,15 @@
                                         <td style="text-align: right;">Rp. @currency( $item->honor_mk_5 )</td>
                                     @endif
                                 </tr>
+                                <tr>
+                                    @if($item->matkul_6 !== null && $item->nominal_matkul_6 !== null && $item->sks_matkul_6 !== null && $item->jml_hadir_mkl_6 !== null && $item->honor_mk_6 !== null)
+                                        <td>{{ $item->matkul_6 }}</td>
+                                        <td style="text-align: center;">{{ $item->sks_matkul_6 }}</td>
+                                        <td style="text-align: center;">{{ $item->jml_hadir_mkl_6 }}</td>
+                                        <td style="text-align: center;"> X Rp. @currency( $item->nominal_matkul_6 )</td>
+                                        <td style="text-align: right;">Rp. @currency( $item->honor_mk_6 )</td>
+                                    @endif
+                                </tr>
                             </tbody>
                         </table>
                         <table class="table table-sm table-bordered">

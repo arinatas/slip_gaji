@@ -22,12 +22,12 @@
                                                 <div class="d-inline">
                                                     <a href="#" class="btn btn-sm btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#kt_modal_new_dosenlb" title="Tambah Data Slip Gaji per Pegawai">Tambah</a>
                                                     <a href="{{ route('excel.dosen.lb') }}" class="btn btn-sm btn-secondary">Download Contoh Excel</a>
-                                                  
+
                                                 </div>
                                             <!--end::Title-->
                                         </div>
                                         <!--end::Heading-->
-                                        
+
                                         <!--begin::Table-->
                                         @if ($dosenlbs )
                                         <div class="table-responsive my-10 mx-8">
@@ -155,6 +155,11 @@
                                                         <th class="min-w-100px">SKS Matkul 5</th>
                                                         <th class="min-w-100px">Jml Hadir Matkul 5</th>
                                                         <th class="min-w-100px">Honor MK 5</th>
+                                                        <th class="min-w-100px">Matkul 6</th>
+                                                        <th class="min-w-100px">Nominal Matkul 6</th>
+                                                        <th class="min-w-100px">SKS Matkul 6</th>
+                                                        <th class="min-w-100px">Jml Hadir Matkul 6</th>
+                                                        <th class="min-w-100px">Honor MK 6</th>
                                                         <th class="min-w-100px">Anggota Klp Dosen</th>
                                                         <th class="min-w-100px">Pembuatan Soal</th>
                                                         <th class="min-w-100px">Koreksi Soal</th>
@@ -255,6 +260,12 @@
                                                                                     @if($item->matkul_5 !== null && $item->nominal_matkul_5 !== null && $item->sks_matkul_5 !== null && $item->jml_hadir_mkl_5 !== null && $item->honor_mk_5 !== null)
                                                                                         <th>MK 5 ({{ $item->matkul_5 }}, {{ $item->sks_matkul_5 }} SKS ) : {{ $item->jml_hadir_mkl_5 }} Pertemuan X Rp. @currency($item->nominal_matkul_5)</th>
                                                                                         <td>Rp. @currency($item->honor_mk_5)</td>
+                                                                                    @endif
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    @if($item->matkul_6 !== null && $item->nominal_matkul_6 !== null && $item->sks_matkul_6 !== null && $item->jml_hadir_mkl_6 !== null && $item->honor_mk_6 !== null)
+                                                                                        <th>MK 6 ({{ $item->matkul_6 }}, {{ $item->sks_matkul_6 }} SKS ) : {{ $item->jml_hadir_mkl_6 }} Pertemuan X Rp. @currency($item->nominal_matkul_6)</th>
+                                                                                        <td>Rp. @currency($item->honor_mk_6)</td>
                                                                                     @endif
                                                                                 </tr>
                                                                                 <tr>
@@ -488,6 +499,41 @@
                                                         <td>
                                                             @if(!is_null($item->honor_mk_5))
                                                                 {{ $item->honor_mk_5 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->matkul_6))
+                                                                {{ $item->matkul_6 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->nominal_matkul_6))
+                                                                Rp. @currency($item->nominal_matkul_6)
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->sks_matkul_6))
+                                                                {{ $item->sks_matkul_6 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->jml_hadir_mkl_6))
+                                                                {{ $item->jml_hadir_mkl_6 }}
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if(!is_null($item->honor_mk_6))
+                                                                {{ $item->honor_mk_6 }}
                                                             @else
                                                                 -
                                                             @endif
@@ -832,6 +878,49 @@
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="honor_mk_5" />
                                                     </div>
+
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Matkul 6</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="matkul_6" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Nominal Matkul 6</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="nominal_matkul_6" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>SKS Matkul 6</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="sks_matkul_6" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Jml Hadir Matkul 6</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="jml_hadir_mkl_6" />
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span>Honor Matkul 6</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="honor_mk_6" />
+                                                    </div>
+
+
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->
                                                         <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
