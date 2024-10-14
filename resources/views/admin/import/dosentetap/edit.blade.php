@@ -345,6 +345,10 @@
                                     <input type="text" value="{{$dosenTetap->potongan_kas_bon}}" class="form-control form-control-solid" required name="potongan_kas_bon"/>
                                 </div>
                                 <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Punishment EKIN</label>
+                                    <input type="text" value="{{$dosenTetap->punishment_ekin}}" class="form-control form-control-solid" required name="punishment_ekin"/>
+                                </div>
+                                <div class="mb-10">
                                     <label for="exampleFormControlInput1" class="required form-label">Pph 21</label>
                                     <input type="text" value="{{$dosenTetap->pph_21}}" class="form-control form-control-solid" required name="pph_21"/>
                                 </div>

@@ -91,6 +91,7 @@ class DosenTetap extends Model
         'reward_ekin',
         'jumlah_gaji_tunjangan_honor',
         'potongan_kas_bon',
+        'punishment_ekin',
         'pph_21',
         'potongan_absensi',
         'potongan_bpjs',

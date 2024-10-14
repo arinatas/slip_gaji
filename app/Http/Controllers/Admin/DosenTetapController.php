@@ -117,6 +117,7 @@ class DosenTetapController extends Controller
             'reward_ekin' => 'required|integer',
             'jumlah_gaji_tunjangan_honor' => 'required|integer',
             'potongan_kas_bon' => 'required|integer',
+            'punishment_ekin' => 'required|integer',
             'pph_21' => 'required|integer',
             // 'potongan_absensi' => 'required|integer',
             'potongan_bpjs' => 'required|integer',
@@ -222,6 +223,7 @@ class DosenTetapController extends Controller
                 'reward_ekin' => $request->reward_ekin,
                 'jumlah_gaji_tunjangan_honor' => $request->jumlah_gaji_tunjangan_honor,
                 'potongan_kas_bon' => $request->potongan_kas_bon,
+                'punishment_ekin' => $request->punishment_ekin,
                 'pph_21' => $request->pph_21,
                 // 'potongan_absensi' => $request->potongan_absensi,
                 'potongan_bpjs' => $request->potongan_bpjs,
@@ -342,6 +344,7 @@ class DosenTetapController extends Controller
             'reward_ekin' => 'required|integer',
             'jumlah_gaji_tunjangan_honor' => 'required|integer',
             'potongan_kas_bon' => 'required|integer',
+            'punishment_ekin' => 'required|integer',
             'pph_21' => 'required|integer',
             // 'potongan_absensi' => 'required|integer',
             'potongan_bpjs' => 'required|integer',
@@ -433,6 +436,7 @@ class DosenTetapController extends Controller
             $dosenTetap->reward_ekin = $request->reward_ekin;
             $dosenTetap->jumlah_gaji_tunjangan_honor = $request->jumlah_gaji_tunjangan_honor;
             $dosenTetap->potongan_kas_bon = $request->potongan_kas_bon;
+            $dosenTetap->punishment_ekin = $request->punishment_ekin;
             $dosenTetap->pph_21 = $request->pph_21;
             // $dosenTetap->potongan_absensi = $request->potongan_absensi;
             $dosenTetap->potongan_bpjs = $request->potongan_bpjs;

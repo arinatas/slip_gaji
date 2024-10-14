@@ -200,6 +200,7 @@
                                                         <th class="min-w-100px">Reward EKIN</th>
                                                         <th class="min-w-100px">Jumlah Gaji, Tunjangan dan honor</th>
                                                         <th class="min-w-100px">Potongan Kas Bon</th>
+                                                        <th class="min-w-100px">Punishment EKIN</th>
                                                         <th class="min-w-100px">Pph 21</th>
                                                         <!-- <th class="min-w-100px">Potongan Absensi</th> -->
                                                         <th class="min-w-100px">Potongan BPJS</th>
@@ -384,6 +385,10 @@
                                                                                     <td>Rp. @currency( $item->potongan_kas_bon )</td>
                                                                                 </tr>
                                                                                 <tr>
+                                                                                    <th>Punishment EKIN</th>
+                                                                                    <td>Rp. @currency( $item->punishment_ekin )</td>
+                                                                                </tr>
+                                                                                <tr>
                                                                                     <th>Pph 21</th>
                                                                                     <td>Rp. @currency( $item->pph_21 )</td>
                                                                                 </tr>
@@ -505,6 +510,7 @@
                                                         <td>{{ $item->reward_ekin }}</td>
                                                         <td>{{ $item->jumlah_gaji_tunjangan_honor }}</td>
                                                         <td>{{ $item->potongan_kas_bon }}</td>
+                                                        <td>{{ $item->punishment_ekin }}</td>
                                                         <td>{{ $item->pph_21 }}</td>
                                                         <!-- <td>{{ $item->potongan_absensi }}</td> -->
                                                         <td>{{ $item->potongan_bpjs }}</td>
@@ -1196,6 +1202,14 @@
                                                         </label>
                                                         <!--end::Label-->
                                                         <input class="form-control form-control-solid" type="text" name="potongan_kas_bon" required value=""/>
+                                                    </div>
+                                                    <div class="d-flex flex-column mb-7 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
+                                                            <span class="required">Punishment EKIN</span>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <input class="form-control form-control-solid" type="text" name="punishment_ekin" required value=""/>
                                                     </div>
                                                     <div class="d-flex flex-column mb-7 fv-row">
                                                         <!--begin::Label-->

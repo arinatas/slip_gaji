@@ -299,6 +299,10 @@
                                     <td style="text-align: right;">Rp. @currency( $item->potongan_kas_bon )</td>
                                 </tr>
                                 <tr>
+                                    <td>Punishment EKIN</td>
+                                    <td style="text-align: right;">Rp. @currency( $item->punishment_ekin )</td>
+                                </tr>
+                                <tr>
                                     <td>Potongan Pph 21</td>
                                     <td style="text-align: right;">Rp. @currency( $item->pph_21 )</td>
                                 </tr>
