@@ -226,6 +226,19 @@
                                         <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_5)</td>
                                     </tr>
                                 @endif
+                                @if ($Datas[0]->matkul_6 || $Datas[0]->nominal_matkul_6)
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                {{ $Datas[0]->matkul_6 }}
+                                            </div>
+                                        </td>
+                                        <td>{{ $Datas[0]->sks_matkul_6 }}</td>
+                                        <td>{{ $Datas[0]->jml_hadir_mkl_6 }}</td>
+                                        <td>Rp. @currency($Datas[0]->honor_mk_6)</td>
+                                        <td style="text-align: end;">Rp. @currency($Datas[0]->nominal_matkul_6)</td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                         <table class="table table-sm table-bordered">
